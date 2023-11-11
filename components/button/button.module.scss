@@ -1,0 +1,193 @@
+@import '@/sass/variables.scss';
+
+$animationTime: 0.7s;
+
+@mixin button($bcolor,
+$url,
+$x1,
+$y1,
+$bor,
+$col) {
+ background: $bcolor;
+ -webkit-mask: url($url);
+ mask: url($url);
+ -webkit-mask-size: $x1 $y1;
+ mask-size: $x1 $y1;
+ border: $bor;
+ color: $col;
+}
+
+.btn-container-1{
+    width: 150px;
+    height: 50px;
+    border: 1px solid #000;
+    border-radius: 4px;
+}
+
+.btn-1,.mask-1{
+    width: 101%;
+    height: 100%;
+    font-family: 'Kenia', sans-serif;
+    font-weight: 300;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.mask-1{
+    width: 101%;
+    color: #000;
+    font-family: 'Kenia', sans-serif;
+    font-weight: 300;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.button-container {
+    position: relative;
+    overflow: hidden;
+
+    .btn {
+//          @include button(#000,
+//   "https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/nature-sprite.png",
+//   2300%,
+//   100%,
+//   none,
+//   #fff);
+// cursor: pointer;
+//   -webkit-animation: ani2 0.7s steps(22) forwards;
+//   animation: ani2 0.7s steps(22) forwards;
+
+//   &:hover {
+//    -webkit-animation: ani 0.7s steps(22) forwards;
+//    animation: ani 0.7s steps(22) forwards;
+//   }
+        @include button(#000, "https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/urban-sprite.png",
+            3000%,
+            100%,
+            none,
+            #fff);
+        cursor: pointer;
+        transition: all $animationTime ease-in-out;
+        -webkit-animation: ani2 $animationTime steps(29) forwards;
+        animation: ani2 $animationTime steps(29) forwards;
+
+        &:hover {
+        -webkit-animation: ani $animationTime steps(29) forwards;
+        animation: ani $animationTime steps(29) forwards;
+    }
+  }
+}
+
+.mask {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+@-webkit-keyframes ani {
+from {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+}
+
+to {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+}
+}
+
+@keyframes ani {
+from {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+}
+
+to {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+}
+}
+
+@-webkit-keyframes ani2 {
+from {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+}
+
+to {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+}
+}
+
+@keyframes ani2 {
+from {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+}
+
+to {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+}
+}
+
+
+//other effects 
+
+// @include button(#000,
+//   "https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/nature-sprite.png",
+//   2300%,
+//   100%,
+//   none,
+//   #fff);
+// cursor: pointer;
+//   -webkit-animation: ani2 0.7s steps(22) forwards;
+//   animation: ani2 0.7s steps(22) forwards;
+
+//   &:hover {
+//    -webkit-animation: ani 0.7s steps(22) forwards;
+//    animation: ani 0.7s steps(22) forwards;
+//   }
+
+
+
+// @include button(#000, "https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/urban-sprite.png",
+//     3000%,
+//     100%,
+//     none,
+//     #fff);
+// cursor: pointer;
+//   -webkit-animation: ani2 0.7s steps(29) forwards;
+//   animation: ani2 0.7s steps(29) forwards;
+
+//   &:hover {
+//    -webkit-animation: ani 0.7s steps(29) forwards;
+//    animation: ani 0.7s steps(29) forwards;
+//   }
+
+
+
+
+//   @include button(#000, "https://raw.githubusercontent.com/pizza3/asset/master/natureSmaller.png",
+//   7100%,
+//   100%,
+//   none,
+//   #fff);
+// cursor: pointer;
+//   -webkit-animation: ani2 0.7s steps(70) forwards;
+//   animation: ani2 0.7s steps(70) forwards;
+
+//   &:hover {
+//    -webkit-animation: ani 0.7s steps(70) forwards;
+//    animation: ani 0.7s steps(70) forwards;
+//   }
+
+
+
+
+
+

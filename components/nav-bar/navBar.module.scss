@@ -1,0 +1,102 @@
+@import '@/sass/variables.scss';
+
+.nav-loader{
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    max-width: $max-width;
+    background-color: $primaryColor;
+    width: fit-content;
+    height: 60px;
+    border-radius: $navBorderRadius;
+    display: flex;
+    justify-content: space-between;
+    // overflow: hidden;
+    z-index: 9998;
+
+    // &::before{
+    //     content: '';
+    //     position: absolute;
+    //     z-index: -1;
+    //     background-color: $primaryColor;
+    //     filter: blur(1rem);
+    //     width: 100%;
+    //     height: 100%;
+    // }
+}
+
+.nav-section{
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    border-radius: $navBorderRadius;
+    color: $textColor;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    margin: 2px;
+    background-color: $secondryColor;
+
+    div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .right{
+        display: inherit;
+        gap: 3rem;
+
+        .link{
+            text-transform: uppercase;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color:white;
+            text-shadow: -1px 1px 1px 
+                rgba(0, 0, 0, .4), 1px -1px
+                  0 rgba(255, 255, 255, 1);
+        }
+    }
+
+    .left{
+        display: inherit;
+        position: relative;
+        .avatar{
+            width: 50px;
+            height: 100%;
+            cursor: pointer;
+        }
+    
+        .salutation-area{
+            transform: scale(0);
+            position: relative;
+            display: inherit;
+            width: 80px;
+            height: 60%;
+            background-color: $thirdColor;
+            color: black;
+            padding: 0 0.5rem 0 1rem;
+            gap: 0.3rem;
+            border-radius: 2rem;
+
+            &::before{
+                content: '';
+                position: absolute;
+                left: -15px;
+                top: 50%;
+                transform: translate(0,-50%);
+                width: 20px;
+                height: 18px;
+                background-color:  $thirdColor;
+                clip-path: polygon(0 50%, 100% 100%, 100% 0);
+            }
+        
+            div{
+                width: 50px;
+                height: 99%;
+            }
+        }
+    }
+}
+
