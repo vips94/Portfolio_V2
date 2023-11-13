@@ -9,6 +9,7 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import DrawSVGPlugin from "gsap-trial/dist/DrawSVGPlugin";
 import Blob from "@/components/blob";
 import Skills from "@/components/skills";
+import Divider from "@/components/divider";
 
 export default function Home() {
   const thread = useRef(null) as any;
@@ -73,6 +74,8 @@ export default function Home() {
         {/* <NavBar /> */}
         <HomePage />
         <Skills/>
+        <Divider/>
+        {/* <HomePage /> */}
       </main>
     </>
   );

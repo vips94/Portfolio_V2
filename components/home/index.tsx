@@ -50,22 +50,28 @@ const HomePage = () => {
           },
         });
 
-        // repeated text  animation 
-        textTimeLine.to(text.current[0],{
-            y:'-100%',
-            duration:1,
-            repeat:-1,
-            repeatDelay:3,
+      // repeated text  animation
+      textTimeLine
+        .to(text.current[0], {
+          y: "-100%",
+          duration: 1,
+          repeat: -1,
+          repeatDelay: 3,
+          yoyo: true,
+        })
+        .to(
+          text.current[1],
+          {
+            y: "-100%",
+            duration: 1,
+            repeat: -1,
+            repeatDelay: 3,
             yoyo: true,
-          }).to(text.current[1],{
-            y:'-100%',
-            duration:1,
-            repeat:-1,
-            repeatDelay:3,
-            yoyo: true,
-          },0)
+          },
+          0
+        );
 
-        console.log(text.current)
+      console.log(text.current);
     });
 
     return () => {
@@ -118,6 +124,52 @@ const HomePage = () => {
       <div className={styles["bg-container"]}>
         <div className={styles["btn-container"]}>
           <div ref={gear} className={styles.btn} onClick={changeBackground} />
+          <div className={styles["bg-container"]}>
+            <div className={styles["btn-container"]}>
+              <div
+                ref={gear}
+                className={styles.btn}
+                onClick={changeBackground}
+              />
+            </div>
+            <div
+              className={`${styles["fg"]}`}
+              style={{
+                backgroundImage: `url('/images/home/${imageList[current]}.jpg')`,
+              }}
+            />
+            {/* <img className={styles['bg']} src='/images/home/home-bg.png'/>  */}
+            <img className={styles["bg"]} src="/images/home/top-window.png" />
+            {/* <img className={styles['window']} src='/images/home/home-bg-split.png'/> */}
+            <img
+              className={styles["window"]}
+              src="/images/home/bottom-window.png"
+            />
+            {/* <Blob style={{transform: 'translate(-33%,33%)', bottom:'0', left:'0'}} image='/images/home/home-fg1.jpg'/> */}
+          </div>
+          <div className={styles["body-container"]}>
+            <h1>VIPIN KUMAR</h1>
+            <span className={styles.subtitle}>
+              {"("}
+              <h2
+                style={{
+                  backgroundImage: `url('/images/home/${imageList[current]}.jpg')`,
+                }}
+              >
+                FRONTEND ENGINEER
+              </h2>
+              {")"}
+            </span>
+            <CustomButton
+              containerClassName="btn-container-1"
+              extraClassName="btn-1"
+              maskClassName="mask-1"
+              btnName="HIRE ME"
+              currentImage={`${imageList[current]}`}
+            >
+              HIRE ME
+            </CustomButton>
+          </div>
         </div>
         <div
           className={`${styles["fg"]}`}
@@ -137,20 +189,20 @@ const HomePage = () => {
           {"</>"}
           <div className={styles.textholder}>
             <h2
-                ref={(el)=>text.current[0] = el}
-                style={{
+              ref={(el) => (text.current[0] = el)}
+              style={{
                 backgroundImage: `url('/images/home/${imageList[current]}.jpg')`,
-                }}
+              }}
             >
-                FRONTEND DEVELOPER
+              FRONTEND DEVELOPER
             </h2>
             <h2
-                ref={(el)=>text.current[1] = el}
-                style={{
+              ref={(el) => (text.current[1] = el)}
+              style={{
                 backgroundImage: `url('/images/home/${imageList[current]}.jpg')`,
-                }}
+              }}
             >
-                GAME DEVELOPER
+              GAME DEVELOPER
             </h2>
           </div>
         </span>
