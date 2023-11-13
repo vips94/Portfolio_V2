@@ -107,7 +107,7 @@ const HomePage = () => {
                 <img className={styles['bg']} src='/images/home/top-window.png'/> 
                 {/* <img className={styles['window']} src='/images/home/home-bg-split.png'/> */}
                 <img className={styles['window']} src='/images/home/bottom-window.png'/>
-                <Blob style={{transform: 'translate(-33%,33%)', bottom:'0', left:'0'}} image='/images/home/home-fg1.jpg'/>
+                {/* <Blob style={{transform: 'translate(-33%,33%)', bottom:'0', left:'0'}} image='/images/home/home-fg1.jpg'/> */}
             </div>
             <div className={styles['body-container']}>
                 <h1>VIPIN KUMAR</h1>

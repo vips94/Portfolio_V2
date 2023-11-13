@@ -7,6 +7,7 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import DrawSVGPlugin from "gsap-trial/dist/DrawSVGPlugin";
+import Divider from "@/components/divider";
 
 export default function Home() {
   const thread = useRef(null) as any;
@@ -26,7 +27,7 @@ export default function Home() {
             start: 'top top',
             end: 'bottom bottom',
             scrub: true,
-            markers:true,
+            // markers:true,
           }
         }
       ).from(thread.current, {
@@ -66,6 +67,8 @@ export default function Home() {
         </div>
         <NavBar />
         <HomePage />
+        <Divider/>
+        {/* <HomePage /> */}
       </main>
     </>
   );
