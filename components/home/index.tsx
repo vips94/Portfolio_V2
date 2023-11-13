@@ -126,15 +126,25 @@ const HomePage = () => {
       <div className={styles["body-container"]}>
         <h1>VIPIN KUMAR</h1>
         <span className={styles.subtitle}>
-          {"("}
-          <h2
-            style={{
-              backgroundImage: `url('/images/home/${imageList[current]}.jpg')`,
-            }}
-          >
-            FRONTEND ENGINEER
-          </h2>
-          {")"}
+          {"</>"}
+          <div className={styles.textholder}>
+            <h2
+                ref={(el)=>text.current[0] = el}
+                style={{
+                backgroundImage: `url('/images/home/${imageList[current]}.jpg')`,
+                }}
+            >
+                FRONTEND DEVELOPER
+            </h2>
+            <h2
+                ref={(el)=>text.current[1] = el}
+                style={{
+                backgroundImage: `url('/images/home/${imageList[current]}.jpg')`,
+                }}
+            >
+                GAME DEVELOPER
+            </h2>
+          </div>
         </span>
         <CustomButton
           containerClassName="btn-container-1"
