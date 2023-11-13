@@ -70,12 +70,11 @@ export default function Home() {
             />
           </svg>
         </div>
-        <Blob style={{transform: 'translate(-33%,33%)', bottom:'0', left:'0'}} image='/images/home/home-fg1.jpg'/>
+        {/* <Blob style={{transform: 'translate(-33%,33%)', bottom:'0', left:'0'}} image='/images/home/home-fg1.jpg'/> */}
         {/* <NavBar /> */}
         <HomePage />
         <Skills/>
         <Divider/>
-        {/* <HomePage /> */}
       </main>
     </>
   );
