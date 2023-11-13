@@ -5,11 +5,8 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import Lottie from "lottie-web";
 import gearAnim from "@/public/lottieFiles/gear.json";
 import CustomButton from "../button";
-import Blob from "../blob";
-// import Experience from './Experience';
-// import { Canvas } from '@react-three/fiber';
 
-const imageList = ["home-fg2", "home-fg1", "home-fg3", "home-fg4"];
+const imageList = ["home-fg1", "home-fg2", "home-fg3", "home-fg4"];
 const WINDOW_CLOSE_DURATION = 1;
 let anim = null as any;
 let timeInterval = null as any;
@@ -109,67 +106,9 @@ const HomePage = () => {
 
   return (
     <div className={styles["home-section"]}>
-      {/* <svg viewBox="0 0 1440 832" fill="none" preserveAspectRatio='xMidYMin slice'>
-                <defs>
-                    <filter id="displacementFilter">
-                        <feTurbulence type='fractalNoise' baseFrequency='0.03' numOctaves='1' result='noise'/>
-                        <feDisplacementMap in='SourceGraphic' in2='nosise' scale='50' xChannelSelector='R' yChannelSelector='G'/>    
-                    </filter>
-                    <mask id='circleMask'>
-                        <circle cx='50%' cy='50%' r='100%' fill='white' className={styles['displacement']} />
-                    </mask>
-                </defs>
-                <rect width="100%" height="100%" fill="white" mask="url(#circleMask)" />
-            </svg> */}
       <div className={styles["bg-container"]}>
         <div className={styles["btn-container"]}>
           <div ref={gear} className={styles.btn} onClick={changeBackground} />
-          <div className={styles["bg-container"]}>
-            <div className={styles["btn-container"]}>
-              <div
-                ref={gear}
-                className={styles.btn}
-                onClick={changeBackground}
-              />
-            </div>
-            <div
-              className={`${styles["fg"]}`}
-              style={{
-                backgroundImage: `url('/images/home/${imageList[current]}.jpg')`,
-              }}
-            />
-            {/* <img className={styles['bg']} src='/images/home/home-bg.png'/>  */}
-            <img className={styles["bg"]} src="/images/home/top-window.png" />
-            {/* <img className={styles['window']} src='/images/home/home-bg-split.png'/> */}
-            <img
-              className={styles["window"]}
-              src="/images/home/bottom-window.png"
-            />
-            {/* <Blob style={{transform: 'translate(-33%,33%)', bottom:'0', left:'0'}} image='/images/home/home-fg1.jpg'/> */}
-          </div>
-          <div className={styles["body-container"]}>
-            <h1>VIPIN KUMAR</h1>
-            <span className={styles.subtitle}>
-              {"("}
-              <h2
-                style={{
-                  backgroundImage: `url('/images/home/${imageList[current]}.jpg')`,
-                }}
-              >
-                FRONTEND ENGINEER
-              </h2>
-              {")"}
-            </span>
-            <CustomButton
-              containerClassName="btn-container-1"
-              extraClassName="btn-1"
-              maskClassName="mask-1"
-              btnName="HIRE ME"
-              currentImage={`${imageList[current]}`}
-            >
-              HIRE ME
-            </CustomButton>
-          </div>
         </div>
         <div
           className={`${styles["fg"]}`}
@@ -183,28 +122,19 @@ const HomePage = () => {
           src="/images/home/bottom-window.png"
         />
       </div>
+
       <div className={styles["body-container"]}>
         <h1>VIPIN KUMAR</h1>
         <span className={styles.subtitle}>
-          {"</>"}
-          <div className={styles.textholder}>
-            <h2
-              ref={(el) => (text.current[0] = el)}
-              style={{
-                backgroundImage: `url('/images/home/${imageList[current]}.jpg')`,
-              }}
-            >
-              FRONTEND DEVELOPER
-            </h2>
-            <h2
-              ref={(el) => (text.current[1] = el)}
-              style={{
-                backgroundImage: `url('/images/home/${imageList[current]}.jpg')`,
-              }}
-            >
-              GAME DEVELOPER
-            </h2>
-          </div>
+          {"("}
+          <h2
+            style={{
+              backgroundImage: `url('/images/home/${imageList[current]}.jpg')`,
+            }}
+          >
+            FRONTEND ENGINEER
+          </h2>
+          {")"}
         </span>
         <CustomButton
           containerClassName="btn-container-1"
