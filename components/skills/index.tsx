@@ -1,6 +1,8 @@
-import React, { useEffect, useRef } from "react";
+
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./skills.module.scss";
-import { isEven } from "@/utility";
+import { getMidPoint, isEven } from "@/utility";
+import { motion, easeInOut, animate } from "framer-motion";
 
 const skillsList = [
   {
@@ -25,32 +27,80 @@ const skillsList = [
     skillName: "C#",
   },
   {
-    skillName: "UNITY: GAME ENGINE",
+    skillName: "UNITY:ENGINE",
   },
 ];
+const ROTATE_BY=10;
 
 const Skills = () => {
   const refs = useRef([]) as any;
+  const circle = useRef(null) as any;
+  const [activeIndex, setActiveIndex] = useState() as any;
 
   useEffect(() => {
-    console.log(refs.current)
-    refs.current.forEach((_:any,i:number) => {
-        const length = refs.current.length;
-        const mid = isEven(length) ? length/2-1 : (length-1)/2;
-        const rotation = (i-mid)*10
-        refs.current[i].style.transform = `translate(0, -50%) rotate(${rotation}deg)`;
+    refs.current.forEach((_: any, i: number) => {
+      refs.current[
+        i
+      ].style.transform = `translate(0, -50%) rotate(${getRotation(i)}deg)`;
     });
+    const length = refs.current.length;
+    const mid = getMidPoint(length);
+    setActiveIndex(mid);
   }, []);
+
+  const playAnimation = (index: number)=>{
+    const rotate = -getRotation(index)
+    setActiveIndex(index);
+    animate(circle.current, { rotate: rotate }, { duration: 1, ease: easeInOut })
+  }
+
+  const getRotation = (index:number) => {
+    const length = refs.current.length;
+    const mid = getMidPoint(length);
+    const rotation = (index - mid) * ROTATE_BY;
+    return rotation;
+  };
 
   return (
     <div className={styles["skill-section"]}>
       <div className={styles.section}>
-        <div className={styles.circle}>
+        <motion.div
+          className={styles.circle}
+          ref={circle}
+          initial={{ rotateZ:'60deg' }}
+          whileInView={{ rotateZ:'0deg' }}
+          animate={{}}
+          transition={{ delay:1,duration: 2, ease: easeInOut}}
+          viewport={{once:true}}
+        >
           {skillsList.map((skill: any, i: number) => {
             return (
-              <div className={styles.item} key={i} ref={(el) => (refs.current[i] = el)}>
-                <div className={styles.first}/>
-                <div className={styles.second}>
+              <div
+                className={styles.item}
+                key={i}
+                ref={(el) => (refs.current[i] = el)}
+              >
+                <div className={styles.first} />
+                <div className={`${styles.second} ${activeIndex===i?styles.active:''}`} onClick={()=>playAnimation(i)}>
+                  <h4>{skill.skillName}</h4>
+                </div>
+              </div>
+            );
+          })}
+        </motion.div>
+        <div className={styles.card}>
+
+        </div>
+        <div className={styles.navigation}>
+          {skillsList.map((skill: any, i: number) => {
+            return (
+              <div
+                className={styles.item}
+                key={i}
+                ref={(el) => (refs.current[i] = el)}
+              >
+                <div className={styles.first} />
+                <div className={`${styles.second} ${activeIndex===i?styles.active:''}`} onClick={()=>playAnimation(i)}>
                   <h4>{skill.skillName}</h4>
                 </div>
               </div>

@@ -31,16 +31,44 @@
                 transform-origin: 0% 50%;
                 display: flex;
 
-                .first,.second{
+                .first{
+                    position: relative;
                     width: 50%;
+                    height: 60px;
+
+                    &::after{
+                        content: '';
+                        position: absolute;
+                        right: -5px;
+                        top: 50%;
+                        transform: translate(0,-50%);
+                        width: 10px;
+                        height: 10px;
+                        background-color: red;
+                        border-radius: 50%;
+                    }
                 }
 
                 .second{
-                    color: red;
+                    width: fit-content;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: rgba(255, 0, 0, 0.351);
                     padding-left: 1rem;
+                    cursor: pointer;
+                    transition: all 0.7s ease-in-out;
                     h4{
                         font-size: 2rem;
                     }
+
+                    &:hover{
+                        color: red;
+                    }
+                }
+
+                .active{
+                    color:red;
                 }
             }
         }
