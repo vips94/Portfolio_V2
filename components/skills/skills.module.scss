@@ -16,9 +16,9 @@
 
         .circle{
             position: absolute;
-            left: -50vh;
-            width: 100vh;
-            height: 100vh;
+            left: -400px;
+            width: 800px;
+            height: 800px;
             border-radius: 50%;
             border: 1px solid $primaryColor;
 
@@ -81,6 +81,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
+
+            svg{
+                position: relative;
+            }
         }
     }
 }

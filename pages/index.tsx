@@ -28,7 +28,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${styles.main}`} id="main">
-        <Thread/>
+        {/* <Thread/> */}
         {/* <Blob style={{transform: 'translate(-33%,33%)', bottom:'0', left:'0'}} image='/images/home/home-fg1.jpg'/> */}
         {/* <NavBar /> */}
         <HomePage />
