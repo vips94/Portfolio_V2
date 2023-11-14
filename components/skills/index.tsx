@@ -23,7 +23,7 @@ const skillsList = [
     skillName: "SASS",
     x: MOVE_Y,
     y: -MOVE_Y,
-    color: "#f3356f",
+    color: "#ff94aa",
   },
   {
     skillName: "JAVASCRIPT",
