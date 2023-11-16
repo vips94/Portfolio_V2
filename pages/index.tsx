@@ -1,13 +1,14 @@
 "use client";
 import Head from "next/head";
 import styles from "@/styles/Home.module.scss";
-import NavBar from "@/components/nav-bar";
-import HomePage from "@/components/home";
+import NavBar from "@/components/page-nav-bar";
+import HomePage from "@/components/page-home";
 import React, { useEffect, useRef } from "react";
 import Blob from "@/components/blob";
-import Skills from "@/components/skills";
+import Skills from "@/components/page-skills";
 import Divider from "@/components/divider";
 import Thread from "@/components/thread";
+import Projects from "@/components/page-projects";
 
 export default function Home() {
  
@@ -28,12 +29,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${styles.main}`} id="main">
-        {/* <Thread/> */}
-        {/* <Blob style={{transform: 'translate(-33%,33%)', bottom:'0', left:'0'}} image='/images/home/home-fg1.jpg'/> */}
+        <Thread style={{zIndex: 3,  right:'2%'}} color="#e8ccc7" threadWidth={1}/>
+        <Blob style={{transform: 'translate(-45%,65%)', bottom:'0', left:'0', zIndex: '2'}} image='/images/home/home-fg4.jpg'/>
+        <Divider/>
         {/* <NavBar /> */}
         <HomePage />
         <Skills/>
-        <Divider/>
+        <Projects/>
       </main>
     </>
   );

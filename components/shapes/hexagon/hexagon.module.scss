@@ -1,0 +1,22 @@
+@import '@/sass/variables.scss';
+
+.hexagon{
+    background-color: orange;
+    width: 260px;
+    height: 298px;
+    border-radius: 12px;
+    background-color: rgba(231, 178, 80, 0.507);
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+
+    // &:nth-child(1) { grid-area: k }
+    // &:nth-child(2) { grid-area: j }
+    // &:nth-child(3) { grid-area: i }
+    // &:nth-child(4) { grid-area: h }
+    // &:nth-child(5) { grid-area: g }
+    // &:nth-child(6) { grid-area: f }
+    // &:nth-child(7) { grid-area: e }
+    // &:nth-child(8) { grid-area: d }
+    // &:nth-child(9) { grid-area: c }
+    // &:nth-child(10) { grid-area: b }
+    // &:nth-child(11) { grid-area: a }
+}

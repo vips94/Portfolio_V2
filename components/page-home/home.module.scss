@@ -129,7 +129,7 @@ $animationTime: 0.7s;
         margin-top: 15rem;
 
         h1, .subtitle{
-            color : rgba(0, 0, 0, 0.712);
+            color: $radioButtonColor;
             font-size: $titleFontSize;
             font-family: $fontFamily;
             letter-spacing: 0.1em;

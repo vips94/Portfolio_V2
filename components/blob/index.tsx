@@ -58,7 +58,7 @@ const Blob: FC<BlobProps> = (props) => {
           </path>
 
           {/* image clipped using path id */}
-          {/* <clipPath id="cp" filter="url(#inset-shadow)">
+          <clipPath id="cp" filter="url(#inset-shadow)">
             <use href="#blob" />
           </clipPath>
 
@@ -68,8 +68,8 @@ const Blob: FC<BlobProps> = (props) => {
             height="100%"
             width="100%"
             preserveAspectRatio="xMinYMin slice"
-            
-          /> */}
+            filter="blur(2px)"
+          />
         </svg>
       </div>
     </div>
