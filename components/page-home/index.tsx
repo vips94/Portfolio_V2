@@ -110,11 +110,17 @@ const HomePage = () => {
         <div className={styles["btn-container"]}>
           <div ref={gear} className={styles.btn} onClick={changeBackground} />
         </div>
-        <div
+        {/* <div
           className={`${styles["fg"]}`}
           style={{
             backgroundImage: `url('/images/home/${imageList[current]}.jpg')`,
           }}
+        /> */}
+        <video
+          className={`${styles["videos"]}`}
+          src={`/images/home/${imageList[current]}.mp4`}
+          autoPlay = {true}
+          loop  = {true}
         />
         <img className={styles["bg"]} src="/images/home/top-window.png" />
         <img

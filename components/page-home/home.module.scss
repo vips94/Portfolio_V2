@@ -84,6 +84,21 @@ $animationTime: 0.7s;
             z-index: 1;
         }
 
+        .videos{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            z-index: 66;
+            object-fit: cover;
+
+            &::selection{
+                display: none;
+            }
+        }
+
         .window{
             transform: translate(-50%,-50%);
             z-index: 3;
