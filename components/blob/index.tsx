@@ -31,7 +31,7 @@ const Blob: FC<BlobProps> = (props) => {
               result="inverse"
             />
             {/* Cut colour inside shadow */}
-            <feFlood flood-color="black" flood-opacity="1" result="color" />
+            <feFlood floodColor="black" floodOpacity="1" result="color" />
             <feComposite
               operator="in"
               in="color"
@@ -63,7 +63,7 @@ const Blob: FC<BlobProps> = (props) => {
           </clipPath>
 
           <image
-            clip-path="url(#cp)"
+            clipPath="url(#cp)"
             href={props.image}
             height="100%"
             width="100%"

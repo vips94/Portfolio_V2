@@ -3,14 +3,25 @@ import styles from "./projects.module.scss";
 import Title from "../title";
 import Hexagon from "../shapes/hexagon";
 
-const MAX_HEXGON_ROW = 5;
+const MARGIN_TOP = -63;
 const list = [
-  [1, 2, 3, 4],
-  [5, 6, 7],
-  [8, 9, 10, 11],
-  [12, 13, 14],
-  [15, 16, 17, 18],
-  [19, 20, 21],
+  [
+    { image: "to-do1.png", title: "1", projectName: "To-Do" },
+    { image: "world-clock.png", title: "2", projectName: "World Clock" },
+    { image: "brain-on-draw.png", title: "3", projectName: "Brain On Draw" },
+    { image: "two-planes.png", title: "4", projectName: "Two-Planes" },
+  ],
+  [
+    { image: "the-stack.png", title: "5", projectName: "The Stack" },
+    { image: "save-me.png", title: "6", projectName: "SAVE ME" },
+    { image: "rolling-ball.png", title: "7", projectName: "Rolling Ball" },
+  ],
+  [
+    { image: "to-do1.png", title: "8", projectName: "7 Wonders" },
+    { image: "world-clock.png", title: "9", projectName: "World Clock" },
+    { image: "brain-on-draw.png", title: "10", projectName: "Brain On Draw" },
+    { image: "two-planes.png", title: "11", projectName: "Two-Planes" },
+  ],
 ];
 const Projects = () => {
   const Rows = () => {
@@ -18,9 +29,20 @@ const Projects = () => {
       <>
         {list.map((row_list, index) => {
           return (
-            <div className={styles.row} key={index} style={{marginTop:`${-63}px`}}>
-              {row_list.map((_, index: number) => {
-                return <Hexagon />;
+            <div
+              className={styles.row}
+              key={index}
+              style={{ marginTop: `${MARGIN_TOP}px` }}
+            >
+              {row_list.map((item, index: number) => {
+                return (
+                  <Hexagon
+                    key = { index }
+                    image={`/images/projects/${item.image}`}
+                    title={`${item.title}`}
+                    containerClassName="hexagon-1"
+                  />
+                );
               })}
             </div>
           );

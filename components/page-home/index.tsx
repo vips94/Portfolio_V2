@@ -118,9 +118,10 @@ const HomePage = () => {
         /> */}
         <video
           className={`${styles["videos"]}`}
-          src={`/images/home/${imageList[current]}.mp4`}
-          autoPlay = {true}
-          loop  = {true}
+          src={`./images/home/${imageList[current]}.mp4`}
+          autoPlay
+          loop
+          muted
         />
         <img className={styles["bg"]} src="/images/home/top-window.png" />
         <img

@@ -15,8 +15,17 @@ $textColor: black;
 
 
 $fontFamily: 'Rubik Marker Hatch';
+
+//skills page circle text
 $fontFamilySecondry: 'Gruppo';
 $fontFamilySKillPercentage: 'Anton';
+
+//project page hexagon title
+$fontFamilyProject: 'Anton';
+
+//title
+$fontFamilyTitle: "Anton";
+$fontFamilyShdowTitle: 'Anton';
 
 $titleFontSize: 3rem;
 $subTitleFontSize: 3rem;
@@ -24,3 +33,5 @@ $subTitleFontSize: 3rem;
 $radioButtonColor: rgb(110, 99, 99);
 
 $skillCircleColor: #f3efe691;
+
+$hexagonColor: #6E6363;

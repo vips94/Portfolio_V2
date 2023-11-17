@@ -1,22 +1,141 @@
-@import '@/sass/variables.scss';
+@import "@/sass/variables.scss";
 
-.hexagon{
-    background-color: orange;
-    width: 260px;
-    height: 298px;
-    border-radius: 12px;
-    background-color: rgba(231, 178, 80, 0.507);
+$animationTime: 0.7s;
+$hexagonBorder: 10px;
+
+@mixin button($bcolor, $url, $x1, $y1, $bor, $col) {
+  background: $bcolor;
+  -webkit-mask: url($url);
+  mask: url($url);
+  -webkit-mask-size: $x1 $y1;
+  mask-size: $x1 $y1;
+  border: $bor;
+  color: $col;
+}
+
+.hexagon-1 {
+  width: 260px;
+  height: 298px;
+
+  &:hover {
+    filter: drop-shadow(5px 5px 4px rgb(202, 202, 202));
+    transform: translate(-10px, -10px);
+  }
+}
+
+.hexagon {
+  position: relative;
+  background-color: transparent !important;
+  transition: filter 0.3s ease-in-out, transform 0.3s ease-in-out;
+  z-index: 4;
+  overflow: hidden;
+
+  .mask {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: calc(100% - $hexagonBorder - 1px);
+    height: calc(100% - $hexagonBorder - 1px);
+    font-size: 4rem;
+    font-family: $fontFamilyProject;
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+    transition: trasform $animationTime ease-in-out;
+  }
+
+  .btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% - $hexagonBorder);
+    height: calc(100% - $hexagonBorder);
+    z-index: 2;
+    font-size: 4rem;
+    font-family: $fontFamilyProject;
     clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
 
-    // &:nth-child(1) { grid-area: k }
-    // &:nth-child(2) { grid-area: j }
-    // &:nth-child(3) { grid-area: i }
-    // &:nth-child(4) { grid-area: h }
-    // &:nth-child(5) { grid-area: g }
-    // &:nth-child(6) { grid-area: f }
-    // &:nth-child(7) { grid-area: e }
-    // &:nth-child(8) { grid-area: d }
-    // &:nth-child(9) { grid-area: c }
-    // &:nth-child(10) { grid-area: b }
-    // &:nth-child(11) { grid-area: a }
+    // @include button( $hexagonColor,
+    //   "https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/nature-sprite.png",
+    //   2300%,
+    //   100%,
+    //   none,
+    //   #fff);
+    // cursor: pointer;
+    //   -webkit-animation: ani2 0.7s steps(22) forwards;
+    //   animation: ani2 0.7s steps(22) forwards;
+
+    //   &:hover {
+    //    -webkit-animation: ani 0.7s steps(22) forwards;
+    //    animation: ani 0.7s steps(22) forwards;
+    //   }
+    @include button(
+      $hexagonColor,
+      "https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/urban-sprite.png",
+      3000%,
+      100%,
+      none,
+      #fff
+    );
+    cursor: pointer;
+    transition: all $animationTime ease-in-out;
+    -webkit-animation: ani2 $animationTime steps(29) forwards;
+    animation: ani2 $animationTime steps(29) forwards;
+
+    &:hover {
+      -webkit-animation: ani $animationTime steps(29) forwards;
+      animation: ani $animationTime steps(29) forwards;
+    }
+  }
+}
+
+@-webkit-keyframes ani {
+  from {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
+
+  to {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
+}
+
+@keyframes ani {
+  from {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
+
+  to {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
+}
+
+@-webkit-keyframes ani2 {
+  from {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
+
+  to {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
+}
+
+@keyframes ani2 {
+  from {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+  }
+
+  to {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+  }
 }

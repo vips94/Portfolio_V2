@@ -12,7 +12,7 @@
 
     .shadowText{
         font-size: 9em;
-        font-family: 'Anton';
+        font-family: $fontFamilyShdowTitle;
         position: absolute;
         white-space: nowrap;
         letter-spacing: 0.067em;
@@ -24,7 +24,7 @@
         position: absolute;
         white-space: nowrap;
         font-size: 6em;
-        font-family: 'Anton';
+        font-family: $fontFamilyTitle;
         letter-spacing: 0.25em;
         word-spacing: 0.5em;
         padding-left: 20px;
