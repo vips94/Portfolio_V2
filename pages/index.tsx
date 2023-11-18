@@ -9,8 +9,13 @@ import Skills from "@/components/page-skills";
 import Divider from "@/components/divider";
 import Thread from "@/components/thread";
 import Projects from "@/components/page-projects";
+import Popup from "@/components/popup";
+import { useSelector } from "react-redux";
+import { selectIsProjectSelected } from "@/store/project";
+import ContactUs from "@/components/page-contact-us";
 
 export default function Home() {
+  const isProjectSelected = useSelector(selectIsProjectSelected)
  
   useEffect(() => {
     (async () => {
@@ -36,6 +41,8 @@ export default function Home() {
         <HomePage />
         <Skills/>
         <Projects/>
+        <ContactUs/>
+        {isProjectSelected &&  <Popup/>}
       </main>
     </>
   );

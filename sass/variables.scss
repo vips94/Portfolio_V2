@@ -35,3 +35,38 @@ $radioButtonColor: rgb(110, 99, 99);
 $skillCircleColor: #f3efe691;
 
 $hexagonColor: #6E6363;
+
+//colors
+$dark : rgb(29,29,29);
+$light : #ffff;
+$primary : rgb(245, 222, 179);
+$bg : rgb(233, 227, 216);
+$highlight : red;
+$borderColor : rgba(134, 119, 92, 0.781);
+
+
+//spacing
+$spacing-md : 16px;
+$spacing-lg : 32px;
+
+//border radius
+$borderRadius : 12px;
+$boxShadow : 4px 4px 6px 1px rgba(0, 0, 0, 0.2);
+
+//headerHeight
+$headerHeight : 80px;
+
+//contact 
+$contactBorderRadius : 7px;
+
+//Card Hover
+$cardHover : 6px 6px 6px 1px rgba(0, 0, 0, 0.2);
+
+@mixin breakpoint($point){
+    @if $point == md {
+        // which is 768px
+        @media (min-width : 768px) {
+            @content;
+        }
+    }
+}
