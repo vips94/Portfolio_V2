@@ -12,7 +12,7 @@ import Projects from "@/components/page-projects";
 import Popup from "@/components/popup";
 import { useSelector } from "react-redux";
 import { selectIsProjectSelected } from "@/store/project";
-import ContactUs from "@/components/page-contact-us";
+import ContactUs from "@/components/page-contact-us/index";
 
 export default function Home() {
   const isProjectSelected = useSelector(selectIsProjectSelected)
