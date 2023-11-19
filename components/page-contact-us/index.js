@@ -4,6 +4,13 @@ import Title from "../title";
 import emailjs from "@emailjs/browser";
 import EmailIllustration from '../illustrate-svg/emai-illustrate/index';
 import { useInView } from "framer-motion";
+import { useSelector } from "react-redux";
+import {
+  selectPropertiesBorderColor,
+  selectPropertiesBtnMaskColor,
+  selectPropertyTextStroke,
+} from "@/store/skills";
+import CustomButton from "../button";
 
 const ContactUs = () => {
   const svgBg = useRef(null);
@@ -13,6 +20,16 @@ const ContactUs = () => {
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredMessage, setEnteredMessage] = useState("");
   const [showIllustration, setShowIllustration] = useState(false);
+
+  const propertiesBorderColor = useSelector(selectPropertiesBorderColor);
+  const propertiesBtnMaskColor = useSelector(selectPropertiesBtnMaskColor);
+  const propertyTextStroke = useSelector(selectPropertyTextStroke);
+
+  const customStyle = {
+    borderColor: propertiesBorderColor,
+    background: propertiesBtnMaskColor,
+    color: propertyTextStroke,
+  }
 
   useEffect(()=>{
     if(isInView){
@@ -89,6 +106,7 @@ const ContactUs = () => {
               onChange={userNameChangeHandler}
               id="userName"
               placeholder="Name *"
+              style={customStyle}
             ></input>
             <input
               className={styles.email}
@@ -98,6 +116,7 @@ const ContactUs = () => {
               name="email"
               id="email"
               placeholder="Email *"
+              style={customStyle}
             ></input>
             <textarea
               className={styles.message}
@@ -106,11 +125,16 @@ const ContactUs = () => {
               onChange={messageChangedHandler}
               id="message"
               placeholder="Message *"
+              style={customStyle}
             ></textarea>
-            <button>
-              <p>SEND</p>
-              {/* <IoMdSend /> */}
-            </button>
+            <CustomButton
+                containerClassName="btn-container-1"
+                extraClassName="btn-1"
+                maskClassName="mask-1"
+                btnName="SEND"
+            >
+                SEND
+            </CustomButton>
           </form>
         </div>
         <div className={styles.background} ref={svgBg}>

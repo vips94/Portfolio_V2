@@ -158,7 +158,6 @@ const HomePage = () => {
           extraClassName="btn-1"
           maskClassName="mask-1"
           btnName="HIRE ME"
-          currentImage={`${imageList[current]}`}
         >
           HIRE ME
         </CustomButton>
