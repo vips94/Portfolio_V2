@@ -36,7 +36,7 @@ export default function Home() {
       <main className={`${styles.main}`} id="main">
         <Thread style={{zIndex: 3,  right:'2%'}} color="#e8ccc7" threadWidth={1}/>
         <Blob style={{transform: 'translate(-45%,65%)', bottom:'0', left:'0', zIndex: '2'}} image='/images/home/home-fg4.jpg'/>
-        <Divider/>
+        <Divider/> 
         {/* <NavBar /> */}
         <HomePage />
         <Skills/>

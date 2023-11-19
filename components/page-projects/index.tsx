@@ -139,6 +139,7 @@ const list = [
 const Projects = () => {
   const dispatch = useDispatch();
 
+
   const onHexagonClick = (project:any) => {
     dispatch(setIsProjectSelected(true))
     dispatch(setProjectData(project?.projectData));

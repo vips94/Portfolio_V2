@@ -5,6 +5,7 @@ import { motion, easeInOut, animate, useInView } from "framer-motion";
 import Title from "../title";
 import { useDispatch } from "react-redux";
 import { setPropertiesBorderColor, setPropertiesBtnMaskColor, setPropetiedTextColor, setPropertiesMaskOpacity, setPropertyTextStroke } from "@/store/skills";
+import SkillIllustration from '../illustrate-svg/skill-illustrate/index';
 
 const MOVE_Y = 75;
 const MOVE_X = 94;
@@ -93,6 +94,7 @@ const Skills = () => {
   const card = useRef(null) as any;
   const circleSvg = useRef(null) as any;
   const [activeIndex, setActiveIndex] = useState(0) as any;
+  const [showIllustration, setShowIllustration] = useState(false) as any;
   const dispatch = useDispatch()
 
   const isInView = useInView(circleSvg)
@@ -111,6 +113,9 @@ const Skills = () => {
           { delay: 3, duration: 0.5, ease: easeInOut, at: "<" },
         ],
       ])
+      setTimeout(()=>{
+        setShowIllustration(true);
+      },1000)
     }
   },[isInView]);
 
@@ -158,6 +163,9 @@ const Skills = () => {
     <div className={styles["skill-section"]}>
       <div className={styles.section}>
         <Title title="MY SKILLS" shadowTitle="MY SKILLS" />
+        <div className={styles.background}>
+          {showIllustration && <SkillIllustration/>}
+        </div>
         <div className={styles.dot}>
           {skillsList.map((skill: any, i: number) => {
             return (

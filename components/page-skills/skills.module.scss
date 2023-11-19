@@ -71,6 +71,21 @@
             
         }
 
+        .background{
+            width: 700px;
+            height: 700px;
+            position: absolute;
+            left: 40%;
+            top: 60%;
+            transform: translate(-50%, -50%) scaleX(-1);
+
+            svg{
+                path,circle,ellipse{
+                    transition: fill 1s ease-in-out;
+                }
+            }
+          }
+
         .tab{
             width: 100%;
             height: 100%;
