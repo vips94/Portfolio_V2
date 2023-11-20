@@ -5,7 +5,7 @@ import NavBar from "@/components/page-nav-bar";
 import HomePage from "@/components/page-home";
 import React, { useEffect, useRef } from "react";
 import Blob from "@/components/blob";
-import Skills from "@/components/page-skills";
+import Skills from "@/components/page-skillsV2";
 import Divider from "@/components/divider";
 import Thread from "@/components/thread";
 import Projects from "@/components/page-projects";

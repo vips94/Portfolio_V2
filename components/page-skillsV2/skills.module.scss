@@ -1,0 +1,187 @@
+@import '@/sass/variables.scss';
+
+.skill-section{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    overflow: hidden;
+
+    .section{
+        width: 100%;
+        height: 100%;
+
+        .dot{
+            position: absolute;
+            top: 50%;
+            transform: translate(0,-50%);
+            left: 40px;
+            width: 40px;
+            z-index: 14;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 2rem;
+
+            .dotNav{
+                .second{
+                    display: flex;
+                    justify-content: center;
+                    gap: 1rem;
+                    justify-content: flex-start;
+                    align-items: center;
+                    width: 30px;
+                    height: 30px;
+                    border: 1px solid $radioButtonColor;
+                    border-radius: 50%;
+                    background-color: white;
+                    cursor: pointer;
+                    transition: all 0.7s ease-in-out;
+
+                    .name{
+                        color: $radioButtonColor;
+                        padding-left: 50px;
+                        white-space: nowrap;
+                        font-size: 2rem;
+                        font-family: $fontFamilySecondry;
+                    }
+
+                }
+
+                .active{
+                    position: relative;
+
+                    &::after{
+                        width: 80%;
+                        height: 80%;
+                        border-radius: 50%;
+                        content: '';
+                        position: absolute;
+                        left: 50%;
+                        top: 50%; 
+                        transform: translate(-50%,-50%);
+                        z-index: 1;
+                        background-color:$radioButtonColor;
+                    }
+                }
+            }
+
+                
+            
+        }
+
+        .background{
+            width: 700px;
+            height: 700px;
+            position: absolute;
+            left: 40%;
+            top: 60%;
+            transform: translate(-50%, -50%) scaleX(-1);
+
+            svg{
+                path,circle,ellipse{
+                    transition: fill 1s ease-in-out;
+                }
+            }
+          }
+
+        .tab{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 60%;
+            transform: translate(-50%,-50%);
+            right: -50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+
+            svg{
+                position: relative;
+
+                rect{
+                    pointer-events: none;
+                }
+
+                text{
+                    color: black;
+                }
+            }
+        }
+
+        .textHolder{
+            width: 60vh;
+            height: 60vh;
+            // background-color: red;
+            border-radius: 50%;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+
+            .item{
+                width: 50%;
+                height: 40px;
+                // background-color: green;
+                position: absolute;
+                transform-origin: left;
+                left: 50%;
+                display: flex;
+                justify-content: flex-end;
+                &:nth-child(1){
+                    transform: rotate(45deg);
+                }
+                &:nth-child(2){
+                    transform: rotate(90deg);
+                }
+                &:nth-child(3){
+                    transform: rotate(135deg);
+                }
+                &:nth-child(4){
+                    transform: rotate(180deg);
+                }
+                &:nth-child(5){
+                    transform: rotate(225deg);
+                }
+                &:nth-child(6){
+                    transform: rotate(270deg);
+                }
+                &:nth-child(7){
+                    transform: rotate(315deg);
+                }
+                &:nth-child(8){
+                    transform: rotate(360deg);
+                }
+            }
+        }
+
+        .card{
+            color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+            pointer-events: none;
+
+            p{
+                color: orange;
+                text-align: center;
+                text-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
+                font-family: $fontFamilySKillPercentage;
+                font-size: 6rem;
+                font-style:normal;
+                font-weight: 400;
+                line-height: normal;
+                -webkit-text-stroke: 2px white;
+
+                &:nth-child(1){
+                    padding-right: 0.1em;
+                }
+            }
+        }
+    }
+}
+

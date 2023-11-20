@@ -3,7 +3,7 @@ import styles from "./contactUs.module.scss";
 import Title from "../title";
 import emailjs from "@emailjs/browser";
 import EmailIllustration from '../illustrate-svg/emai-illustrate/index';
-import { useInView } from "framer-motion";
+import { easeInOut, useInView } from "framer-motion";
 import { useSelector } from "react-redux";
 import {
   selectPropertiesBorderColor,
@@ -11,6 +11,7 @@ import {
   selectPropertyTextStroke,
 } from "@/store/skills";
 import CustomButton from "../button";
+import {motion} from 'framer-motion';
 
 const ContactUs = () => {
   const svgBg = useRef(null);
@@ -98,7 +99,7 @@ const ContactUs = () => {
         <div className={styles["form-container"]}>
           <form className={styles.form} onSubmit={submitHandler} name="Form">
             <p className={styles.status}>{status}</p>
-            <input
+            <motion.input
               className={styles.name}
               value={enteredUserName}
               type="text"
@@ -107,8 +108,12 @@ const ContactUs = () => {
               id="userName"
               placeholder="Name *"
               style={customStyle}
-            ></input>
-            <input
+              initial={{x:-100}}
+              whileInView={{x:0}}
+              transition={{duration:1}}
+              viewport={{once:true}}
+            ></motion.input>
+            <motion.input
               className={styles.email}
               value={enteredEmail}
               onChange={emailChangeHandler}
@@ -117,8 +122,12 @@ const ContactUs = () => {
               id="email"
               placeholder="Email *"
               style={customStyle}
-            ></input>
-            <textarea
+              initial={{x:100}}
+              whileInView={{x:0}}
+              transition={{duration:1}}
+              viewport={{once:true}}
+            ></motion.input>
+            <motion.textarea
               className={styles.message}
               value={enteredMessage}
               name="message"
@@ -126,7 +135,11 @@ const ContactUs = () => {
               id="message"
               placeholder="Message *"
               style={customStyle}
-            ></textarea>
+              initial={{x:-100}}
+              whileInView={{x:0}}
+              transition={{duration:1}}
+              viewport={{once:true}}
+            ></motion.textarea>
             <CustomButton
                 containerClassName="btn-container-1"
                 extraClassName="btn-1"

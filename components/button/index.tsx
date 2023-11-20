@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import styles from "./button.module.scss";
 import { useSelector } from "react-redux";
 import { selectPropertiesBorderColor } from "@/store/skills";
+import {motion} from 'framer-motion';
 
 type CustomButtonProps = {
   children: any;
@@ -21,8 +22,12 @@ const CustomButton: FC<CustomButtonProps> = (props) => {
   } = props;
   const propertiesBorderColor = useSelector(selectPropertiesBorderColor);
   return (
-    <div
+    <motion.div
       className={`${styles["button-container"]} ${styles[containerClassName]}`}
+      initial={{x:-100}}
+      whileInView={{x:0}}
+      transition={{duration:1}}
+      viewport={{once:true}}
     >
       <span className={`${styles.mask} ${styles[maskClassName]}`}>
         {btnName}
@@ -35,7 +40,7 @@ const CustomButton: FC<CustomButtonProps> = (props) => {
       >
         {children}
       </button>
-    </div>
+    </motion.div>
   );
 };
 
