@@ -15,6 +15,8 @@ import SkillIllustration from "../illustrate-svg/skill-illustrate/index";
 
 const MOVE_Y = 75;
 const MOVE_X = 94;
+const TEXT_MOVE_X = 89;
+const TEXT_MOVE_Y = 0;
 
 const skillsList = [
   {
@@ -25,6 +27,7 @@ const skillsList = [
     maskColor: "#F99D76",
     textcolor: "#f55c1b",
     maskOpacity: 0.95,
+    text_x: TEXT_MOVE_X,
   },
   {
     skillName: "CSS",
@@ -34,6 +37,7 @@ const skillsList = [
     maskColor: "#81C5EE",
     textcolor: "#2e9fe3",
     maskOpacity: 0.95,
+    text_x: TEXT_MOVE_X,
   },
   {
     skillName: "SASS",
@@ -43,6 +47,7 @@ const skillsList = [
     maskColor: "#FFBECC",
     textcolor: "#ff94aa",
     maskOpacity: 0.95,
+    text_x: TEXT_MOVE_X,
   },
   {
     skillName: "JAVASCRIPT",
@@ -53,6 +58,7 @@ const skillsList = [
     textcolor: "#f9e3ae",
     textStroke: "black",
     maskOpacity: 0.95,
+    text_x: TEXT_MOVE_X,
   },
   {
     skillName: "REACT",
@@ -62,6 +68,7 @@ const skillsList = [
     maskColor: "#BED2FF",
     textcolor: "#93b4ff",
     maskOpacity: 0.95,
+    text_x: TEXT_MOVE_X,
   },
   {
     skillName: "REDUX",
@@ -72,6 +79,7 @@ const skillsList = [
     textcolor: "#abff97",
     textStroke: "black",
     maskOpacity: 0.95,
+    text_x: TEXT_MOVE_X,
   },
   {
     skillName: "NEXT JS",
@@ -82,6 +90,7 @@ const skillsList = [
     textcolor: "#ecefff",
     textStroke: "black",
     maskOpacity: 0.95,
+    text_x: TEXT_MOVE_X,
   },
   {
     skillName: "UNITY:ENGINE",
@@ -91,12 +100,13 @@ const skillsList = [
     maskColor: "#66FFDF",
     textcolor: "#00ffcb",
     maskOpacity: 0.95,
+    text_x: TEXT_MOVE_X,
   },
 ];
-const ROTATE_TAB_BY = -45;
 
 const Skills = () => {
   const tabRefs = useRef([]) as any;
+  const skillRefs = useRef([]) as any;
   const card = useRef(null) as any;
   const circleSvg = useRef(null) as any;
   const [activeIndex, setActiveIndex] = useState(0) as any;
@@ -115,14 +125,19 @@ const Skills = () => {
             { duration: 0.5, ease: easeInOut, delay: 0.2 * index },
           ],
           [
-            tabRefs.current[index],
-            { x: 0, y: 0, scale: 1 },
-            { duration: 0.5, ease: easeInOut },
+            skillRefs.current[index],
+            { x: skillsList[index].text_x, opacity: 1 },
+            { duration: 0.5, ease: easeInOut, delay: 0.2 * index, at: "<" },
           ],
           // [
-          //   card.current,
-          //   { right: "32vh", opacity: 1 },
-          //   { delay: 3, duration: 0.5, ease: easeInOut, at: "<" },
+          //   tabRefs.current[index],
+          //   { x: 0, y: 0, scale: 1 },
+          //   { delay: 1, duration: 0.5, ease: easeInOut },
+          // ],
+          // [
+          //   skillRefs.current[index],
+          //   { x: 0, y: 0, opacity: 0 },
+          //   { delay: 1, duration: 0.5, ease: easeInOut, at: "<" },
           // ],
         ]);
       });
@@ -209,14 +224,6 @@ const Skills = () => {
           <motion.svg
             ref={circleSvg}
             className={styles["circle-svg"]}
-            // initial={{ rotate: 180 }}
-            // whileInView={{ rotate: -45 }}
-            // transition={{
-            //   delay: 1,
-            //   duration: 2,
-            //   type: "spring",
-            // }}
-            // viewport={{ once: true }}
             width="60vh"
             height="60vh"
             viewBox="0 0 800 800"
@@ -517,174 +524,36 @@ const Skills = () => {
             </g>
           </motion.svg>
           <div className={styles.textHolder}>
-            <div className={styles.item}>
-              <motion.div className={styles.card} ref={card}>
-                <p
-                  style={{
-                    WebkitTextStroke: `2px ${skillsList[activeIndex]?.color}`,
-                    color: "white",
-                    transitionDelay: "1s",
-                  }}
+            {skillsList.map((item: any, index: number) => {
+              return (
+                <motion.div
+                  className={styles.item}
+                  ref={(el) => (skillRefs.current[index] = el)}
+                  key={index}
+                  style={{ transform: `rotate(${index * 45}deg)` }}
                 >
-                  8
-                </p>
-                <p
-                  style={{
-                    color: `${skillsList[activeIndex]?.color}`,
-                    transitionDelay: "1s",
-                  }}
-                >
-                  5%
-                </p>
-              </motion.div>
-            </div>
-            <div className={styles.item}>
-              <motion.div className={styles.card} ref={card}>
-                <p
-                  style={{
-                    WebkitTextStroke: `2px ${skillsList[activeIndex]?.color}`,
-                    color: "white",
-                    transitionDelay: "1s",
-                  }}
-                >
-                  8
-                </p>
-                <p
-                  style={{
-                    color: `${skillsList[activeIndex]?.color}`,
-                    transitionDelay: "1s",
-                  }}
-                >
-                  5%
-                </p>
-              </motion.div>
-            </div>
-            <div className={styles.item}>
-              <motion.div className={styles.card} ref={card}>
-                <p
-                  style={{
-                    WebkitTextStroke: `2px ${skillsList[activeIndex]?.color}`,
-                    color: "white",
-                    transitionDelay: "1s",
-                  }}
-                >
-                  8
-                </p>
-                <p
-                  style={{
-                    color: `${skillsList[activeIndex]?.color}`,
-                    transitionDelay: "1s",
-                  }}
-                >
-                  5%
-                </p>
-              </motion.div>
-            </div>
-            <div className={styles.item}>
-              <motion.div className={styles.card} ref={card}>
-                <p
-                  style={{
-                    WebkitTextStroke: `2px ${skillsList[activeIndex]?.color}`,
-                    color: "white",
-                    transitionDelay: "1s",
-                  }}
-                >
-                  8
-                </p>
-                <p
-                  style={{
-                    color: `${skillsList[activeIndex]?.color}`,
-                    transitionDelay: "1s",
-                  }}
-                >
-                  5%
-                </p>
-              </motion.div>
-            </div>
-            <div className={styles.item}>
-              <motion.div className={styles.card} ref={card}>
-                <p
-                  style={{
-                    WebkitTextStroke: `2px ${skillsList[activeIndex]?.color}`,
-                    color: "white",
-                    transitionDelay: "1s",
-                  }}
-                >
-                  8
-                </p>
-                <p
-                  style={{
-                    color: `${skillsList[activeIndex]?.color}`,
-                    transitionDelay: "1s",
-                  }}
-                >
-                  5%
-                </p>
-              </motion.div>
-            </div>
-            <div className={styles.item}>
-              <motion.div className={styles.card} ref={card}>
-                <p
-                  style={{
-                    WebkitTextStroke: `2px ${skillsList[activeIndex]?.color}`,
-                    color: "white",
-                    transitionDelay: "1s",
-                  }}
-                >
-                  8
-                </p>
-                <p
-                  style={{
-                    color: `${skillsList[activeIndex]?.color}`,
-                    transitionDelay: "1s",
-                  }}
-                >
-                  5%
-                </p>
-              </motion.div>
-            </div>
-            <div className={styles.item}>
-              <motion.div className={styles.card} ref={card}>
-                <p
-                  style={{
-                    WebkitTextStroke: `2px ${skillsList[activeIndex]?.color}`,
-                    color: "white",
-                    transitionDelay: "1s",
-                  }}
-                >
-                  8
-                </p>
-                <p
-                  style={{
-                    color: `${skillsList[activeIndex]?.color}`,
-                    transitionDelay: "1s",
-                  }}
-                >
-                  5%
-                </p>
-              </motion.div>
-            </div>
-            <div className={styles.item}>
-              <motion.div className={styles.card} ref={card}>
-                <p
-                  style={{
-                    WebkitTextStroke: `2px ${skillsList[activeIndex]?.color}`,
-                    color: "white",
-                    transitionDelay: "1s",
-                  }}
-                >
-                  8
-                </p>
-                <p
-                  style={{
-                    color: `${skillsList[activeIndex]?.color}`,
-                    transitionDelay: "1s",
-                  }}
-                >
-                  5%
-                </p>
-              </motion.div>
-            </div>
+                  <div className={styles.card} ref={card}>
+                    <p
+                      style={{
+                        WebkitTextStroke: `2px ${skillsList[index]?.color}`,
+                        color: "white",
+                        transitionDelay: "1s",
+                      }}
+                    >
+                      8
+                    </p>
+                    <p
+                      style={{
+                        color: `${skillsList[index]?.color}`,
+                        transitionDelay: "1s",
+                      }}
+                    >
+                      5%
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </div>
