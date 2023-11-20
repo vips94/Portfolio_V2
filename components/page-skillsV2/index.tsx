@@ -1,7 +1,13 @@
 "use-client";
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./skills.module.scss";
-import { motion, easeInOut, animate, useInView } from "framer-motion";
+import {
+  motion,
+  easeInOut,
+  animate,
+  useInView,
+  useAnimate,
+} from "framer-motion";
 import Title from "../title";
 import { useDispatch } from "react-redux";
 import {
@@ -15,8 +21,7 @@ import SkillIllustration from "../illustrate-svg/skill-illustrate/index";
 
 const MOVE_Y = 75;
 const MOVE_X = 94;
-const TEXT_MOVE_X = 89;
-const TEXT_MOVE_Y = 0;
+const TEXT_MOVE_X = 100;
 
 const skillsList = [
   {
@@ -28,6 +33,8 @@ const skillsList = [
     textcolor: "#f55c1b",
     maskOpacity: 0.95,
     text_x: TEXT_MOVE_X,
+    text_y: 13,
+    knowledge: "95",
   },
   {
     skillName: "CSS",
@@ -38,6 +45,8 @@ const skillsList = [
     textcolor: "#2e9fe3",
     maskOpacity: 0.95,
     text_x: TEXT_MOVE_X,
+    text_y: 10,
+    knowledge: "75",
   },
   {
     skillName: "SASS",
@@ -48,6 +57,8 @@ const skillsList = [
     textcolor: "#ff94aa",
     maskOpacity: 0.95,
     text_x: TEXT_MOVE_X,
+    text_y: 8,
+    knowledge: "70",
   },
   {
     skillName: "JAVASCRIPT",
@@ -59,6 +70,8 @@ const skillsList = [
     textStroke: "black",
     maskOpacity: 0.95,
     text_x: TEXT_MOVE_X,
+    text_y: 4,
+    knowledge: "80",
   },
   {
     skillName: "REACT",
@@ -69,6 +82,8 @@ const skillsList = [
     textcolor: "#93b4ff",
     maskOpacity: 0.95,
     text_x: TEXT_MOVE_X,
+    text_y: 0,
+    knowledge: "80",
   },
   {
     skillName: "REDUX",
@@ -80,6 +95,8 @@ const skillsList = [
     textStroke: "black",
     maskOpacity: 0.95,
     text_x: TEXT_MOVE_X,
+    text_y: 0,
+    knowledge: "90",
   },
   {
     skillName: "NEXT JS",
@@ -91,6 +108,8 @@ const skillsList = [
     textStroke: "black",
     maskOpacity: 0.95,
     text_x: TEXT_MOVE_X,
+    text_y: 0,
+    knowledge: "75",
   },
   {
     skillName: "UNITY:ENGINE",
@@ -101,44 +120,53 @@ const skillsList = [
     textcolor: "#00ffcb",
     maskOpacity: 0.95,
     text_x: TEXT_MOVE_X,
+    text_y: 6,
+    knowledge: "65",
   },
 ];
+
+const variants = {
+  initial: { opacity: 1, x: 0 },
+  hover: { opacity: 0, x: TEXT_MOVE_X },
+};
 
 const Skills = () => {
   const tabRefs = useRef([]) as any;
   const skillRefs = useRef([]) as any;
-  const card = useRef(null) as any;
   const circleSvg = useRef(null) as any;
+  const label = useRef(null) as any;
   const [activeIndex, setActiveIndex] = useState(0) as any;
   const [showIllustration, setShowIllustration] = useState(false) as any;
+  const [currentIndex, setCurrentIndex] = useState('') as any;
   const dispatch = useDispatch();
 
-  const isInView = useInView(circleSvg);
+  const isInView = useInView(circleSvg,{ once: true });
 
   useEffect(() => {
     if (isInView) {
+      console.log(isInView)
       skillsList.forEach((_: any, index: number) => {
         animate([
           [
             tabRefs.current[index],
-            { x: skillsList[index].x, y: skillsList[index].y, scale: 1.2 },
+            { x: skillsList[index].x, y: skillsList[index].y, scale: 1.3 },
             { duration: 0.5, ease: easeInOut, delay: 0.2 * index },
           ],
           [
             skillRefs.current[index],
-            { x: skillsList[index].text_x, opacity: 1 },
+            { x: skillsList[index].text_x, y: skillsList[index].text_y, opacity: 1 , rotateZ: 90 },
             { duration: 0.5, ease: easeInOut, delay: 0.2 * index, at: "<" },
           ],
-          // [
-          //   tabRefs.current[index],
-          //   { x: 0, y: 0, scale: 1 },
-          //   { delay: 1, duration: 0.5, ease: easeInOut },
-          // ],
-          // [
-          //   skillRefs.current[index],
-          //   { x: 0, y: 0, opacity: 0 },
-          //   { delay: 1, duration: 0.5, ease: easeInOut, at: "<" },
-          // ],
+          [
+            tabRefs.current[index],
+            { x: 0, y: 0, scale: 1 },
+            { delay: 1, duration: 0.5, ease: easeInOut },
+          ],
+          [
+            skillRefs.current[index],
+            { x: 0, y: 0, opacity: 0 },
+            { delay: 1, duration: 0.5, ease: easeInOut, at: "<" },
+          ],
         ]);
       });
       setTimeout(() => {
@@ -147,43 +175,54 @@ const Skills = () => {
     }
   }, [isInView]);
 
-  const playAnimation = (index: number) => {
-    animate([
-      //tab return sequence
-      // [
-      //   card.current,
-      //   { right: "27vh", opacity: 0 },
-      //   { duration: 0.3, ease: easeInOut },
-      // ],
-      // [
-      //   tabRefs.current[activeIndex],
-      //   { x: 0, y: 0, scale: 1 },
-      //   { delay: 0.1, duration: 0.3, ease: easeInOut, at: "<" },
-      // ],
-      //tab rotate sequence
-      // [
-      //   circleSvg.current,
-      //   { rotate: ROTATE_TAB_BY * (index + 1) },
-      //   { duration: 0.5, type: "spring" },
-      // ],
-      // //tab forward sequence
-      // [
-      //   tabRefs.current[index],
-      //   { x: skillsList[index].x, y: skillsList[index].y, scale: 1.2 },
-      //   { duration: 0.5,  ease: easeInOut, },
-      // ],
-      // [
-      //   card.current,
-      //   { right: "32vh", opacity: 1 },
-      //   {  duration: 0.5, ease: easeInOut, at: "<" },
-      // ],
-    ]);
+  const changeTheme = (index: number) => {
     setActiveIndex(index);
     dispatch(setPropertiesBorderColor(skillsList[index]?.color));
     dispatch(setPropertiesBtnMaskColor(skillsList[index]?.maskColor));
     dispatch(setPropetiedTextColor(skillsList[index]?.textcolor));
     dispatch(setPropertyTextStroke(skillsList[index]?.textStroke || "white"));
     dispatch(setPropertiesMaskOpacity(skillsList[index]?.maskOpacity));
+  };
+
+  const handleHoverStart = (index: number) => {
+    animate([
+      [
+        tabRefs.current[index],
+        { x: skillsList[index].x, y: skillsList[index].y, scale: 1.3 },
+        { duration: 0.5, ease: easeInOut },
+      ],
+      [
+        skillRefs.current[index],
+        { x: skillsList[index].text_x, opacity: 1 },
+        { duration: 0.5, ease: easeInOut, at: "<" },
+      ],
+      [
+        label.current,
+        { opacity:1 },
+        { duration: 0.3, ease: easeInOut, at: "<" },
+      ],
+    ]);
+    setCurrentIndex(index)
+  };
+
+  const handleHoverEnd = (index: number) => {
+    animate([
+      [
+        tabRefs.current[index],
+        { x: 0, y: 0, scale: 1 },
+        { duration: 0.5, ease: easeInOut },
+      ],
+      [
+        skillRefs.current[index],
+        { x: 0, opacity: 0 },
+        { duration: 0.3, ease: easeInOut, at: "<" },
+      ],
+      [
+        label.current,
+        {  opacity:0},
+        { duration: 0.3, ease: easeInOut, at: "<" },
+      ],
+    ]);
   };
 
   return (
@@ -212,7 +251,7 @@ const Skills = () => {
                   className={`${styles.second} ${
                     activeIndex === i ? styles.active : ""
                   }`}
-                  onClick={() => playAnimation(i)}
+                  onClick={() => changeTheme(i)}
                 >
                   <p className={styles.name}>{skill.skillName}</p>
                 </span>
@@ -238,12 +277,8 @@ const Skills = () => {
                 style={{
                   filter: `drop-shadow(-5px 5px 5px rgb(202, 202, 202))`,
                 }}
-                whileHover={{
-                  x: skillsList[0].x,
-                  y: skillsList[0].y,
-                  scale: 1.2,
-                }}
-                transition={{ duration: 0.5, ease: easeInOut }}
+                onMouseEnter={() => handleHoverStart(0)}
+                onMouseLeave={() => handleHoverEnd(0)}
               />
               <motion.path
                 ref={(el) => (tabRefs.current[1] = el)}
@@ -252,12 +287,8 @@ const Skills = () => {
                 style={{
                   filter: "drop-shadow(-5px 5px 5px rgb(202, 202, 202))",
                 }}
-                whileHover={{
-                  x: skillsList[1].x,
-                  y: skillsList[1].y,
-                  scale: 1.2,
-                }}
-                transition={{ duration: 0.5, ease: easeInOut }}
+                onMouseEnter={() => handleHoverStart(1)}
+                onMouseLeave={() => handleHoverEnd(1)}
               />
               <motion.path
                 ref={(el) => (tabRefs.current[2] = el)}
@@ -266,12 +297,8 @@ const Skills = () => {
                 style={{
                   filter: "drop-shadow(-5px 0px 5px rgb(202, 202, 202))",
                 }}
-                whileHover={{
-                  x: skillsList[2].x,
-                  y: skillsList[2].y,
-                  scale: 1.2,
-                }}
-                transition={{ duration: 0.5, ease: easeInOut }}
+                onMouseEnter={() => handleHoverStart(2)}
+                onMouseLeave={() => handleHoverEnd(2)}
               />
               <motion.path
                 ref={(el) => (tabRefs.current[3] = el)}
@@ -280,12 +307,8 @@ const Skills = () => {
                 style={{
                   filter: "drop-shadow(-5px -5px 5px rgb(202, 202, 202))",
                 }}
-                whileHover={{
-                  x: skillsList[3].x,
-                  y: skillsList[3].y,
-                  scale: 1.2,
-                }}
-                transition={{ duration: 0.5, ease: easeInOut }}
+                onMouseEnter={() => handleHoverStart(3)}
+                onMouseLeave={() => handleHoverEnd(3)}
               />
               <motion.path
                 ref={(el) => (tabRefs.current[4] = el)}
@@ -294,12 +317,8 @@ const Skills = () => {
                 style={{
                   filter: "drop-shadow(0px -5px 5px rgb(202, 202, 202))",
                 }}
-                whileHover={{
-                  x: skillsList[4].x,
-                  y: skillsList[4].y,
-                  scale: 1.2,
-                }}
-                transition={{ duration: 0.5, ease: easeInOut }}
+                onMouseEnter={() => handleHoverStart(4)}
+                onMouseLeave={() => handleHoverEnd(4)}
               />
               <motion.path
                 ref={(el) => (tabRefs.current[5] = el)}
@@ -308,12 +327,8 @@ const Skills = () => {
                 style={{
                   filter: "drop-shadow(5px -5px 5px rgb(202, 202, 202))",
                 }}
-                whileHover={{
-                  x: skillsList[5].x,
-                  y: skillsList[5].y,
-                  scale: 1.2,
-                }}
-                transition={{ duration: 0.5, ease: easeInOut }}
+                onMouseEnter={() => handleHoverStart(5)}
+                onMouseLeave={() => handleHoverEnd(5)}
               />
               <motion.path
                 ref={(el) => (tabRefs.current[6] = el)}
@@ -322,12 +337,8 @@ const Skills = () => {
                 style={{
                   filter: "drop-shadow(5px 5px 5px rgb(202, 202, 202))",
                 }}
-                whileHover={{
-                  x: skillsList[6].x,
-                  y: skillsList[6].y,
-                  scale: 1.2,
-                }}
-                transition={{ duration: 0.5, ease: easeInOut }}
+                onMouseEnter={() => handleHoverStart(6)}
+                onMouseLeave={() => handleHoverEnd(6)}
               />
               <motion.path
                 ref={(el) => (tabRefs.current[7] = el)}
@@ -336,12 +347,8 @@ const Skills = () => {
                 style={{
                   filter: "drop-shadow(5px 5px 5px rgb(202, 202, 202))",
                 }}
-                whileHover={{
-                  x: skillsList[7].x,
-                  y: skillsList[7].y,
-                  scale: 1.2,
-                }}
-                transition={{ duration: 0.5, ease: easeInOut }}
+                onMouseEnter={() => handleHoverStart(7)}
+                onMouseLeave={() => handleHoverEnd(7)}
               />
 
               <rect
@@ -526,35 +533,60 @@ const Skills = () => {
           <div className={styles.textHolder}>
             {skillsList.map((item: any, index: number) => {
               return (
-                <motion.div
+                <div
                   className={styles.item}
-                  ref={(el) => (skillRefs.current[index] = el)}
                   key={index}
                   style={{ transform: `rotate(${index * 45}deg)` }}
                 >
-                  <div className={styles.card} ref={card}>
-                    <p
-                      style={{
-                        WebkitTextStroke: `2px ${skillsList[index]?.color}`,
-                        color: "white",
-                        transitionDelay: "1s",
-                      }}
-                    >
-                      8
-                    </p>
+                  <motion.div
+                    className={styles.card}
+                    ref={(el) => (skillRefs.current[index] = el)}
+                  >
                     <p
                       style={{
                         color: `${skillsList[index]?.color}`,
                         transitionDelay: "1s",
                       }}
                     >
-                      5%
+                      {skillsList[index].knowledge.slice(0, 1)}
                     </p>
-                  </div>
-                </motion.div>
+                    <p
+                      style={{
+                        color: "white",
+                        WebkitTextStroke: `2px ${skillsList[index]?.color}`,
+                        transitionDelay: "1s",
+                      }}
+                    >
+                      {skillsList[index].knowledge.slice(
+                        1,
+                        skillsList[index].knowledge.length
+                      )}
+                    </p>
+                    <p
+                      style={{
+                        color: "white",
+                        WebkitTextStroke: `2px ${skillsList[index]?.color}`,
+                        transitionDelay: "1s",
+                      }}
+                    >
+                      %
+                    </p>
+                  </motion.div>
+                </div>
               );
             })}
           </div>
+          <motion.div
+            ref={label}
+            className={styles.skillLabel}
+            style={{
+              color: 'white',
+              WebkitTextStroke: `2px ${skillsList[currentIndex]?.color}`,
+              transitionDuration: '0.5s'
+            }}
+          >
+            {skillsList[currentIndex]?.skillName}
+          </motion.div>
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useMemo, useRef } from "react";
 import styles from "./projects.module.scss";
 import Title from "../title";
 import Hexagon from "../shapes/hexagon";
@@ -138,15 +138,12 @@ const list = [
 ];
 const Projects = () => {
   const dispatch = useDispatch();
-
-
   const onHexagonClick = (project:any) => {
     dispatch(setIsProjectSelected(true))
     dispatch(setProjectData(project?.projectData));
   };
 
-  const Rows = () => {
-    console.log('running')
+  function Rows() {
     return (
       <>
         {list.map((row_list, index) => {
@@ -188,7 +185,7 @@ const Projects = () => {
         <Title title="MY PROJECTS" shadowTitle="MY PROJECTS" />
         <div className={styles["project-list-container"]}>
           <div className={styles["project-list"]}>
-            <Rows />
+            {Rows()}
           </div>
         </div>
       </div>

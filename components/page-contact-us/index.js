@@ -110,7 +110,7 @@ const ContactUs = () => {
               style={customStyle}
               initial={{x:-100}}
               whileInView={{x:0}}
-              transition={{duration:1}}
+              transition={{duration:0.5}}
               viewport={{once:true}}
             ></motion.input>
             <motion.input
@@ -124,7 +124,7 @@ const ContactUs = () => {
               style={customStyle}
               initial={{x:100}}
               whileInView={{x:0}}
-              transition={{duration:1}}
+              transition={{duration:0.5}}
               viewport={{once:true}}
             ></motion.input>
             <motion.textarea
@@ -137,7 +137,7 @@ const ContactUs = () => {
               style={customStyle}
               initial={{x:-100}}
               whileInView={{x:0}}
-              transition={{duration:1}}
+              transition={{duration:0.5}}
               viewport={{once:true}}
             ></motion.textarea>
             <CustomButton

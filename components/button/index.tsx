@@ -26,7 +26,7 @@ const CustomButton: FC<CustomButtonProps> = (props) => {
       className={`${styles["button-container"]} ${styles[containerClassName]}`}
       initial={{x:-100}}
       whileInView={{x:0}}
-      transition={{duration:1}}
+      transition={{duration:0.5}}
       viewport={{once:true}}
     >
       <span className={`${styles.mask} ${styles[maskClassName]}`}>
