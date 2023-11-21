@@ -5,10 +5,20 @@ import gsap from 'gsap';
 import Lottie from 'lottie-web';
 import avatarAnimation2 from '@/public/lottieFiles/wired-lineal-268-avatar-man.json';
 import handwaveAnimation from '@/public/lottieFiles/Animation-handwave.json';
+import { useSelector } from "react-redux";
+import {
+  selectPropertiesBorderColor,
+  selectPropertiesBtnMaskColor,
+  selectPropertyTextStroke,
+} from "@/store/skills";
 
 const NavBar = () => {
     const container = useRef(null) as any;
     const hand = useRef(null) as any;
+
+    const propertiesBorderColor = useSelector(selectPropertiesBorderColor);
+    const propertiesBtnMaskColor = useSelector(selectPropertiesBtnMaskColor);
+    const propertyTextStroke = useSelector(selectPropertyTextStroke);
 
     let  anim = null as any;
     useEffect(() => {
@@ -82,8 +92,8 @@ const NavBar = () => {
     }
 
     return (
-        <div className={styles['nav-loader']}>
-            <nav className={styles['nav-section']}>
+        <div className={styles['nav-loader']} style={{backgroundColor: propertiesBorderColor}}>
+            <nav className={styles['nav-section']} style={{backgroundColor: propertiesBtnMaskColor}}>
                 <div className={styles.left}>
                     <div className={styles.avatar}>
                         <div ref={container} 
@@ -97,7 +107,7 @@ const NavBar = () => {
                     </div>
                 </div>
                 
-                <div className={styles.right}> 
+                <div className={styles.right} style={{color: propertyTextStroke}}> 
                     <Link href={'#'} className={styles.link}>About Me</Link>
                     <Link href={'#'} className={styles.link}>Skills</Link>
                     <Link href={'#'} className={styles.link}>Projects</Link>

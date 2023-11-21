@@ -2,7 +2,7 @@
 import Head from "next/head";
 import styles from "@/styles/Home.module.scss";
 import NavBar from "@/components/page-nav-bar";
-import HomePage from "@/components/page-home";
+import HomePage from "@/components/page-homeV2";
 import React, { useEffect, useRef } from "react";
 import Blob from "@/components/blob";
 import Skills from "@/components/page-skillsV2";
@@ -15,7 +15,6 @@ import { selectIsProjectSelected } from "@/store/project";
 import ContactUs from "@/components/page-contact-us/index";
 import Footer from "@/components/footer";
 import ThemeOverlay from "@/components/page-overlay";
-import MousePointer from "@/components/mouse-pointer";
 import gsap from "gsap";
 import {
   selectPropertiesBorderColor,
@@ -23,28 +22,28 @@ import {
 } from "@/store/skills";
 
 export default function Home() {
-  const isProjectSelected = useSelector(selectIsProjectSelected)
+  const isProjectSelected = useSelector(selectIsProjectSelected);
   const propertiesBorderColor = useSelector(selectPropertiesBorderColor);
   const propertyTextStroke = useSelector(selectPropertyTextStroke);
   const mouseRef = useRef(null) as any;
- 
+
   useEffect(() => {
     (async () => {
-      //to smooth the scrolling 
+      //to smooth the scrolling
       const LocomotiveScroll = (await import("locomotive-scroll")).default;
       const locomotiveScroll = new LocomotiveScroll();
     })();
   }, []);
 
-  const mouseMoveHandle = (event:any) => {
-    console.log(event.clientX, event.clientY);
-    gsap.to(mouseRef.current,{
-      x: event.clientX - mouseRef.current.offsetWidth/2,
-      y: event.clientY - mouseRef.current.offsetHeight/2,
-      duration: 0.1,
-      ease: "none",
-    })
-  }
+  // const mouseMoveHandle = (event:any) => {
+  //   console.log(event.clientX, event.clientY);
+  //   gsap.to(mouseRef.current,{
+  //     x: event.clientX - mouseRef.current.offsetWidth/2,
+  //     y: event.clientY - mouseRef.current.offsetHeight/2,
+  //     duration: 0.1,
+  //     ease: "none",
+  //   })
+  // }
 
   return (
     <>
@@ -54,20 +53,36 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={`${styles.main}`} id="main" onMouseMove={(e)=>mouseMoveHandle(e)}>
-        <div ref={mouseRef} className={styles.pointer} style={{backgroundColor:propertiesBorderColor, width: '40px', height:'40px'}}/>
-        <Thread style={{zIndex: 3,  right:'2%'}} color="#e8ccc7" threadWidth={1}/>
-        <Blob style={{transform: 'translate(-35%,300%)', top:'0', left:'0', zIndex: '5'}} image='/images/home/home-fg4.jpg'/>
-        <ThemeOverlay/>
-        <Divider color="white" position="calc(90vh - 200px + 45px)"/> 
-        {/* <NavBar /> */}
+      <main
+        className={`${styles.main}`}
+        id="main"
+        // onMouseMove={(e) => mouseMoveHandle(e)}
+      >
+        {/* <div ref={mouseRef} className={styles.pointer} style={{backgroundColor:propertiesBorderColor, width: '10px', height:'10px'}}/> */}
+        <Thread
+          style={{ zIndex: 3, right: "2%" }}
+          color="#e8ccc7"
+          threadWidth={1}
+        />
+        <Blob
+          style={{
+            transform: "translate(-35%,300%)",
+            top: "0",
+            left: "0",
+            zIndex: "5",
+          }}
+          image="/images/home/home-fg4.jpg"
+        />
+        <ThemeOverlay />
+        <Divider color="white" position="calc(90vh - 200px + 45px)" />
+        <NavBar />
         <HomePage />
-        <Skills/>
-        <Projects/>
-        <ContactUs/>
-        <Divider position="calc(380vh - 200px + 45px)"/> 
-        <Footer/>
-        {isProjectSelected &&  <Popup/>}
+        <Skills />
+        <Projects />
+        <ContactUs />
+        <Divider position="calc(380vh - 200px + 45px)" />
+        <Footer />
+        {isProjectSelected && <Popup />}
       </main>
     </>
   );

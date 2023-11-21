@@ -108,8 +108,8 @@ const ContactUs = () => {
               id="userName"
               placeholder="Name *"
               style={customStyle}
-              initial={{x:-100}}
-              whileInView={{x:0}}
+              initial={{y:500}}
+              whileInView={{y:0}}
               transition={{duration:0.5}}
               viewport={{once:true}}
             ></motion.input>
@@ -122,8 +122,8 @@ const ContactUs = () => {
               id="email"
               placeholder="Email *"
               style={customStyle}
-              initial={{x:100}}
-              whileInView={{x:0}}
+              initial={{y:500}}
+              whileInView={{y:0}}
               transition={{duration:0.5}}
               viewport={{once:true}}
             ></motion.input>
@@ -135,8 +135,8 @@ const ContactUs = () => {
               id="message"
               placeholder="Message *"
               style={customStyle}
-              initial={{x:-100}}
-              whileInView={{x:0}}
+              initial={{y:400}}
+              whileInView={{y:0}}
               transition={{duration:0.5}}
               viewport={{once:true}}
             ></motion.textarea>
