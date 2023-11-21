@@ -27,21 +27,21 @@ $waveHeight : 200px;
     }
 
     .wave2{
-        animation: waveAnim1 14s linear infinite forwards;
+        animation: waveAnim1 20s linear infinite forwards;
         opacity: 0.7;
         z-index: 3;
         // bottom: 5px;
     }
 
     .wave3{
-        animation: waveAnim 16s linear infinite forwards;
+        animation: waveAnim 25s linear infinite forwards;
         opacity: 0.5;
         z-index: 2;
         // bottom:10px;
     }
 
     .wave4{
-        animation: waveAnim1 18s linear infinite forwards;
+        animation: waveAnim1 30s linear infinite forwards;
         opacity: 0.2;
         z-index: 1;
         // bottom: 15px;

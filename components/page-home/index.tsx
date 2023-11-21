@@ -128,6 +128,9 @@ const HomePage = () => {
           className={styles["window"]}
           src="/images/home/bottom-window.png"
         />
+        <div
+          className={styles["home-footer"]}
+        />
       </div>
 
       <div className={styles["body-container"]}>

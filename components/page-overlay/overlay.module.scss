@@ -1,0 +1,120 @@
+@import "@/sass/variables.scss";
+
+.overlay-section {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+
+  .backdrop {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    z-index: -2;
+    transform: translateX(-100%);
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2px);
+  }
+
+  .circle {
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    transform: translate(0, -50%);
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    justify-content: flex-start;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border: 1px solid $radioButtonColor;
+    border-radius: 50%;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.7s ease-in-out;
+    z-index: 2;
+    pointer-events: all;
+
+    .activeCircle {
+      width: 80%;
+      height: 80%;
+      border-radius: 50%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      background-color: $radioButtonColor;
+      animation: anim 1s infinite;
+    }
+
+    .themeHolder {
+      transform-origin: left center;
+      height: 2px;
+      position: absolute;
+      left: calc(100% - 25px);
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      opacity: 1;
+      z-index: 1;
+      pointer-events: all;
+
+      .themeBtn {
+        position: absolute;
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        border: 2px solid $radioButtonColor;
+        border-radius: 50%;
+        background-color: white;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        transform: translateX(-145px);
+        opacity: 0;
+
+        &:hover {
+          transform: scale(1.2);
+
+          span {
+            transform: translate(-50%, -50%) scale(1.25);
+          }
+        }
+
+        span {
+          width: 80%;
+          height: 80%;
+          border-radius: 50%;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 1;
+          // border: 2px solid $radioButtonColor;
+          transition: all 0.2s ease-in-out;
+          // box-shadow: 0px 0px 4px black;
+        }
+      }
+    }
+  }
+}
+
+@keyframes anim {
+    0%{
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50%{
+        transform:translate(-50%, -50%) scale(1.07);
+    }
+    100%{
+        transform:translate(-50%, -50%) scale(1);
+    }
+}

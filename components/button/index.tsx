@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import styles from "./button.module.scss";
 import { useSelector } from "react-redux";
-import { selectPropertiesBorderColor } from "@/store/skills";
+import { selectPropertiesBorderColor, selectPropertiesBtnMaskColor, selectPropertyTextStroke } from "@/store/skills";
 import {motion} from 'framer-motion';
 
 type CustomButtonProps = {
@@ -21,6 +21,8 @@ const CustomButton: FC<CustomButtonProps> = (props) => {
     maskClassName,
   } = props;
   const propertiesBorderColor = useSelector(selectPropertiesBorderColor);
+  const propertiesBtnMaskColor = useSelector(selectPropertiesBtnMaskColor);
+  const propertyTextStroke = useSelector(selectPropertyTextStroke);
   return (
     <motion.div
       className={`${styles["button-container"]} ${styles[containerClassName]}`}
@@ -28,15 +30,16 @@ const CustomButton: FC<CustomButtonProps> = (props) => {
       whileInView={{x:0}}
       transition={{duration:0.5}}
       viewport={{once:true}}
+      style={{ border: `2px solid ${propertiesBorderColor}` }}
     >
-      <span className={`${styles.mask} ${styles[maskClassName]}`}>
+      <span className={`${styles.mask} ${styles[maskClassName]}`} style={{color: '#6e6363' }}>
         {btnName}
       </span>
       <button
         className={`${styles.btn} ${styles[extraClassName]}`}
         type="button"
         name="Hover"
-        style={{ background: propertiesBorderColor }}
+        style={{ background: propertiesBtnMaskColor,color: propertyTextStroke }}
       >
         {children}
       </button>

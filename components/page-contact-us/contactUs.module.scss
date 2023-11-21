@@ -3,7 +3,7 @@
 .contact-container {
   position: relative;
   width: 100vw;
-  min-height: 100vh;
+  min-height: 80vh;
   background-color: white;
   overflow: hidden;
 
@@ -12,7 +12,7 @@
     height: 100%;
     .form-container {
       position: relative;
-      margin-top: 15vh;
+      margin-top: 10vh;
       margin-bottom: 5vh;
       width: 100%;
       height: 100%;
@@ -30,7 +30,6 @@
         padding: 0px 3rem 0px 3rem;
 
         .status {
-          color: red;
           font-size: 16px;
           @include breakpoint(md) {
             font-size: 15px;
@@ -39,7 +38,7 @@
 
         .name,.message,.email {
           width: 100%;
-          height: 5rem;
+          height: 4rem;
           padding-left: 1rem;
           border: 3px solid;
           box-shadow: $boxShadow;
@@ -55,45 +54,6 @@
         .message {
           height: 6rem;
         }
-
-        // button {
-        //   width: 100%;
-        //   height: 5rem;
-        //   background: $bg;
-        //   padding-left: 1rem;
-        //   border-width: 1px;
-        //   border-style: solid;
-        //   border-color: $borderColor;
-        //   border-image: initial;
-        //   display: flex;
-        //   flex-direction: row;
-        //   justify-content: center;
-        //   align-items: center;
-        //   gap: 0.5rem;
-        //   box-shadow: $boxShadow;
-        //   border-radius: $contactBorderRadius;
-        //   transition: 0.7s ease all;
-        //   font-size: 2rem;
-
-        //   &:hover {
-        //     background: rgba($highlight, 0.1);
-        //   }
-
-        //   &:active {
-        //     background: rgba($primary, 0.1);
-        //   }
-
-        //   p {
-        //     font-size: 2rem;
-        //     color: black;
-        //   }
-
-        //   svg {
-        //     width: 30px;
-        //     height: 30px;
-        //     color: red;
-        //   }
-        // }
       }
     }
 

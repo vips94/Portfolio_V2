@@ -1,4 +1,61 @@
+
+$socialIconsSize : 3vh;
+
 .footerSection{
     width: 100vw;
-    height: 300px;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .links{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 3vw;
+        width: 100%;
+
+        a{
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: 0.7s ease all;
+        }
+    }
+
+    .socials{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+
+        .socialLink{
+            width: $socialIconsSize;
+            height: $socialIconsSize;
+
+            svg{
+                width: 100%;
+                height: 100%;
+            }
+
+            &:nth-child(2){
+                width: calc($socialIconsSize + 7px);
+                height: calc($socialIconsSize + 7px );
+            }
+
+            &:nth-child(3){
+                width: calc($socialIconsSize + 10px);
+                height: calc($socialIconsSize + 10px );
+            }
+
+            &:nth-child(4){
+                width: calc($socialIconsSize - 5px);
+                height: calc($socialIconsSize - 5px);
+            }
+        }
+    }
 }

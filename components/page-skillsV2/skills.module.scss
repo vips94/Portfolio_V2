@@ -11,66 +11,6 @@
         width: 100%;
         height: 100%;
 
-        .dot{
-            position: absolute;
-            top: 50%;
-            transform: translate(0,-50%);
-            left: 40px;
-            width: 40px;
-            z-index: 14;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            gap: 2rem;
-
-            .dotNav{
-                .second{
-                    display: flex;
-                    justify-content: center;
-                    gap: 1rem;
-                    justify-content: flex-start;
-                    align-items: center;
-                    width: 30px;
-                    height: 30px;
-                    border: 1px solid $radioButtonColor;
-                    border-radius: 50%;
-                    background-color: white;
-                    cursor: pointer;
-                    transition: all 0.7s ease-in-out;
-
-                    .name{
-                        color: $radioButtonColor;
-                        padding-left: 50px;
-                        white-space: nowrap;
-                        font-size: 2rem;
-                        font-family: $fontFamilySecondry;
-                    }
-
-                }
-
-                .active{
-                    position: relative;
-
-                    &::after{
-                        width: 80%;
-                        height: 80%;
-                        border-radius: 50%;
-                        content: '';
-                        position: absolute;
-                        left: 50%;
-                        top: 50%; 
-                        transform: translate(-50%,-50%);
-                        z-index: 1;
-                        background-color:$radioButtonColor;
-                    }
-                }
-            }
-
-                
-            
-        }
-
         .background{
             width: 700px;
             height: 700px;
@@ -90,7 +30,7 @@
             width: 100%;
             height: 100%;
             position: absolute;
-            top: 50%;
+            top: 55%;
             transform: translate(-50%,-50%);
             right: -50%;
             display: flex;

@@ -4,8 +4,14 @@ import styles from "./skills.module.scss";
 import { motion, easeInOut, animate, useInView } from "framer-motion";
 import Title from "../title";
 import { useDispatch } from "react-redux";
-import { setPropertiesBorderColor, setPropertiesBtnMaskColor, setPropetiedTextColor, setPropertiesMaskOpacity, setPropertyTextStroke } from "@/store/skills";
-import SkillIllustration from '../illustrate-svg/skill-illustrate/index';
+import {
+  setPropertiesBorderColor,
+  setPropertiesBtnMaskColor,
+  setPropetiedTextColor,
+  setPropertiesMaskOpacity,
+  setPropertyTextStroke,
+} from "@/store/skills";
+import SkillIllustration from "../illustrate-svg/skill-illustrate/index";
 
 const MOVE_Y = 75;
 const MOVE_X = 94;
@@ -16,8 +22,8 @@ const skillsList = [
     x: -MOVE_Y,
     y: -MOVE_Y,
     color: "#f55c1b",
-    maskColor: '#F99D76',
-    textcolor: '#f55c1b',
+    maskColor: "#F99D76",
+    textcolor: "#f55c1b",
     maskOpacity: 0.95,
   },
   {
@@ -25,8 +31,8 @@ const skillsList = [
     x: 0,
     y: -MOVE_X,
     color: "#2e9fe3",
-    maskColor: '#81C5EE',
-    textcolor: '#2e9fe3',
+    maskColor: "#81C5EE",
+    textcolor: "#2e9fe3",
     maskOpacity: 0.95,
   },
   {
@@ -34,8 +40,8 @@ const skillsList = [
     x: 66.5,
     y: -66.5,
     color: "#ff94aa",
-    maskColor: '#FFBECC',
-    textcolor: '#ff94aa',
+    maskColor: "#FFBECC",
+    textcolor: "#ff94aa",
     maskOpacity: 0.95,
   },
   {
@@ -43,9 +49,9 @@ const skillsList = [
     x: 85,
     y: 0,
     color: "#f9e3ae",
-    maskColor: '#FBEECE',
-    textcolor: '#f9e3ae',
-    textStroke: 'black',
+    maskColor: "#FBEECE",
+    textcolor: "#f9e3ae",
+    textStroke: "black",
     maskOpacity: 0.95,
   },
   {
@@ -53,8 +59,8 @@ const skillsList = [
     x: 65,
     y: 65,
     color: "#93b4ff",
-    maskColor: '#BED2FF',
-    textcolor: '#93b4ff',
+    maskColor: "#BED2FF",
+    textcolor: "#93b4ff",
     maskOpacity: 0.95,
   },
   {
@@ -62,9 +68,9 @@ const skillsList = [
     x: 0,
     y: MOVE_X,
     color: "#abff97",
-    maskColor: '#CCFFC0',
-    textcolor: '#abff97',
-    textStroke: 'black',
+    maskColor: "#CCFFC0",
+    textcolor: "#abff97",
+    textStroke: "black",
     maskOpacity: 0.95,
   },
   {
@@ -72,9 +78,9 @@ const skillsList = [
     x: -76,
     y: 76,
     color: "#ecefff",
-    maskColor: '#F3F5FF',
-    textcolor: '#ecefff',
-    textStroke: 'black',
+    maskColor: "#F3F5FF",
+    textcolor: "#ecefff",
+    textStroke: "black",
     maskOpacity: 0.95,
   },
   {
@@ -82,8 +88,8 @@ const skillsList = [
     x: -94,
     y: 0,
     color: "#00ffcb",
-    maskColor: '#66FFDF',
-    textcolor: '#00ffcb',
+    maskColor: "#66FFDF",
+    textcolor: "#00ffcb",
     maskOpacity: 0.95,
   },
 ];
@@ -95,29 +101,29 @@ const Skills = () => {
   const circleSvg = useRef(null) as any;
   const [activeIndex, setActiveIndex] = useState(0) as any;
   const [showIllustration, setShowIllustration] = useState(false) as any;
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const isInView = useInView(circleSvg)
+  const isInView = useInView(circleSvg);
 
   useEffect(() => {
-    if(isInView){
+    if (isInView) {
       animate([
         [
           tabRefs.current[0],
           { x: skillsList[0].x, y: skillsList[0].y, scale: 1.2 },
-          { duration: 0.5,  ease: easeInOut, delay: 3},
+          { duration: 0.5, ease: easeInOut, delay: 3 },
         ],
         [
           card.current,
           { right: "32vh", opacity: 1 },
           { delay: 3, duration: 0.5, ease: easeInOut, at: "<" },
         ],
-      ])
-      setTimeout(()=>{
+      ]);
+      setTimeout(() => {
         setShowIllustration(true);
-      },1000)
+      }, 1000);
     }
-  },[isInView]);
+  }, [isInView]);
 
   const playAnimation = (index: number) => {
     animate([
@@ -142,21 +148,21 @@ const Skills = () => {
       [
         tabRefs.current[index],
         { x: skillsList[index].x, y: skillsList[index].y, scale: 1.2 },
-        { duration: 0.5,  ease: easeInOut, },
+        { duration: 0.5, ease: easeInOut },
       ],
       [
         card.current,
         { right: "32vh", opacity: 1 },
-        {  duration: 0.5, ease: easeInOut, at: "<" },
+        { duration: 0.5, ease: easeInOut, at: "<" },
       ],
     ]);
     setActiveIndex(index);
-    console.log(skillsList[index].color)
+    console.log(skillsList[index].color);
     dispatch(setPropertiesBorderColor(skillsList[index]?.color));
     dispatch(setPropertiesBtnMaskColor(skillsList[index]?.maskColor));
     dispatch(setPropetiedTextColor(skillsList[index]?.textcolor));
-    dispatch(setPropertyTextStroke(skillsList[index]?.textStroke || 'white'))
-    dispatch(setPropertiesMaskOpacity(skillsList[index]?.maskOpacity))
+    dispatch(setPropertyTextStroke(skillsList[index]?.textStroke || "white"));
+    dispatch(setPropertiesMaskOpacity(skillsList[index]?.maskOpacity));
   };
 
   return (
@@ -164,7 +170,7 @@ const Skills = () => {
       <div className={styles.section}>
         <Title title="MY SKILLS" shadowTitle="MY SKILLS" />
         <div className={styles.background}>
-          {showIllustration && <SkillIllustration/>}
+          {showIllustration && <SkillIllustration />}
         </div>
         <div className={styles.dot}>
           {skillsList.map((skill: any, i: number) => {
@@ -468,12 +474,19 @@ const Skills = () => {
             style={{
               WebkitTextStroke: `2px ${skillsList[activeIndex]?.color}`,
               color: "white",
-              transitionDelay: '1s'
+              transitionDelay: "1s",
             }}
           >
             8
           </p>
-          <p style={{ color: `${skillsList[activeIndex]?.color}`, transitionDelay: '1s' }}>5%</p>
+          <p
+            style={{
+              color: `${skillsList[activeIndex]?.color}`,
+              transitionDelay: "1s",
+            }}
+          >
+            5%
+          </p>
         </motion.div>
       </div>
     </div>

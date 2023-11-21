@@ -98,7 +98,7 @@ const ContactUs = () => {
         <Title title="GET IN TOUCH" shadowTitle="CONTACT" />
         <div className={styles["form-container"]}>
           <form className={styles.form} onSubmit={submitHandler} name="Form">
-            <p className={styles.status}>{status}</p>
+            <p className={styles.status} style={{color: propertiesBorderColor}}>{status}</p>
             <motion.input
               className={styles.name}
               value={enteredUserName}
@@ -141,10 +141,10 @@ const ContactUs = () => {
               viewport={{once:true}}
             ></motion.textarea>
             <CustomButton
-                containerClassName="btn-container-1"
-                extraClassName="btn-1"
-                maskClassName="mask-1"
-                btnName="SEND"
+              containerClassName="btn-container-1"
+              extraClassName="btn-1"
+              maskClassName="mask-1"
+              btnName="SEND"
             >
                 SEND
             </CustomButton>

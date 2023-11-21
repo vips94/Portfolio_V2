@@ -67,7 +67,7 @@ const skillsList = [
     color: "#f9e3ae",
     maskColor: "#FBEECE",
     textcolor: "#f9e3ae",
-    textStroke: "black",
+    textStroke: "#6e6363",
     maskOpacity: 0.95,
     text_x: TEXT_MOVE_X,
     text_y: 4,
@@ -92,7 +92,7 @@ const skillsList = [
     color: "#abff97",
     maskColor: "#CCFFC0",
     textcolor: "#abff97",
-    textStroke: "black",
+    textStroke: "#6e6363",
     maskOpacity: 0.95,
     text_x: TEXT_MOVE_X,
     text_y: 0,
@@ -105,7 +105,7 @@ const skillsList = [
     color: "#ecefff",
     maskColor: "#F3F5FF",
     textcolor: "#ecefff",
-    textStroke: "black",
+    textStroke: "#6e6363",
     maskOpacity: 0.95,
     text_x: TEXT_MOVE_X,
     text_y: 0,
@@ -175,15 +175,6 @@ const Skills = () => {
     }
   }, [isInView]);
 
-  const changeTheme = (index: number) => {
-    setActiveIndex(index);
-    dispatch(setPropertiesBorderColor(skillsList[index]?.color));
-    dispatch(setPropertiesBtnMaskColor(skillsList[index]?.maskColor));
-    dispatch(setPropetiedTextColor(skillsList[index]?.textcolor));
-    dispatch(setPropertyTextStroke(skillsList[index]?.textStroke || "white"));
-    dispatch(setPropertiesMaskOpacity(skillsList[index]?.maskOpacity));
-  };
-
   const handleHoverStart = (index: number) => {
     animate([
       [
@@ -232,33 +223,6 @@ const Skills = () => {
         {/* <div className={styles.background}>
           {showIllustration && <SkillIllustration/>}
         </div> */}
-        <div className={styles.dot}>
-          {skillsList.map((skill: any, i: number) => {
-            return (
-              <motion.div
-                className={styles.dotNav}
-                initial={{ x: "-200%", opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                transition={{
-                  duration: 1,
-                  delay: 0.2 * i,
-                  type: "spring",
-                }}
-                viewport={{ once: true }}
-                key={i}
-              >
-                <span
-                  className={`${styles.second} ${
-                    activeIndex === i ? styles.active : ""
-                  }`}
-                  onClick={() => changeTheme(i)}
-                >
-                  <p className={styles.name}>{skill.skillName}</p>
-                </span>
-              </motion.div>
-            );
-          })}
-        </div>
         <div className={styles.tab}>
           <motion.svg
             ref={circleSvg}

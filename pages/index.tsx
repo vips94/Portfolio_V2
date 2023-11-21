@@ -14,6 +14,7 @@ import { useSelector } from "react-redux";
 import { selectIsProjectSelected } from "@/store/project";
 import ContactUs from "@/components/page-contact-us/index";
 import Footer from "@/components/footer";
+import ThemeOverlay from "@/components/page-overlay";
 
 export default function Home() {
   const isProjectSelected = useSelector(selectIsProjectSelected)
@@ -37,13 +38,14 @@ export default function Home() {
       <main className={`${styles.main}`} id="main">
         <Thread style={{zIndex: 3,  right:'2%'}} color="#e8ccc7" threadWidth={1}/>
         <Blob style={{transform: 'translate(-45%,65%)', bottom:'0', left:'0', zIndex: '2'}} image='/images/home/home-fg4.jpg'/>
-        <Divider color="white" position="calc(100vh - 200px + 45px)"/> 
+        <ThemeOverlay/>
+        <Divider color="white" position="calc(90vh - 200px + 45px)"/> 
         {/* <NavBar /> */}
         <HomePage />
         <Skills/>
         <Projects/>
         <ContactUs/>
-        <Divider position="calc(400vh - 200px + 45px)"/> 
+        <Divider position="calc(380vh - 200px + 45px)"/> 
         <Footer/>
         {isProjectSelected &&  <Popup/>}
       </main>
