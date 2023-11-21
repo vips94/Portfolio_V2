@@ -1,8 +1,19 @@
 @import '@/sass/variables.scss';
 .main {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
   min-height: 100vh;
+  overflow: hidden;
+
+  .pointer{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 99999;
+    pointer-events: none !important;
+}
 }

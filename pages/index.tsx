@@ -15,9 +15,18 @@ import { selectIsProjectSelected } from "@/store/project";
 import ContactUs from "@/components/page-contact-us/index";
 import Footer from "@/components/footer";
 import ThemeOverlay from "@/components/page-overlay";
+import MousePointer from "@/components/mouse-pointer";
+import gsap from "gsap";
+import {
+  selectPropertiesBorderColor,
+  selectPropertyTextStroke,
+} from "@/store/skills";
 
 export default function Home() {
   const isProjectSelected = useSelector(selectIsProjectSelected)
+  const propertiesBorderColor = useSelector(selectPropertiesBorderColor);
+  const propertyTextStroke = useSelector(selectPropertyTextStroke);
+  const mouseRef = useRef(null) as any;
  
   useEffect(() => {
     (async () => {
@@ -27,6 +36,16 @@ export default function Home() {
     })();
   }, []);
 
+  const mouseMoveHandle = (event:any) => {
+    console.log(event.clientX, event.clientY);
+    gsap.to(mouseRef.current,{
+      x: event.clientX - mouseRef.current.offsetWidth/2,
+      y: event.clientY - mouseRef.current.offsetHeight/2,
+      duration: 0.1,
+      ease: "none",
+    })
+  }
+
   return (
     <>
       <Head>
@@ -35,9 +54,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={`${styles.main}`} id="main">
+      <main className={`${styles.main}`} id="main" onMouseMove={(e)=>mouseMoveHandle(e)}>
+        <div ref={mouseRef} className={styles.pointer} style={{backgroundColor:propertiesBorderColor, width: '40px', height:'40px'}}/>
         <Thread style={{zIndex: 3,  right:'2%'}} color="#e8ccc7" threadWidth={1}/>
-        <Blob style={{transform: 'translate(-45%,65%)', bottom:'0', left:'0', zIndex: '2'}} image='/images/home/home-fg4.jpg'/>
+        <Blob style={{transform: 'translate(-35%,300%)', top:'0', left:'0', zIndex: '5'}} image='/images/home/home-fg4.jpg'/>
         <ThemeOverlay/>
         <Divider color="white" position="calc(90vh - 200px + 45px)"/> 
         {/* <NavBar /> */}
