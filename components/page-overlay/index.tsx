@@ -95,45 +95,75 @@ const skillsList = [
 const ThemeOverlay = () => {
   const themes = useRef([]) as any;
   const backdrop = useRef(null) as any;
+  const arrow = useRef(null) as any;
+  // const arrow1 = useRef(null) as any;
   const [activeIndex, setActiveIndex] = useState(0) as any;
   const [showThemeMenu, setShowThemeMenu] = useState(false) as any;
   const dispatch = useDispatch();
 
   const toggleThemeMenu = () => {
-    if(!showThemeMenu){
-        playAnimation();
-    }else{
-        returnAnimation();
+    if (!showThemeMenu) {
+      playAnimation();
+    } else {
+      returnAnimation();
     }
     setShowThemeMenu(!showThemeMenu);
-    
-  }
+  };
 
   const playAnimation = () => {
     const timeline = gsap.timeline();
-    timeline.to(themes.current,{
-        duration: 0.1,
-        opacity: 1,
-        stagger: 0.05,
-        x: 0,
-    }).to(backdrop.current,{
-        duration:0.5,
-        x: 0
-    },0)
-  }
+    timeline
+      .to(backdrop.current, {
+        duration: 0.5,
+        height: "35vh",
+        x: "-50%",
+      })
+      .to(
+        arrow.current,
+        {
+          scale: -1,
+          duration: 0.5,
+        },
+        "0"
+      )
+      .to(
+        themes.current,
+        {
+          duration: 0.1,
+          opacity: 1,
+          stagger: 0.05,
+          x: 0,
+        },
+        "-=0.4"
+      );
+  };
 
   const returnAnimation = () => {
     const timeline = gsap.timeline();
-    timeline.to(themes.current,{
+    timeline
+      .to(themes.current, {
         duration: 0.1,
         opacity: 0,
         stagger: 0.05,
         x: -145,
-    }).to(backdrop.current,{
-        duration:0.5,
-        x: '-100%'
-    },0)
-  }
+      })
+      .to(
+        arrow.current,
+        {
+          scale: 1,
+          duration: 0.5,
+        },
+        "0"
+      )
+      .to(
+        backdrop.current,
+        {
+          duration: 0.5,
+          x: "-100%",
+        },
+        "0.3"
+      );
+  };
 
   const changeTheme = (index: number) => {
     setActiveIndex(index);
@@ -147,9 +177,24 @@ const ThemeOverlay = () => {
 
   return (
     <div className={styles["overlay-section"]}>
-      <div className={styles.backdrop} ref={backdrop}/>
+      <div className={styles.backdrop} ref={backdrop} style={{border: `3px solid ${skillsList[activeIndex].maskColor}`, filter: `drop-shadow(1px 1px 10px ${skillsList[activeIndex].color})`}}/>
       <div className={styles.circle} onClick={toggleThemeMenu}>
-        <span className={styles.activeCircle} style={{ backgroundColor: `${skillsList[activeIndex].color}` }}/>
+        <span
+          className={styles.activeCircle}
+          style={{animationName: showThemeMenu? styles.reverseAnimate : styles.animate}}
+        >
+          <svg
+            viewBox="0 0 251 319"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            ref={arrow}
+          >
+            <path
+              d="M250.5 157.242C250.02 130.106 19.6616 -60.6749 1.6182 21.1104C0.0620847 28.1638 3.59271 35.3797 8.89348 40.2862C136.198 158.122 142.921 153.838 9.20565 274.635C3.72942 279.583 0.136586 286.902 1.52146 294.151C18.8583 384.897 250.982 184.449 250.5 157.242Z"
+              fill={skillsList[activeIndex].color}
+            />
+          </svg>
+        </span>
         {skillsList.map((skill: any, i: number) => {
           const mid = getMidPoint(skillsList.length);
           const direction = i - mid;
@@ -165,11 +210,11 @@ const ThemeOverlay = () => {
               className={styles.themeHolder}
               key={i}
               style={{ transform: `rotate(${angle}deg)`, width: "170px" }}
-              onClick={()=>changeTheme(i)}
+              onClick={() => changeTheme(i)}
             >
               <div
                 className={styles.themeBtn}
-                ref = {(el)=> themes.current[i] = el}
+                ref={(el) => (themes.current[i] = el)}
                 // style={{ backgroundColor: skill.color }}
               >
                 <span style={{ backgroundColor: `${skill.color}` }} />

@@ -3,6 +3,7 @@ import styles from "./home.module.scss";
 import gsap from "gsap";
 import CustomButton from "../button";
 import TreeIllustration from "../illustrate-svg/tree-illustrate";
+import Divider from "../divider";
 
 const imageList = ["home-fg1", "home-fg2", "home-fg3", "home-fg4"];
 
@@ -48,7 +49,7 @@ const HomePage = () => {
       >
         {<TreeIllustration />}
       </div>
-
+      <Divider color="white" position="calc(90vh - 200px + 45px)" />
       <div className={styles["home-footer"]} />
       <div className={styles["body-container"]}>
         <h1>VIPIN KUMAR</h1>

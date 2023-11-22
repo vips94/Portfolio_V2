@@ -4,7 +4,7 @@
 #freepik_stories-sauce-tree.animated
   #freepik--background-complete--inject-101 {
   animation: 1s 1 forwards cubic-bezier(0.36, -0.01, 0.5, 1.38) zoomIn,
-    6s Infinite linear shake;
+    30s Infinite linear shake;
   animation-delay: 0s, 1s;
 }
 #freepik_stories-sauce-tree.animated #freepik--Tree--inject-101 {
@@ -25,6 +25,34 @@
     6s Infinite linear wind;
   animation-delay: 0s, 1s;
 }
+
+#twig1{
+  transform-origin: top !important;
+  animation: 6s Infinite linear wind1;
+  animation-delay: 0s, 1s;
+  path{
+    // fill: red;
+  }
+ }
+
+#twig2{
+  transform-origin: top !important;
+  animation: 6s Infinite linear wind2;
+  animation-delay: 0s, 1s;
+  path{
+    // fill: red;
+  }
+ }
+
+ #twig3{
+  transform-origin: top !important;
+  animation: 6s Infinite linear wind3;
+  animation-delay: 0s, 1s;
+  path{
+    // fill: red;
+  }
+ }
+
 @keyframes zoomIn {
   0% {
     opacity: 0;
@@ -35,23 +63,81 @@
     transform: scale(1);
   }
 }
+
+@keyframes wind1 {
+  0%
+  {
+    transform: rotate(0deg);
+  }
+  20%{
+    transform: rotate(1deg);
+  }
+  50%{
+    transform: rotate(0deg);
+  }
+  70% {
+    transform: rotate(1deg);
+  }
+  100%{
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes wind2 {
+  0%
+  {
+    transform: rotate(0deg);
+  }
+  20%{
+    transform: rotate(-1deg);
+  }
+  50%{
+    transform: rotate(0deg);
+  }
+  70% {
+    transform: rotate(1deg);
+  }
+  100%{
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes wind3 {
+  0%
+  {
+    transform: rotate(0deg);
+  }
+  20%{
+    transform: rotate(-0.5deg);
+  }
+  50%{
+    transform: rotate(0deg);
+  }
+  70% {
+    transform: rotate(-0.5deg);
+  }
+  100%{
+    transform: rotate(0deg);
+  }
+}
+
 @keyframes shake {
   10%,
   90% {
-    transform: translate3d(-1px, 0, 0);
+    transform: translate3d(-10px, 0, 0);
   }
   20%,
   80% {
-    transform: translate3d(2px, 0, 0);
+    transform: translate3d(20px, 0, 0);
   }
   30%,
   50%,
   70% {
-    transform: translate3d(-4px, 0, 0);
+    transform: translate3d(-40px, 0, 0);
   }
   40%,
   60% {
-    transform: translate3d(4px, 0, 0);
+    transform: translate3d(40px, 0, 0);
   }
 }
 @keyframes lightSpeedLeft {

@@ -96,6 +96,7 @@ const TreeIllustration = () => {
           fill="#EBEBEB"
           className={styles.animable}
         ></path>
+        <g id={styles.cloud}> 
         <path
           d="M446.46 67.19c-.11.32-151.58 0-149.67 0 .87 0-1.32-1.3-.47-1.72 4.93-2.45 10.33-2.52 15.7-3a24.18 24.18 0 009.17-2.22c2.85-1.5 4.63-4.1 6.66-6.49A28.44 28.44 0 01353.71 44c10.77 1.68 19.26 9.89 30.05 11.4 6.48.91 12.61-1.6 18.95-2.49a23.14 23.14 0 0114.22 2.61c3.42 1.69 6.57 3.12 10.44 3.38 3 .21 5.94-.13 8.91-.16a20 20 0 0113.12 5.24c.48.38 2.01 3.21-2.94 3.21z"
           style={{
@@ -104,9 +105,11 @@ const TreeIllustration = () => {
             transformOrigin: 373.062,
           }}
           id="elst0l5q9robh"
-          fill="#EBEBEB"
+          fill="#ecefff"
           className={styles.animable}
         ></path>
+        </g>
+        
         <path
           d="M249.92 296.67c-.11.32-151.58 0-149.67 0 .87 0-1.32-1.31-.47-1.73 4.93-2.44 10.32-2.51 15.69-3a24.13 24.13 0 009.17-2.22c2.86-1.5 4.64-4.09 6.66-6.49a28.47 28.47 0 0125.87-9.8c10.77 1.69 19.26 9.89 30.05 11.4 6.48.91 12.61-1.6 18.94-2.48a23.11 23.11 0 0114.22 2.6c3.42 1.69 6.58 3.12 10.44 3.38 3 .21 6-.12 8.92-.16a20 20 0 0113.12 5.25c.48.41 2 3.25-2.94 3.25z"
           style={{
@@ -391,6 +394,7 @@ const TreeIllustration = () => {
             }}
           ></path>
         </g>
+        <g id={styles.twig1}>
         <path
           d="M370.2 303.52a875.35 875.35 0 01-2.68 100.62c-.06-33.58 1.1-67.09 2.68-100.62z"
           style={{
@@ -591,6 +595,8 @@ const TreeIllustration = () => {
             }}
           ></path>
         </g>
+        </g>
+        <g id={styles.twig3}>
         <path
           d="M223 315.17c1.58 33.53 2.74 67 2.68 100.61A875.18 875.18 0 01223 315.17z"
           style={{
@@ -791,6 +797,8 @@ const TreeIllustration = () => {
             }}
           ></path>
         </g>
+        </g>
+        
         <path
           d="M131.32 317.34c1.58 33.53 2.74 67 2.69 100.62a875.35 875.35 0 01-2.69-100.62z"
           style={{
@@ -991,6 +999,7 @@ const TreeIllustration = () => {
             }}
           ></path>
         </g>
+        <g id={styles.twig3}>
         <path
           d="M383.92 234.65c1.59 33.52 2.74 67 2.69 100.61a875.24 875.24 0 01-2.69-100.61z"
           style={{
@@ -1191,6 +1200,8 @@ const TreeIllustration = () => {
             }}
           ></path>
         </g>
+        </g>
+        
         <path
           d="M119.18 273c1.58 33.53 2.74 67 2.68 100.62A875.35 875.35 0 01119.18 273z"
           style={{
@@ -1391,6 +1402,7 @@ const TreeIllustration = () => {
             }}
           ></path>
         </g>
+        <g id={styles.twig2}>
         <path
           d="M244 297.51c1.58 33.53 2.74 67 2.69 100.61A875.18 875.18 0 01244 297.51z"
           style={{
@@ -1591,6 +1603,8 @@ const TreeIllustration = () => {
             }}
           ></path>
         </g>
+        </g>
+        
         <path
           d="M102.68 280.7c1.58 33.53 2.74 67 2.69 100.62a875.35 875.35 0 01-2.69-100.62z"
           style={{
@@ -1791,206 +1805,209 @@ const TreeIllustration = () => {
             }}
           ></path>
         </g>
-        <path
-          d="M398.44 244.77a875.35 875.35 0 01-2.68 100.62c-.06-33.58 1.1-67.09 2.68-100.62z"
-          style={{
-            WebkitTransformOrigin: 397.308,
-            msTransformOrigin: 397.308,
-            transformOrigin: 397.308,
-          }}
-          id="elxo6y663wj3m"
-          fill="#FFC727"
-          className={styles.animable}
-        ></path>
-        <path
-          d="M399 259.14a9 9 0 004.35 3.25 9.06 9.06 0 00-.95-5.34 4.39 4.39 0 00-3.67-2.18 4.36 4.36 0 00.27 4.27z"
-          style={{
-            WebkitTransformOrigin: 400.86,
-            msTransformOrigin: 400.86,
-            transformOrigin: 400.86,
-          }}
-          id="elm3qxcpxpfwj"
-          fill="#FFC727"
-          className={styles.animable}
-        ></path>
-        <path
-          d="M394.23 266.51a9.09 9.09 0 00-1 5.34 9.1 9.1 0 004.38-3.21 4.36 4.36 0 00.33-4.25 4.35 4.35 0 00-3.71 2.12z"
-          style={{
-            WebkitTransformOrigin: 395.755,
-            msTransformOrigin: 395.755,
-            transformOrigin: 395.755,
-          }}
-          id="ell1sa22z00xg"
-          fill="#FFC727"
-          className={styles.animable}
-        ></path>
-        <path
-          d="M398.63 280.71A9.07 9.07 0 00403 284a9 9 0 00-.94-5.34 4.37 4.37 0 00-3.68-2.18 4.37 4.37 0 00.25 4.23z"
-          style={{
-            WebkitTransformOrigin: 400.514,
-            msTransformOrigin: 400.514,
-            transformOrigin: 400.514,
-          }}
-          id="elqx0ckm6loa"
-          fill="#FFC727"
-          className={styles.animable}
-        ></path>
-        <path
-          d="M393.82 288.08a9 9 0 00-1 5.33 9 9 0 004.37-3.2 4.37 4.37 0 00.34-4.26 4.36 4.36 0 00-3.71 2.13z"
-          style={{
-            WebkitTransformOrigin: 395.342,
-            msTransformOrigin: 395.342,
-            transformOrigin: 395.342,
-          }}
-          id="elm53wp6v0o78"
-          fill="#FFC727"
-          className={styles.animable}
-        ></path>
-        <path
-          d="M398.21 302.27a9 9 0 004.35 3.25 9.06 9.06 0 00-.95-5.34 4.39 4.39 0 00-3.67-2.18 4.36 4.36 0 00.27 4.27z"
-          style={{
-            WebkitTransformOrigin: 400.07,
-            msTransformOrigin: 400.07,
-            transformOrigin: 400.07,
-          }}
-          id="elzhr4avjlel8"
-          fill="#FFC727"
-          className={styles.animable}
-        ></path>
-        <path
-          d="M393.4 309.64a9.09 9.09 0 00-1 5.34 9.1 9.1 0 004.38-3.21 4.36 4.36 0 00.33-4.25 4.35 4.35 0 00-3.71 2.12z"
-          style={{
-            WebkitTransformOrigin: 394.925,
-            msTransformOrigin: 394.925,
-            transformOrigin: 394.925,
-          }}
-          id="el0kkxd2oj2k1"
-          fill="#FFC727"
-          className={styles.animable}
-        ></path>
-        <path
-          d="M397.8 323.84a9 9 0 004.34 3.25 9.1 9.1 0 00-.94-5.34 4.37 4.37 0 00-3.68-2.18 4.37 4.37 0 00.28 4.27z"
-          style={{
-            WebkitTransformOrigin: 399.653,
-            msTransformOrigin: 399.653,
-            transformOrigin: 399.653,
-          }}
-          id="elxiyno2xuqra"
-          fill="#FFC727"
-          className={styles.animable}
-        ></path>
-        <path
-          d="M393 331.21a9 9 0 00-1 5.33 9 9 0 004.38-3.2 4.35 4.35 0 00.33-4.26 4.35 4.35 0 00-3.71 2.13z"
-          style={{
-            WebkitTransformOrigin: 394.526,
-            msTransformOrigin: 394.526,
-            transformOrigin: 394.526,
-          }}
-          id="elz52oerzg2vr"
-          fill="#FFC727"
-          className={styles.animable}
-        ></path>
-        <g
-          style={{
-            WebkitTransformOrigin: 397.679,
-            msTransformOrigin: 397.679,
-            transformOrigin: 397.679,
-          }}
-          id="elanwb850v0ud"
-          className={styles.animable}
-          opacity="0.1"
-        >
+        <g id={styles.twig2}>
           <path
-            id="eltpjb8xc5d9m"
             d="M398.44 244.77a875.35 875.35 0 01-2.68 100.62c-.06-33.58 1.1-67.09 2.68-100.62z"
-            className={styles.animable}
             style={{
               WebkitTransformOrigin: 397.308,
               msTransformOrigin: 397.308,
               transformOrigin: 397.308,
             }}
+            id="elxo6y663wj3m"
+            fill="#FFC727"
+            className={styles.animable}
           ></path>
           <path
-            id="el4n7jk5nrqu3"
             d="M399 259.14a9 9 0 004.35 3.25 9.06 9.06 0 00-.95-5.34 4.39 4.39 0 00-3.67-2.18 4.36 4.36 0 00.27 4.27z"
-            className={styles.animable}
             style={{
               WebkitTransformOrigin: 400.86,
               msTransformOrigin: 400.86,
               transformOrigin: 400.86,
             }}
+            id="elm3qxcpxpfwj"
+            fill="#FFC727"
+            className={styles.animable}
           ></path>
           <path
-            id="elcqa20f8q6b8"
             d="M394.23 266.51a9.09 9.09 0 00-1 5.34 9.1 9.1 0 004.38-3.21 4.36 4.36 0 00.33-4.25 4.35 4.35 0 00-3.71 2.12z"
-            className={styles.animable}
             style={{
               WebkitTransformOrigin: 395.755,
               msTransformOrigin: 395.755,
               transformOrigin: 395.755,
             }}
+            id="ell1sa22z00xg"
+            fill="#FFC727"
+            className={styles.animable}
           ></path>
           <path
-            id="elv1ttai9g3yj"
             d="M398.63 280.71A9.07 9.07 0 00403 284a9 9 0 00-.94-5.34 4.37 4.37 0 00-3.68-2.18 4.37 4.37 0 00.25 4.23z"
-            className={styles.animable}
             style={{
               WebkitTransformOrigin: 400.514,
               msTransformOrigin: 400.514,
               transformOrigin: 400.514,
             }}
+            id="elqx0ckm6loa"
+            fill="#FFC727"
+            className={styles.animable}
           ></path>
           <path
-            id="elof4vw3xif59"
             d="M393.82 288.08a9 9 0 00-1 5.33 9 9 0 004.37-3.2 4.37 4.37 0 00.34-4.26 4.36 4.36 0 00-3.71 2.13z"
-            className={styles.animable}
             style={{
               WebkitTransformOrigin: 395.342,
               msTransformOrigin: 395.342,
               transformOrigin: 395.342,
             }}
+            id="elm53wp6v0o78"
+            fill="#FFC727"
+            className={styles.animable}
           ></path>
           <path
-            id="elmsxncjt934"
             d="M398.21 302.27a9 9 0 004.35 3.25 9.06 9.06 0 00-.95-5.34 4.39 4.39 0 00-3.67-2.18 4.36 4.36 0 00.27 4.27z"
-            className={styles.animable}
             style={{
               WebkitTransformOrigin: 400.07,
               msTransformOrigin: 400.07,
               transformOrigin: 400.07,
             }}
+            id="elzhr4avjlel8"
+            fill="#FFC727"
+            className={styles.animable}
           ></path>
           <path
-            id="elkkfpn1qtaf"
             d="M393.4 309.64a9.09 9.09 0 00-1 5.34 9.1 9.1 0 004.38-3.21 4.36 4.36 0 00.33-4.25 4.35 4.35 0 00-3.71 2.12z"
-            className={styles.animable}
             style={{
               WebkitTransformOrigin: 394.925,
               msTransformOrigin: 394.925,
               transformOrigin: 394.925,
             }}
+            id="el0kkxd2oj2k1"
+            fill="#FFC727"
+            className={styles.animable}
           ></path>
           <path
-            id="elhppaepcv0eb"
             d="M397.8 323.84a9 9 0 004.34 3.25 9.1 9.1 0 00-.94-5.34 4.37 4.37 0 00-3.68-2.18 4.37 4.37 0 00.28 4.27z"
-            className={styles.animable}
             style={{
               WebkitTransformOrigin: 399.653,
               msTransformOrigin: 399.653,
               transformOrigin: 399.653,
             }}
+            id="elxiyno2xuqra"
+            fill="#FFC727"
+            className={styles.animable}
           ></path>
           <path
-            id="eli12gg5e7xom"
             d="M393 331.21a9 9 0 00-1 5.33 9 9 0 004.38-3.2 4.35 4.35 0 00.33-4.26 4.35 4.35 0 00-3.71 2.13z"
-            className={styles.animable}
             style={{
               WebkitTransformOrigin: 394.526,
               msTransformOrigin: 394.526,
               transformOrigin: 394.526,
             }}
+            id="elz52oerzg2vr"
+            fill="#FFC727"
+            className={styles.animable}
           ></path>
+          <g
+            style={{
+              WebkitTransformOrigin: 397.679,
+              msTransformOrigin: 397.679,
+              transformOrigin: 397.679,
+            }}
+            id="elanwb850v0ud"
+            className={styles.animable}
+            opacity="0.1"
+          >
+            <path
+              id="eltpjb8xc5d9m"
+              d="M398.44 244.77a875.35 875.35 0 01-2.68 100.62c-.06-33.58 1.1-67.09 2.68-100.62z"
+              className={styles.animable}
+              style={{
+                WebkitTransformOrigin: 397.308,
+                msTransformOrigin: 397.308,
+                transformOrigin: 397.308,
+              }}
+            ></path>
+            <path
+              id="el4n7jk5nrqu3"
+              d="M399 259.14a9 9 0 004.35 3.25 9.06 9.06 0 00-.95-5.34 4.39 4.39 0 00-3.67-2.18 4.36 4.36 0 00.27 4.27z"
+              className={styles.animable}
+              style={{
+                WebkitTransformOrigin: 400.86,
+                msTransformOrigin: 400.86,
+                transformOrigin: 400.86,
+              }}
+            ></path>
+            <path
+              id="elcqa20f8q6b8"
+              d="M394.23 266.51a9.09 9.09 0 00-1 5.34 9.1 9.1 0 004.38-3.21 4.36 4.36 0 00.33-4.25 4.35 4.35 0 00-3.71 2.12z"
+              className={styles.animable}
+              style={{
+                WebkitTransformOrigin: 395.755,
+                msTransformOrigin: 395.755,
+                transformOrigin: 395.755,
+              }}
+            ></path>
+            <path
+              id="elv1ttai9g3yj"
+              d="M398.63 280.71A9.07 9.07 0 00403 284a9 9 0 00-.94-5.34 4.37 4.37 0 00-3.68-2.18 4.37 4.37 0 00.25 4.23z"
+              className={styles.animable}
+              style={{
+                WebkitTransformOrigin: 400.514,
+                msTransformOrigin: 400.514,
+                transformOrigin: 400.514,
+              }}
+            ></path>
+            <path
+              id="elof4vw3xif59"
+              d="M393.82 288.08a9 9 0 00-1 5.33 9 9 0 004.37-3.2 4.37 4.37 0 00.34-4.26 4.36 4.36 0 00-3.71 2.13z"
+              className={styles.animable}
+              style={{
+                WebkitTransformOrigin: 395.342,
+                msTransformOrigin: 395.342,
+                transformOrigin: 395.342,
+              }}
+            ></path>
+            <path
+              id="elmsxncjt934"
+              d="M398.21 302.27a9 9 0 004.35 3.25 9.06 9.06 0 00-.95-5.34 4.39 4.39 0 00-3.67-2.18 4.36 4.36 0 00.27 4.27z"
+              className={styles.animable}
+              style={{
+                WebkitTransformOrigin: 400.07,
+                msTransformOrigin: 400.07,
+                transformOrigin: 400.07,
+              }}
+            ></path>
+            <path
+              id="elkkfpn1qtaf"
+              d="M393.4 309.64a9.09 9.09 0 00-1 5.34 9.1 9.1 0 004.38-3.21 4.36 4.36 0 00.33-4.25 4.35 4.35 0 00-3.71 2.12z"
+              className={styles.animable}
+              style={{
+                WebkitTransformOrigin: 394.925,
+                msTransformOrigin: 394.925,
+                transformOrigin: 394.925,
+              }}
+            ></path>
+            <path
+              id="elhppaepcv0eb"
+              d="M397.8 323.84a9 9 0 004.34 3.25 9.1 9.1 0 00-.94-5.34 4.37 4.37 0 00-3.68-2.18 4.37 4.37 0 00.28 4.27z"
+              className={styles.animable}
+              style={{
+                WebkitTransformOrigin: 399.653,
+                msTransformOrigin: 399.653,
+                transformOrigin: 399.653,
+              }}
+            ></path>
+            <path
+              id="eli12gg5e7xom"
+              d="M393 331.21a9 9 0 00-1 5.33 9 9 0 004.38-3.2 4.35 4.35 0 00.33-4.26 4.35 4.35 0 00-3.71 2.13z"
+              className={styles.animable}
+              style={{
+                WebkitTransformOrigin: 394.526,
+                msTransformOrigin: 394.526,
+                transformOrigin: 394.526,
+              }}
+            ></path>
+          </g>
         </g>
+        
         <path
           d="M292.62 288.21a875.41 875.41 0 01-2.68 100.62c-.06-33.58 1.1-67.09 2.68-100.62z"
           style={{
@@ -2191,6 +2208,7 @@ const TreeIllustration = () => {
             }}
           ></path>
         </g>
+        <g id={styles.twig3}>
         <path
           d="M280.06 329.67a877.62 877.62 0 01-2.68 100.62c-.06-33.58 1.1-67.09 2.68-100.62z"
           style={{
@@ -2391,6 +2409,8 @@ const TreeIllustration = () => {
             }}
           ></path>
         </g>
+        </g>
+        
         <path
           d="M124.75 472.48h84.41s-14.25-48.81 13.69-90.56S291.16 311 298.7 222.11c.47-5.43-8.15-3.5-8.15 0s-6.69 47.52-19.77 47.2-6.06-108.85-9.25-109.81-7-2.54-7.34 3.19-5.1 131.51-30.31 130.87-47.77-64.47-47.46-66.71-7.33-3.82-9.88 4.15 18.69 60.81 46.5 78.18c2.55 1.6-40.41 28-63.79 70.43-29.03 52.7-24.5 92.87-24.5 92.87z"
           style={{
@@ -4184,6 +4204,7 @@ const TreeIllustration = () => {
           fill="#FFC727"
           className={styles.animable}
         ></path>
+        <g id={styles.twig1}>
         <path
           d="M435 226.27a875.35 875.35 0 01-2.68 100.62c-.06-33.58 1.1-67.09 2.68-100.62z"
           style={{
@@ -4289,9 +4310,8 @@ const TreeIllustration = () => {
             msTransformOrigin: 434.28,
             transformOrigin: 434.28,
           }}
-          id="elk2mdgz3ops8"
           className={styles.animable}
-          opacity="0.1"
+          opacity=".1"
         >
           <path
             id="elawo1ubovtj"
@@ -4384,6 +4404,9 @@ const TreeIllustration = () => {
             }}
           ></path>
         </g>
+        </g>
+       
+        
         <path
           d="M430.17 186.74c-12.82-32.57-44.34-30.57-62.43-24.06 0 0-31.31-20.32-69.7-17.28-40.62 3.22-55.68 29-61.47 60.88s-2 57.17 3.07 60.79c0 0 2.54 9.41 6.52 9.41s7.42-12.38 7.42-12.38 3.25 64.51 20.9 64.51c12.25 0 17.74-19.34 17.74-19.34s11.33-3.39 13.5-15.33c0 0 6 20 16.25 20 13.93 0 25.32-30.39 25.32-30.39s2.18 24.24 9.59 24.24c4.16 0 7.24-7.06 7.24-7.06s6 19.72 14.67 19.72 13.08-26.23 13.08-26.23 5.47 17.5 10.9 17.5S415 289.26 415 289.26s6.16.28 9.34-3.25c10.84-12.01 23.48-54.45 5.83-99.27z"
           style={{
@@ -4524,83 +4547,86 @@ const TreeIllustration = () => {
           fill="#FFC727"
           className={styles.animable}
         ></path>
-        <path
-          d="M417.11 245.94c1.2 31.65.05 63.36-2.2 94.95-.51-31.67.66-63.32 2.2-94.95z"
-          style={{
-            WebkitTransformOrigin: 416.191,
-            msTransformOrigin: 416.191,
-            transformOrigin: 416.191,
-          }}
-          id="el3jywf03pv4s"
-          fill="#FFC727"
-          className={styles.animable}
-        ></path>
-        <path
-          d="M415.74 276.37a9 9 0 01-4.49 3.06 9.11 9.11 0 011.18-5.29 2.42 2.42 0 113.31 2.23z"
-          style={{
-            WebkitTransformOrigin: 414.244,
-            msTransformOrigin: 414.244,
-            transformOrigin: 414.244,
-          }}
-          id="el9fy437nejd"
-          fill="#FFC727"
-          className={styles.animable}
-        ></path>
-        <path
-          d="M420.22 284a9 9 0 01.76 5.37 9.05 9.05 0 01-4.23-3.39 2.42 2.42 0 113.47-2z"
-          style={{
-            WebkitTransformOrigin: 418.245,
-            msTransformOrigin: 418.245,
-            transformOrigin: 418.245,
-          }}
-          id="elxicvphu5yos"
-          fill="#FFC727"
-          className={styles.animable}
-        ></path>
-        <path
-          d="M415.2 297.94a9 9 0 01-4.48 3.05 9 9 0 011.18-5.29 2.41 2.41 0 113.3 2.24z"
-          style={{
-            WebkitTransformOrigin: 413.703,
-            msTransformOrigin: 413.703,
-            transformOrigin: 413.703,
-          }}
-          id="elgle6ss0k13u"
-          fill="#FFC727"
-          className={styles.animable}
-        ></path>
-        <path
-          d="M419.68 305.51a9 9 0 01.77 5.38 9.06 9.06 0 01-4.23-3.4 2.42 2.42 0 113.46-2z"
-          style={{
-            WebkitTransformOrigin: 417.709,
-            msTransformOrigin: 417.709,
-            transformOrigin: 417.709,
-          }}
-          id="ell0qurmibg2f"
-          fill="#FFC727"
-          className={styles.animable}
-        ></path>
-        <path
-          d="M414.66 319.5a9 9 0 01-4.48 3.06 9.06 9.06 0 011.18-5.3 2.42 2.42 0 113.3 2.24z"
-          style={{
-            WebkitTransformOrigin: 413.174,
-            msTransformOrigin: 413.174,
-            transformOrigin: 413.174,
-          }}
-          id="el6n7eeveqhax"
-          fill="#FFC727"
-          className={styles.animable}
-        ></path>
-        <path
-          d="M419.14 327.08a9 9 0 01.77 5.37 9 9 0 01-4.23-3.4 2.41 2.41 0 113.46-2z"
-          style={{
-            WebkitTransformOrigin: 417.178,
-            msTransformOrigin: 417.178,
-            transformOrigin: 417.178,
-          }}
-          id="el6gv3whuuxxe"
-          fill="#FFC727"
-          className={styles.animable}
-        ></path>
+        <g id={styles.twig1}>
+          <path
+            d="M417.11 245.94c1.2 31.65.05 63.36-2.2 94.95-.51-31.67.66-63.32 2.2-94.95z"
+            style={{
+              WebkitTransformOrigin: 416.191,
+              msTransformOrigin: 416.191,
+              transformOrigin: 416.191,
+            }}
+            id="el3jywf03pv4s"
+            fill="#FFC727"
+            className={styles.animable}
+          ></path>
+          <path
+            d="M415.74 276.37a9 9 0 01-4.49 3.06 9.11 9.11 0 011.18-5.29 2.42 2.42 0 113.31 2.23z"
+            style={{
+              WebkitTransformOrigin: 414.244,
+              msTransformOrigin: 414.244,
+              transformOrigin: 414.244,
+            }}
+            id="el9fy437nejd"
+            fill="#FFC727"
+            className={styles.animable}
+          ></path>
+          <path
+            d="M420.22 284a9 9 0 01.76 5.37 9.05 9.05 0 01-4.23-3.39 2.42 2.42 0 113.47-2z"
+            style={{
+              WebkitTransformOrigin: 418.245,
+              msTransformOrigin: 418.245,
+              transformOrigin: 418.245,
+            }}
+            id="elxicvphu5yos"
+            fill="#FFC727"
+            className={styles.animable}
+          ></path>
+          <path
+            d="M415.2 297.94a9 9 0 01-4.48 3.05 9 9 0 011.18-5.29 2.41 2.41 0 113.3 2.24z"
+            style={{
+              WebkitTransformOrigin: 413.703,
+              msTransformOrigin: 413.703,
+              transformOrigin: 413.703,
+            }}
+            id="elgle6ss0k13u"
+            fill="#FFC727"
+            className={styles.animable}
+          ></path>
+          <path
+            d="M419.68 305.51a9 9 0 01.77 5.38 9.06 9.06 0 01-4.23-3.4 2.42 2.42 0 113.46-2z"
+            style={{
+              WebkitTransformOrigin: 417.709,
+              msTransformOrigin: 417.709,
+              transformOrigin: 417.709,
+            }}
+            id="ell0qurmibg2f"
+            fill="#FFC727"
+            className={styles.animable}
+          ></path>
+          <path
+            d="M414.66 319.5a9 9 0 01-4.48 3.06 9.06 9.06 0 011.18-5.3 2.42 2.42 0 113.3 2.24z"
+            style={{
+              WebkitTransformOrigin: 413.174,
+              msTransformOrigin: 413.174,
+              transformOrigin: 413.174,
+            }}
+            id="el6n7eeveqhax"
+            fill="#FFC727"
+            className={styles.animable}
+          ></path>
+          <path
+            d="M419.14 327.08a9 9 0 01.77 5.37 9 9 0 01-4.23-3.4 2.41 2.41 0 113.46-2z"
+            style={{
+              WebkitTransformOrigin: 417.178,
+              msTransformOrigin: 417.178,
+              transformOrigin: 417.178,
+            }}
+            id="el6gv3whuuxxe"
+            fill="#FFC727"
+            className={styles.animable}
+          ></path>
+        </g>
+      
         <path
           d="M241.17 230c1.58 33.53 2.74 67 2.69 100.62A875.35 875.35 0 01241.17 230z"
           style={{

@@ -12,6 +12,7 @@ import {
 } from "@/store/skills";
 import CustomButton from "../button";
 import {motion} from 'framer-motion';
+import Divider from "../divider";
 
 const ContactUs = () => {
   const svgBg = useRef(null);
@@ -108,9 +109,9 @@ const ContactUs = () => {
               id="userName"
               placeholder="Name *"
               style={customStyle}
-              initial={{y:500}}
-              whileInView={{y:0}}
-              transition={{duration:0.5}}
+              initial={{y:300, opacity:0}}
+              whileInView={{y:0, opacity:1}}
+              transition={{duration:0.2}}
               viewport={{once:true}}
             ></motion.input>
             <motion.input
@@ -122,9 +123,9 @@ const ContactUs = () => {
               id="email"
               placeholder="Email *"
               style={customStyle}
-              initial={{y:500}}
-              whileInView={{y:0}}
-              transition={{duration:0.5}}
+              initial={{y:300, opacity:0}}
+              whileInView={{y:0, opacity:1}}
+              transition={{duration:0.2}}
               viewport={{once:true}}
             ></motion.input>
             <motion.textarea
@@ -135,9 +136,9 @@ const ContactUs = () => {
               id="message"
               placeholder="Message *"
               style={customStyle}
-              initial={{y:400}}
-              whileInView={{y:0}}
-              transition={{duration:0.5}}
+              initial={{y:300, opacity:0}}
+              whileInView={{y:0, opacity: 1}}
+              transition={{duration:0.2}}
               viewport={{once:true}}
             ></motion.textarea>
             <CustomButton
@@ -153,6 +154,7 @@ const ContactUs = () => {
         <div className={styles.background} ref={svgBg}>
           {showIllustration && <EmailIllustration/>}
         </div>
+        <Divider position="calc(80vh - 200px + 45px)" />
       </div>
     </div>
   );

@@ -85,6 +85,23 @@ body {
   overflow-x: hidden;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   background-color: wheat;
+  cursor: none;
+}
+
+body::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+body::-webkit-scrollbar-track {
+  width: 5px;
+  background-color: rgba(255, 255, 255, 0.105);
+}
+ 
+/* Handle */
+body::-webkit-scrollbar-thumb {
+  /* background: #f55c1b ; */
+  background-color: rgba(0, 0, 0, 0.442);
 }
 
 a {

@@ -26,8 +26,8 @@ const CustomButton: FC<CustomButtonProps> = (props) => {
   return (
     <motion.div
       className={`${styles["button-container"]} ${styles[containerClassName]}`}
-      initial={{x:-100}}
-      whileInView={{x:0}}
+      initial={{x:-100, opacity: 0}}
+      whileInView={{x:0, opacity: 1}}
       transition={{duration:0.5}}
       viewport={{once:true}}
       style={{ border: `2px solid ${propertiesBorderColor}` }}

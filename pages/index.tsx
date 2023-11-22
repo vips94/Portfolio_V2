@@ -20,6 +20,7 @@ import {
   selectPropertiesBorderColor,
   selectPropertyTextStroke,
 } from "@/store/skills";
+import Experience from "@/components/page-experience";
 
 export default function Home() {
   const isProjectSelected = useSelector(selectIsProjectSelected);
@@ -35,15 +36,15 @@ export default function Home() {
     })();
   }, []);
 
-  // const mouseMoveHandle = (event:any) => {
-  //   console.log(event.clientX, event.clientY);
-  //   gsap.to(mouseRef.current,{
-  //     x: event.clientX - mouseRef.current.offsetWidth/2,
-  //     y: event.clientY - mouseRef.current.offsetHeight/2,
-  //     duration: 0.1,
-  //     ease: "none",
-  //   })
-  // }
+  const mouseMoveHandle = (event:any) => {
+    console.log(event.clientX, event.clientY);
+    gsap.to(mouseRef.current,{
+      x: event.pageX - mouseRef.current.offsetWidth/2,
+      y: event.pageY - mouseRef.current.offsetHeight/2,
+      duration: 0.1,
+      ease: "none",
+    })
+  }
 
   return (
     <>
@@ -56,9 +57,9 @@ export default function Home() {
       <main
         className={`${styles.main}`}
         id="main"
-        // onMouseMove={(e) => mouseMoveHandle(e)}
+        onMouseMove={(e) => mouseMoveHandle(e)}
       >
-        {/* <div ref={mouseRef} className={styles.pointer} style={{backgroundColor:propertiesBorderColor, width: '10px', height:'10px'}}/> */}
+        <div ref={mouseRef} className={styles.pointer} style={{backgroundColor:propertiesBorderColor, filter: `drop-shadow(0px 0px 5px ${propertiesBorderColor})`, width: '10px', height:'10px'}}/>
         <Thread
           style={{ zIndex: 3, right: "2%" }}
           color="#e8ccc7"
@@ -74,13 +75,12 @@ export default function Home() {
           image="/images/home/home-fg4.jpg"
         />
         <ThemeOverlay />
-        <Divider color="white" position="calc(90vh - 200px + 45px)" />
         <NavBar />
         <HomePage />
+        <Experience/>
         <Skills />
         <Projects />
         <ContactUs />
-        <Divider position="calc(380vh - 200px + 45px)" />
         <Footer />
         {isProjectSelected && <Popup />}
       </main>
