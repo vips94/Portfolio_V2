@@ -85,7 +85,7 @@ body {
   overflow-x: hidden;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   background-color: wheat;
-  cursor: none;
+  /* cursor: none; */
 }
 
 body::-webkit-scrollbar {

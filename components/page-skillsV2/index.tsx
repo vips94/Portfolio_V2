@@ -160,12 +160,12 @@ const Skills = () => {
           [
             tabRefs.current[index],
             { x: 0, y: 0, scale: 1 },
-            { delay: 1, duration: 0.5, ease: easeInOut },
+            {  duration: 0.5, ease: easeInOut },
           ],
           [
             skillRefs.current[index],
             { x: 0, y: 0, opacity: 0 },
-            { delay: 1, duration: 0.5, ease: easeInOut, at: "<" },
+            {  duration: 0.5, ease: easeInOut, at: "<" },
           ],
         ]);
       });

@@ -6,7 +6,7 @@ import HomePage from "@/components/page-homeV2";
 import React, { useEffect, useRef } from "react";
 import Blob from "@/components/blob";
 import Skills from "@/components/page-skillsV2";
-import Divider from "@/components/divider";
+// import Divider from "@/components/divider";
 import Thread from "@/components/thread";
 import Projects from "@/components/page-projects";
 import Popup from "@/components/popup";
@@ -21,6 +21,7 @@ import {
   selectPropertyTextStroke,
 } from "@/store/skills";
 import Experience from "@/components/page-experience";
+import AboutMe from "@/components/page-about-me";
 
 export default function Home() {
   const isProjectSelected = useSelector(selectIsProjectSelected);
@@ -37,7 +38,6 @@ export default function Home() {
   }, []);
 
   const mouseMoveHandle = (event:any) => {
-    console.log(event.clientX, event.clientY);
     gsap.to(mouseRef.current,{
       x: event.pageX - mouseRef.current.offsetWidth/2,
       y: event.pageY - mouseRef.current.offsetHeight/2,
@@ -77,6 +77,7 @@ export default function Home() {
         <ThemeOverlay />
         <NavBar />
         <HomePage />
+        <AboutMe/>
         <Experience/>
         <Skills />
         <Projects />

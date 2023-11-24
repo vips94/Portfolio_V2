@@ -68,7 +68,6 @@ const Blob: FC<BlobProps> = (props) => {
             height="100%"
             width="100%"
             preserveAspectRatio="xMinYMin slice"
-            filter="blur(2px)"
           />
         </svg>
       </div>

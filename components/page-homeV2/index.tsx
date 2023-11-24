@@ -45,7 +45,7 @@ const HomePage = () => {
     <div className={styles["home-section"]}>
       <div
         className={styles.background}
-        style={{ width: "1000px", height: "1000px", right: "-10%", bottom: "8%" }}
+        style={{ width: "700px", height: "700px", right: "0%", bottom: "8%" }}
       >
         {<TreeIllustration />}
       </div>

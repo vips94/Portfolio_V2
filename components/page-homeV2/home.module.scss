@@ -1,109 +1,128 @@
-@import '@/sass/variables.scss';
+@import "@/sass/variables.scss";
 
 $animationTime: 0.7s;
 
-.home-section{
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    background-color: $primaryColor;
-    overflow: hidden;
-    background-color: whitesmoke;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.home-section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: $primaryColor;
+  overflow: hidden;
+  // background: radial-gradient(closest-side, #3f87a6, #ebf8e1, #f69d3c);
 
-    .background{
-        position: absolute;
-        right: 5%;
-        bottom: 5%;
-        transform: scaleX(-1);
+  // 1
+  // background: #FF5F6D;  /* fallback for old browsers */
+  // background: -webkit-linear-gradient(to right, #FFC371, #FF5F6D);  /* Chrome 10-25, Safari 5.1-6 */
+  // background: linear-gradient(to right, #FFC371, #FF5F6D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  //2
+  // background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+
+  //color of the sky
+  // background: #e0eafc; /* fallback for old browsers */
+  // background: -webkit-linear-gradient(
+  //   to right,
+  //   #cfdef3,
+  //   #e0eafc
+  // ); /* Chrome 10-25, Safari 5.1-6 */
+  // background: linear-gradient(
+  //   to right,
+  //   #cfdef3,
+  //   #e0eafc
+  // ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+  // 
+  background: linear-gradient(90deg, #f2eeee 0%, #fbff8a 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .background {
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+    transform: scaleX(-1);
+  }
+
+  .home-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 5;
+    width: 100%;
+    height: 10vh;
+    background-color: white;
+  }
+
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .displacement {
+    filter: url(#displacementFilter);
+  }
+
+  .body-container {
+    display: inherit;
+    justify-content: flex-start;
+    flex-direction: column;
+    position: relative;
+    z-index: 4;
+    margin-left: 2rem;
+
+    h1,
+    .subtitle {
+      color: $radioButtonColor;
+      font-size: $titleFontSize;
+      font-family: $fontFamily;
+      letter-spacing: 0.1em;
+      line-height: 1;
+      font-weight: bold;
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+    }
+
+    .subtitle {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      white-space: nowrap;
+      letter-spacing: 2px;
+
+      .textholder {
+        width: 100%;
+        height: 50px;
+        overflow: hidden;
+        flex-direction: column;
+        display: flex;
+        align-items: flex-start;
       }
 
-    .home-footer{
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        z-index: 5;
+      h2 {
         width: 100%;
-        height: 10vh;
-        background-color: white;
+        letter-spacing: 2px;
+        margin-left: 10px;
+        color: transparent;
+        font-size: $subTitleFontSize;
+        font-family: $fontFamily;
+        line-height: 1;
+        background-clip: text;
+        transition: all $animationTime ease-in-out;
+        background-size: cover;
+        background-position: top left;
+      }
     }
-
-    img{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-    }
-
-    svg{
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-    }
-
-    .displacement{
-        filter: url(#displacementFilter);
-    }
-
-    .body-container{
-        display: inherit;
-        justify-content: flex-start;
-        flex-direction: column;
-        position: relative;
-        z-index: 4;
-        margin-left: 2rem;
-
-        h1, .subtitle{
-            color: $radioButtonColor;
-            font-size: $titleFontSize;
-            font-family: $fontFamily;
-            letter-spacing: 0.1em;
-            line-height: 1;
-            font-weight: bold;
-        }
-
-        h1{
-            margin-bottom: 1rem;
-        }
-
-        .subtitle{
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-            white-space: nowrap;
-            letter-spacing: 2px;
-
-            .textholder{
-                width: 100%;
-                height: 50px;
-                overflow: hidden;
-                flex-direction: column;
-                display: flex;
-                align-items: flex-start;
-            }
-
-            h2{
-                width: 100%;
-                letter-spacing: 2px;
-                margin-left: 10px;
-                color : transparent;
-                font-size: $subTitleFontSize;
-                font-family: $fontFamily;
-                line-height: 1;
-                background-clip: text;
-                transition: all $animationTime ease-in-out;
-                background-size:cover;
-                background-position: top left;
-            }
-        }
-
-        
-    }
-    
-    
+  }
 }
-
-
-
