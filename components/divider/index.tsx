@@ -8,13 +8,13 @@ import { useSelector } from "react-redux";
 import * as ReactDOMServer from "react-dom/server";
 
 type DivideProps = {
+  style: any,
   color?: string;
-  position?: string;
   waveImage?: string;
 };
 
 const Divider: FC<DivideProps> = (props) => {
-  const { color='', position, } = props;
+  const { color='', style, } = props;
   const propertiesBorderColor = useSelector(selectPropertiesBorderColor);
 
   // svg component
@@ -41,7 +41,7 @@ const Divider: FC<DivideProps> = (props) => {
   );
 
   return (
-    <div className={styles.divider} style={{ top: position }}>
+    <div className={styles.divider} style={style}>
       <div
         className={`${styles.wave} ${styles.wave1}`}
         //send parsed svg as an background image

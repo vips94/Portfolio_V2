@@ -154,7 +154,7 @@ const ContactUs = () => {
         <div className={styles.background} ref={svgBg}>
           {showIllustration && <EmailIllustration/>}
         </div>
-        <Divider position="calc(80vh - 200px + 45px)" />
+        <Divider style={{top: "calc(80vh - 200px + 45px)"}}/>
       </div>
     </div>
   );

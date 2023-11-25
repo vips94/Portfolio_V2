@@ -26,7 +26,13 @@ const AboutMe = () => {
                 width: "500px",
                 height: "500px",
               }}
-              image="/images/profile.jpg"
+              image="/images/profile1.jpg"
+              imagePreserveAspectRatio="xMidYMid slice"
+              imageX = '100'
+              imageY = '-50'
+              imageWidth="70%"
+              imageHeight="150%"
+              backgroundColor="#272727"
             />
             <div
               className={styles.textHolder}

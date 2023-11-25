@@ -144,27 +144,27 @@ $midCicle: 25px;
 @keyframes animate {
   0% {
       opacity: 0;
-      transform:  translate(-20px, -50%);
+      transform:  translate(-10px, -50%);
   }
   50% {
       opacity: 1;
   }
   100% {
       opacity: 0;
-      transform: translate(20px, -50%);
+      transform: translate(10px, -50%);
   }
 }
 
 @keyframes reverseAnimate {
   0% {
       opacity: 0;
-      transform:  translate(20px, -50%);
+      transform:  translate(10px, -50%);
   }
   50% {
       opacity: 1;
   }
   100% {
       opacity: 0;
-      transform: translate(-20px, -50%);
+      transform: translate(-10px, -50%);
   }
 }

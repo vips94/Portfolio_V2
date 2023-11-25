@@ -37,14 +37,14 @@ export default function Home() {
     })();
   }, []);
 
-  const mouseMoveHandle = (event:any) => {
-    gsap.to(mouseRef.current,{
-      x: event.pageX - mouseRef.current.offsetWidth/2,
-      y: event.pageY - mouseRef.current.offsetHeight/2,
+  const mouseMoveHandle = (event: any) => {
+    gsap.to(mouseRef.current, {
+      x: event.pageX - mouseRef.current.offsetWidth / 2,
+      y: event.pageY - mouseRef.current.offsetHeight / 2,
       duration: 0.1,
       ease: "none",
-    })
-  }
+    });
+  };
 
   return (
     <>
@@ -59,31 +59,42 @@ export default function Home() {
         id="main"
         onMouseMove={(e) => mouseMoveHandle(e)}
       >
-        <div ref={mouseRef} className={styles.pointer} style={{backgroundColor:propertiesBorderColor, filter: `drop-shadow(0px 0px 5px ${propertiesBorderColor})`, width: '10px', height:'10px'}}/>
-        <Thread
-          style={{ zIndex: 3, right: "2%" }}
-          color="#e8ccc7"
-          threadWidth={1}
-        />
-        <Blob
-          style={{
-            transform: "translate(-35%,300%)",
-            top: "0",
-            left: "0",
-            zIndex: "5",
-          }}
-          image="/images/home/home-fg4.jpg"
-        />
-        <ThemeOverlay />
-        <NavBar />
-        <HomePage />
-        <AboutMe/>
-        <Experience/>
-        <Skills />
-        <Projects />
-        <ContactUs />
-        <Footer />
-        {isProjectSelected && <Popup />}
+        <div className={styles.frame}>
+          <div
+            ref={mouseRef}
+            className={styles.pointer}
+            style={{
+              backgroundColor: propertiesBorderColor,
+              filter: `drop-shadow(0px 0px 5px ${propertiesBorderColor})`,
+              width: "10px",
+              height: "10px",
+            }}
+          />
+          <Thread
+            style={{ zIndex: 110, right: "2%" }}
+            color="#e8ccc7"
+            threadWidth={1}
+          />
+          <Blob
+            style={{
+              transform: "translate(-35%,300%)",
+              top: "0",
+              left: "0",
+              zIndex: "5",
+            }}
+            image="/images/home/home-fg4.jpg"
+          />
+          <ThemeOverlay />
+          <NavBar />
+          <HomePage />
+          <AboutMe />
+          <Experience />
+          <Skills />
+          <Projects />
+          <ContactUs />
+          <Footer />
+          {isProjectSelected && <Popup />}
+        </div>
       </main>
     </>
   );

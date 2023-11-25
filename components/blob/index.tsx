@@ -4,11 +4,20 @@ import styles from "./blob.module.scss";
 type BlobProps = {
   style: any;
   image: string;
+  imagePreserveAspectRatio?:string;
+  imageX?: string;
+  imageY?: string;
+  imageHeight?:string;
+  imageWidth?:string;
+  backgroundColor?:string;
 };
 
 const Blob: FC<BlobProps> = (props) => {
+
+  const { style,backgroundColor="white" ,image, imagePreserveAspectRatio="xMinYMin slice", imageX="0", imageY="0", imageHeight='100%', imageWidth='100%' } = props;
+
   return (
-    <div className={styles["blob-container"]} style={props.style}>
+    <div className={styles["blob-container"]} style={style}>
       <div className={styles.blob}>
         <svg
           viewBox="0 0 500 500"
@@ -42,7 +51,7 @@ const Blob: FC<BlobProps> = (props) => {
             <feComposite operator="over" in="shadow" in2="SourceGraphic" />
           </filter>
 
-          <path id="blob" fill="white" filter="url(#inset-shadow)">
+          <path id="blob" fill={backgroundColor} filter="url(#inset-shadow)">
             <animate
               attributeName="d"
               dur="10s"
@@ -64,10 +73,12 @@ const Blob: FC<BlobProps> = (props) => {
 
           <image
             clipPath="url(#cp)"
-            href={props.image}
-            height="100%"
-            width="100%"
-            preserveAspectRatio="xMinYMin slice"
+            href={image}
+            height={imageHeight}
+            width={imageWidth}
+            x = {imageX}
+            y = {imageY}
+            preserveAspectRatio={imagePreserveAspectRatio}
           />
         </svg>
       </div>

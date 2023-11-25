@@ -4,12 +4,17 @@ import gsap from "gsap";
 import CustomButton from "../button";
 import TreeIllustration from "../illustrate-svg/tree-illustrate";
 import Divider from "../divider";
+import Title from "../title";
+import { useSelector} from "react-redux";
+import { selectPropertiesBorderColor } from "@/store/skills";
 
 const imageList = ["home-fg1", "home-fg2", "home-fg3", "home-fg4"];
 
 const HomePage = () => {
   const [current, setCurrent] = useState(3);
   const text = useRef([]) as any;
+
+  const propertiesBorderColor = useSelector(selectPropertiesBorderColor);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -45,13 +50,16 @@ const HomePage = () => {
     <div className={styles["home-section"]}>
       <div
         className={styles.background}
-        style={{ width: "700px", height: "700px", right: "0%", bottom: "8%" }}
+        style={{ width: "500px", height: "500px", left: "50%", bottom: "-3.5%",  transform: 'translate(-50%,0)'}}
       >
         {<TreeIllustration />}
       </div>
-      <Divider color="white" position="calc(90vh - 200px + 45px)" />
+      <Divider style={{top: '-45px', transform: 'scaleY(-1)'}} />
       <div className={styles["home-footer"]} />
-      <div className={styles["body-container"]}>
+      <div className={styles.textSection}>
+        <Title shadowTitle="VIPIN" title="HELLO !" style={{top: '7%'}}/>
+      </div>
+      {/* <div className={styles["body-container"]}>
         <h1>VIPIN KUMAR</h1>
         <span className={styles.subtitle}>
           {"</>"}
@@ -82,7 +90,7 @@ const HomePage = () => {
         >
           HIRE ME
         </CustomButton>
-      </div>
+      </div> */}
     </div>
   );
 };

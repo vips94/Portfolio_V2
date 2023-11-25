@@ -46,6 +46,7 @@ const Timeline:FC<TimeLineProps> = (props) => {
                 // ease: "back.out(2.5)"
                 ease: "bounce.out",
                 // ease: "elastic.out(1,0.5)",
+                zIndex:1
             }
         )
         .to(
@@ -54,6 +55,7 @@ const Timeline:FC<TimeLineProps> = (props) => {
                 // ease: "back.out(2.5)"
                 ease: "bounce.out",
                 // ease: "elastic.out(1,0.5)",
+                zIndex:1
             },'<'
         )
     }
@@ -63,11 +65,13 @@ const Timeline:FC<TimeLineProps> = (props) => {
         timeLine.to(
             left.current,{
                 x: '0',
+                zIndex:0
             }
         )
         .to(
             right.current,{
                 x: '0',
+                zIndex:0
             },'<'
         )
     }
@@ -75,11 +79,11 @@ const Timeline:FC<TimeLineProps> = (props) => {
     return (
         <div className={styles.itemContainer} onMouseEnter={playAnimation} onMouseLeave={returnAnimation}>
             <motion.div className={styles.base} ref={timelineRef}>
-                <motion.div initial={{x:'-80%'}} className={styles.left} ref={left} style={{color: propertiesBorderColor, borderColor: propertiesBtnMaskColor}}>{yearStart}<span style={{backgroundColor: propertiesBorderColor}}/></motion.div>
+                <motion.div initial={{x:'-80%'}} className={styles.left} ref={left} style={{color: propertiesBorderColor, borderImage: `linear-gradient(to right, rgb(255, 255, 255), ${propertiesBtnMaskColor}) 1`}}>{yearStart}<span style={{backgroundColor: propertiesBorderColor}}/></motion.div>
                 <div className={styles.content} style={{backgroundColor: propertiesBorderColor, color: propertyTextStroke}}>
                     {children}
                 </div>
-                <motion.div initial={{x:'80%'}} className={styles.right}  ref={right} style={{color: propertiesBorderColor, borderColor: propertiesBtnMaskColor}}>{yearEnd}<span style={{backgroundColor: propertiesBorderColor}}/></motion.div>
+                <motion.div initial={{x:'80%'}} className={styles.right}  ref={right} style={{color: propertiesBorderColor, borderImage: `linear-gradient(to left, rgb(255, 255, 255), ${propertiesBtnMaskColor}) 1`}}>{yearEnd}<span style={{backgroundColor: propertiesBorderColor}}/></motion.div>
             </motion.div>
         </div>
     );
