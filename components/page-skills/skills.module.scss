@@ -3,7 +3,7 @@
 .skill-section{
     position: relative;
     width: 100vw;
-    height: 100vh;
+    min-height: $height;
     background-color: white;
     overflow: hidden;
 

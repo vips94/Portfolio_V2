@@ -1,5 +1,9 @@
 $max-width: 1200px;
+$frameMargin: 2vh;
+$height: calc(100vh - 2 * $frameMargin);
 $navBorderRadius: 40px;
+
+$scrollBar: #f55c1b;
 
 
 //colors
@@ -9,6 +13,16 @@ $thirdColor:#e5857b;
 $fourthColor:#f1b2b2;
 $fifthColor:#e8ccc7;
 $textColor: black;
+
+$color0:#f55c1b;
+$color1:#2e9fe3;
+$color2:#ff94aa;
+$color3:#f9e3ae;
+$color4:#93b4ff;
+$color5:#abff97;
+$color6:#ecefff;
+$color7:#00ffcb;
+
 
 //fonts
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Gruppo&family=Kenia&family=Monoton&family=Rubik+Marker+Hatch&family=Rubik+Vinyl&display=swap');

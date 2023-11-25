@@ -19,6 +19,7 @@ import gsap from "gsap";
 import {
   selectPropertiesBorderColor,
   selectPropertyTextStroke,
+  selectCurrentPropertiesIndex
 } from "@/store/skills";
 import Experience from "@/components/page-experience";
 import AboutMe from "@/components/page-about-me";
@@ -27,20 +28,30 @@ export default function Home() {
   const isProjectSelected = useSelector(selectIsProjectSelected);
   const propertiesBorderColor = useSelector(selectPropertiesBorderColor);
   const propertyTextStroke = useSelector(selectPropertyTextStroke);
+  const currentProertiesIndex = useSelector(selectCurrentPropertiesIndex);
   const mouseRef = useRef(null) as any;
 
-  useEffect(() => {
-    (async () => {
-      //to smooth the scrolling
-      const LocomotiveScroll = (await import("locomotive-scroll")).default;
-      const locomotiveScroll = new LocomotiveScroll();
-    })();
-  }, []);
+  useEffect(()=>{
+    if(propertiesBorderColor){
+      const selector = document.querySelector("#main");
+      const oldClassName = selector?.classList.item(1);
+      if(oldClassName) selector?.classList.remove(oldClassName);
+      selector?.classList.add(styles[`frame_${currentProertiesIndex}`]);
+    }
+  },[propertiesBorderColor])
+
+  // useEffect(() => {
+  //   (async () => {
+  //     //to smooth the scrolling
+  //     const LocomotiveScroll = (await import("locomotive-scroll")).default;
+  //     const locomotiveScroll = new LocomotiveScroll();
+  //   })();
+  // }, []);
 
   const mouseMoveHandle = (event: any) => {
     gsap.to(mouseRef.current, {
-      x: event.pageX - mouseRef.current.offsetWidth / 2,
-      y: event.pageY - mouseRef.current.offsetHeight / 2,
+      x: event.clientX - mouseRef.current.offsetWidth / 2,
+      y: event.clientY - mouseRef.current.offsetHeight / 2,
       duration: 0.1,
       ease: "none",
     });
@@ -54,12 +65,12 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main
-        className={`${styles.main}`}
-        id="main"
-        onMouseMove={(e) => mouseMoveHandle(e)}
-      >
-        <div className={styles.frame}>
+      <main className={`${styles.main}`}>
+        <div
+          className={styles.frame}
+          id="main"
+          onMouseMove={(e) => mouseMoveHandle(e)}
+        >
           <div
             ref={mouseRef}
             className={styles.pointer}

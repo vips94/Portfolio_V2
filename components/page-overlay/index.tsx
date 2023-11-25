@@ -9,6 +9,7 @@ import {
   setPropetiedTextColor,
   setPropertiesMaskOpacity,
   setPropertyTextStroke,
+  setCurrenPropertiesIndex,
 } from "@/store/skills";
 import { getMidPoint } from "@/utility";
 
@@ -173,6 +174,7 @@ const ThemeOverlay = () => {
     dispatch(setPropetiedTextColor(skillsList[index]?.textcolor));
     dispatch(setPropertyTextStroke(skillsList[index]?.textStroke || "white"));
     dispatch(setPropertiesMaskOpacity(skillsList[index]?.maskOpacity));
+    dispatch(setCurrenPropertiesIndex(index));
   };
 
   return (

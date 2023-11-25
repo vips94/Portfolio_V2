@@ -16,7 +16,7 @@ const AboutMe = () => {
   return (
     <div className={styles["aboutMe-section"]}>
       <div className={styles.section}>
-        <Title title="WHO AM I?" shadowTitle="BIOGRAPHY" />
+        <Title title="WHO AM I?" shadowTitle="BIOGRAPHY" style={{top: '10%'}}/>
         <div className={styles.container}>
           <div className={styles.profileContainer}>
             <Blob

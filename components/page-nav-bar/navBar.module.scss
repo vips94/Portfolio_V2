@@ -2,38 +2,80 @@
 
 .nav-loader{
     position: fixed;
-    top: 2rem;
-    left: 2rem;
+    top: 1rem;
+    left: 50%;
+    // margin: auto;
     max-width: $max-width;
-    background-color: $primaryColor;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 1px 3px 2px 2px rgba(0, 0, 0, 0.203);
     width: fit-content;
     height: 60px;
-    border-radius: $navBorderRadius;
+    border-radius: 0 0 2rem 2rem;
     display: flex;
     justify-content: space-between;
     // overflow: hidden;
     z-index: 9998;
+    transform: translate(-50%,0);
 
-    // &::before{
-    //     content: '';
-    //     position: absolute;
-    //     z-index: -1;
-    //     background-color: $primaryColor;
-    //     filter: blur(1rem);
-    //     width: 100%;
-    //     height: 100%;
-    // }
+    &::before{
+        content: '';
+        position: absolute;
+        left: -15px;
+        top: 0;
+        background-color: rgb(120, 120, 120);
+        z-index: -1;
+        width: 15px;
+        height: 10px;
+        border-top-right-radius: 12px;
+        border-top-left-radius: 12px;
+    }
+
+    &::after{
+        content: '';
+        position: absolute;
+        left: -10px;
+        top: 0;
+        z-index: -2;
+        background-color: white;
+        width: 10px;
+        height: 10px;
+    }
 }
 
 .nav-section{
     width: calc(100% - 6px);
     height: calc(100% - 6px);
-    border-radius: $navBorderRadius;
+    background-color: rgb(255, 255, 255);
+    border-radius: 0 0 2rem 2rem;
     color: $textColor;
     padding: 0 2rem;
     display: flex;
     justify-content: space-between;
     margin: 2px;
+
+    &::before{
+        content: '';
+        position: absolute;
+        right: -15px;
+        top: 0;
+        background-color: rgb(120, 120, 120);
+        z-index: -1;
+        width: 15px;
+        height: 10px;
+        border-top-right-radius: 12px;
+        border-top-left-radius: 12px;
+    }
+
+    &::after{
+        content: '';
+        position: absolute;
+        right: -10px;
+        top: 0;
+        z-index: -2;
+        background-color: white;
+        width: 10px;
+        height: 10px;
+    }
     // background-color: $secondryColor;
 
     div{
@@ -63,6 +105,7 @@
         display: inherit;
         position: relative;
         .avatar{
+            margin-right: 3rem;
             width: 50px;
             height: 100%;
             cursor: pointer;

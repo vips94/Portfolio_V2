@@ -142,7 +142,7 @@
 }
 @keyframes lightSpeedLeft {
   from {
-    transform: translate3d(-50%, 0, 0) skewX(20deg);
+    transform: translate3d(0,50%, 0) skewX(20deg);
     opacity: 0;
   }
   60% {
@@ -182,7 +182,7 @@
 }
 @keyframes lightSpeedRight {
   from {
-    transform: translate3d(50%, 0, 0) skewX(-20deg);
+    transform: translate3d(0,50%, 0) skewX(-20deg);
     opacity: 0;
   }
   60% {

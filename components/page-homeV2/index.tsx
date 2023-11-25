@@ -50,14 +50,30 @@ const HomePage = () => {
     <div className={styles["home-section"]}>
       <div
         className={styles.background}
-        style={{ width: "500px", height: "500px", left: "50%", bottom: "-3.5%",  transform: 'translate(-50%,0)'}}
+        style={{ width: "500px", height: "500px", left: "50%", bottom: "-3.5%",  transform: 'translate(-50%,0)', zIndex: 5}}
       >
         {<TreeIllustration />}
       </div>
-      <Divider style={{top: '-45px', transform: 'scaleY(-1)'}} />
+      <Divider style={{top: '20px', transform: 'scaleY(-1)'}} />
       <div className={styles["home-footer"]} />
+      <div className={styles["home-header"]} style={{backgroundColor: propertiesBorderColor}}/>
       <div className={styles.textSection}>
-        <Title shadowTitle="VIPIN" title="HELLO !" style={{top: '7%'}}/>
+        <div className={styles.row}>
+          <p className={styles.title} >Hello !</p>
+          <p className={styles.title}>I'm <span style={{color: propertiesBorderColor}}>Vipin Kumar</span></p>
+        </div>
+        <div className={styles.circularText}>
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path id="circlePath" fill="#bae6fd" strokeWidth="4" stroke={propertiesBorderColor} d="
+                  M 10, 50
+                  a 40,40 0 1,1 80,0
+                  a 40,40 0 1,1 -80,0
+                " />
+            <text id="text" fill="#444444" textLength={240}>
+              <textPath id="textPath" href="#circlePath">FRONTEND ENGINEER - GAME DEVELOPER -</textPath>
+            </text>
+          </svg>
+        </div>
       </div>
       {/* <div className={styles["body-container"]}>
         <h1>VIPIN KUMAR</h1>

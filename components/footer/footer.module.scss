@@ -1,9 +1,9 @@
-
+@import "@/sass/variables.scss";
 $socialIconsSize : 3vh;
 
 .footerSection{
     width: 100vw;
-    height: 20vh;
+    height: calc(20vh - $frameMargin - 1vh);
     display: flex;
     justify-content: center;
     align-items: center;

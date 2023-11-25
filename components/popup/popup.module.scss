@@ -1,6 +1,8 @@
+@import '@/sass/variables.scss';
+
 .popup-container{
     width: 100vw;
-    height: 100vh;
+    height: $height;
     position: fixed;
     top: 0;
     left: 0;

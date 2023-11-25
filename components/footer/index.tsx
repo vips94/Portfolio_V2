@@ -63,7 +63,13 @@ const Footer = () => {
     >
       <div className={styles.links}>
         <Link href={"#"} className={styles.link}>
+          Home
+        </Link>
+        <Link href={"#"} className={styles.link}>
           About Me
+        </Link>
+        <Link href={"#"} className={styles.link}>
+          Experience
         </Link>
         <Link href={"#"} className={styles.link}>
           Skills

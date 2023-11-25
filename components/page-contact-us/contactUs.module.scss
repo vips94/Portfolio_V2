@@ -3,7 +3,7 @@
 .contact-container {
   position: relative;
   width: 100vw;
-  min-height: 80vh;
+  min-height: calc(80vh - $frameMargin + 1vh);
   background-color: white;
   overflow: hidden;
 

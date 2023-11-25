@@ -5,7 +5,7 @@ $animationTime: 0.7s;
 .home-section{
     position: relative;
     width: 100vw;
-    height: 100vh;
+    height: $height;
     background-color: $primaryColor;
     overflow: hidden;
     // display: flex;

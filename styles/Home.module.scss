@@ -1,12 +1,83 @@
 @import '@/sass/variables.scss';
 .main {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  min-height: 100vh;
+  // position: relative;
+  height: calc(100vh - 4vh);
   overflow: hidden;
+  margin: 2vh;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
+
+  .frame{
+    position: relative;
+    min-height: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+      display: none;
+      width: 5px;
+      background-color: rgb(255, 255, 255);
+    }
+    
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      background-color: $scrollBar;
+    } 
+  }
+
+  .frame_0{
+    &::-webkit-scrollbar-thumb {
+      background-color: $color0 !important;
+    } 
+  }
+
+  .frame_1{
+    &::-webkit-scrollbar-thumb {
+      background-color: $color1 !important;
+    } 
+  }
+
+  .frame_2{
+    &::-webkit-scrollbar-thumb {
+      background-color: $color2 !important;
+    } 
+  }
+
+  .frame_3{
+    &::-webkit-scrollbar-thumb {
+      background-color: $color3 !important;
+    } 
+  }
+
+  .frame_4{
+    &::-webkit-scrollbar-thumb {
+      background-color: $color4 !important;
+    } 
+  }
+
+  .frame_5{
+    &::-webkit-scrollbar-thumb {
+      background-color: $color5 !important;
+    } 
+  }
+
+  .frame_6{
+    &::-webkit-scrollbar-thumb {
+      background-color: $color6 !important;
+    } 
+  }
+
+  .frame_7{
+    &::-webkit-scrollbar-thumb {
+      background-color: $color7 !important;
+    } 
+  }
 
   .pointer{
     width: 20px;
@@ -16,5 +87,5 @@
     z-index: 99999;
     pointer-events: none !important;
     border: 1px solid rgba(0, 0, 0, 0.432);
-}
+  }
 }

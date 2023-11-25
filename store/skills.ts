@@ -9,6 +9,7 @@ export interface SkillState {
     propetiedTextColor: string;
     propertyTextStroke: string;
     propertiesMaskOpacity: number;
+    currenPropertiesIndex: number;
 }
 
 // Initial state
@@ -18,6 +19,7 @@ const initialState: SkillState = {
     propetiedTextColor: '#f55c1b',
     propertyTextStroke: 'white',
     propertiesMaskOpacity: 0.95,
+    currenPropertiesIndex: 0
 };
 
 // Actual Slice
@@ -41,6 +43,9 @@ export const skillsSlice = createSlice({
     setPropertiesMaskOpacity(state, action) {
       state.propertiesMaskOpacity = action.payload;
     },
+    setCurrenPropertiesIndex(state, action) {
+      state.currenPropertiesIndex = action.payload;
+    },
   },
 
   // Special reducer for hydrating the state. Special case for next-redux-wrapper
@@ -54,7 +59,7 @@ export const skillsSlice = createSlice({
   },
 });
 
-export const { setPropertiesBorderColor, setPropertiesBtnMaskColor, setPropetiedTextColor, setPropertyTextStroke, setPropertiesMaskOpacity } = skillsSlice.actions;
+export const { setPropertiesBorderColor, setPropertiesBtnMaskColor, setPropetiedTextColor, setPropertyTextStroke, setPropertiesMaskOpacity, setCurrenPropertiesIndex } = skillsSlice.actions;
 
 
 //selectors for reducers
@@ -63,5 +68,6 @@ export const selectPropertiesBtnMaskColor = (state: AppState) => state.skills.pr
 export const selectPropertiesTextColor = (state: AppState) => state.skills.propetiedTextColor;
 export const selectPropertiesMaskOpacity = (state: AppState) => state.skills.propertiesMaskOpacity;
 export const selectPropertyTextStroke = (state: AppState) => state.skills.propertyTextStroke;
+export const selectCurrentPropertiesIndex = (state: AppState) => state.skills.currenPropertiesIndex;
 
 export default skillsSlice.reducer;
