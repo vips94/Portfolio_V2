@@ -1,5 +1,5 @@
 "use-client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { forwardRef, useEffect, useRef, useState } from "react";
 import styles from "./skills.module.scss";
 import {
   motion,
@@ -130,7 +130,7 @@ const variants = {
   hover: { opacity: 0, x: TEXT_MOVE_X },
 };
 
-const Skills = () => {
+const Skills = forwardRef((props,ref:any) => {
   const tabRefs = useRef([]) as any;
   const skillRefs = useRef([]) as any;
   const circleSvg = useRef(null) as any;
@@ -217,7 +217,7 @@ const Skills = () => {
   };
 
   return (
-    <div className={styles["skill-section"]}>
+    <div className={styles["skill-section"]} ref={ref}>
       <div className={styles.section}>
         <Title title="MY SKILLS" shadowTitle="MY SKILLS" />
         {/* <div className={styles.background}>
@@ -555,6 +555,6 @@ const Skills = () => {
       </div>
     </div>
   );
-};
+});
 
 export default Skills;

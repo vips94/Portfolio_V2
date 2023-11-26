@@ -1,11 +1,11 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import styles from "./experience.module.scss";
 import Title from "../title";
 import Timeline from "./timeline";
 
-const Experience = () => {
+const Experience = forwardRef((props,ref:any) => {
   return (
-    <div className={styles["experience-section"]}>
+    <div className={styles["experience-section"]} ref={ref}>
       <div className={styles.section}>
         <Title title="EXPERIENCE" shadowTitle="EXPERIENCE" />
         <div className={styles.container}>
@@ -25,6 +25,6 @@ const Experience = () => {
       </div>
     </div>
   );
-};
+});
 
 export default Experience;

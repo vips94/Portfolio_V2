@@ -3,7 +3,7 @@ import Head from "next/head";
 import styles from "@/styles/Home.module.scss";
 import NavBar from "@/components/page-nav-bar";
 import HomePage from "@/components/page-homeV2";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useLayoutEffect, useRef } from "react";
 import Blob from "@/components/blob";
 import Skills from "@/components/page-skillsV2";
 // import Divider from "@/components/divider";
@@ -16,35 +16,76 @@ import ContactUs from "@/components/page-contact-us/index";
 import Footer from "@/components/footer";
 import ThemeOverlay from "@/components/page-overlay";
 import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import {
   selectPropertiesBorderColor,
   selectPropertyTextStroke,
-  selectCurrentPropertiesIndex
+  selectCurrentPropertiesIndex,
 } from "@/store/skills";
 import Experience from "@/components/page-experience";
 import AboutMe from "@/components/page-about-me";
+import Lenis from "@studio-freight/lenis";
+import { AnimatePresence } from "framer-motion";
 
 export default function Home() {
+  const pageRefs = useRef([]) as any;
+  const mainRef = useRef(null) as any;
   const isProjectSelected = useSelector(selectIsProjectSelected);
   const propertiesBorderColor = useSelector(selectPropertiesBorderColor);
   const propertyTextStroke = useSelector(selectPropertyTextStroke);
   const currentProertiesIndex = useSelector(selectCurrentPropertiesIndex);
   const mouseRef = useRef(null) as any;
 
-  useEffect(()=>{
-    if(propertiesBorderColor){
+  useEffect(() => {
+    if (propertiesBorderColor) {
       const selector = document.querySelector("#main");
       const oldClassName = selector?.classList.item(1);
-      if(oldClassName) selector?.classList.remove(oldClassName);
+      if (oldClassName) selector?.classList.remove(oldClassName);
       selector?.classList.add(styles[`frame_${currentProertiesIndex}`]);
     }
-  },[propertiesBorderColor])
+  }, [propertiesBorderColor]);
 
   // useEffect(() => {
+  //   gsap.registerPlugin(ScrollTrigger)
+  //   const _ref = pageRefs.current;
+  //   let ctx = gsap.context(() => {
+  //     console.log(_ref)
+  //     _ref.forEach((panel:any) => {
+  //       ScrollTrigger.create({
+  //         scroller: "#main",
+  //         trigger: panel,
+  //         start: "top top",
+  //         pin: true,
+  //         // markers:true,
+  //         pinSpacing: false,
+  //         scrub: 1,
+  //       });
+  //     });
+  //   })
+  //   return () => ctx.revert();
+  // }, []);
+
+  useEffect(() => {
+    const lenis = new Lenis({
+      content: mainRef.current,
+    });
+
+    function raf(time: any) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  }, []);
+
+  // useLayoutEffect(() => {
   //   (async () => {
   //     //to smooth the scrolling
   //     const LocomotiveScroll = (await import("locomotive-scroll")).default;
-  //     const locomotiveScroll = new LocomotiveScroll();
+  //     const locomotiveScroll = new LocomotiveScroll({
+  //       el: document.querySelector('#main') as any,
+  //       smooth: true
+  //   });
   //   })();
   // }, []);
 
@@ -70,6 +111,8 @@ export default function Home() {
           className={styles.frame}
           id="main"
           onMouseMove={(e) => mouseMoveHandle(e)}
+          ref={mainRef}
+          data-scroll-container
         >
           <div
             ref={mouseRef}
@@ -97,13 +140,13 @@ export default function Home() {
           />
           <ThemeOverlay />
           <NavBar />
-          <HomePage />
-          <AboutMe />
-          <Experience />
-          <Skills />
-          <Projects />
-          <ContactUs />
-          <Footer />
+          <HomePage ref={(el) => (pageRefs.current[0] = el)} />
+          <AboutMe ref={(el) => (pageRefs.current[1] = el)} />
+          <Experience ref={(el) => (pageRefs.current[2] = el)} />
+          <Skills ref={(el) => (pageRefs.current[3] = el)} />
+          <Projects ref={(el) => (pageRefs.current[4] = el)} />
+          <ContactUs ref={(el) => (pageRefs.current[5] = el)} />
+          <Footer ref={(el) => (pageRefs.current[6] = el)} />
           {isProjectSelected && <Popup />}
         </div>
       </main>

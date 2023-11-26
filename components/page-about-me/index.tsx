@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import styles from "./aboutMe.module.scss";
 import Title from "../title";
 import Blob from "../blob";
@@ -9,14 +9,14 @@ import {
 import { useSelector } from "react-redux";
 import {motion} from 'framer-motion';
 
-const AboutMe = () => {
+const AboutMe = forwardRef((props,ref:any) => {
   const propertiesBorderColor = useSelector(selectPropertiesBorderColor);
   const propertyTextStroke = useSelector(selectPropertyTextStroke);
 
   return (
-    <div className={styles["aboutMe-section"]}>
+    <div className={styles["aboutMe-section"]} ref={ref}>
       <div className={styles.section}>
-        <Title title="WHO AM I?" shadowTitle="BIOGRAPHY" style={{top: '10%'}}/>
+        <Title title="WHO AM I?" shadowTitle="BIOGRAPHY" style={{top: '20%'}}/>
         <div className={styles.container}>
           <div className={styles.profileContainer}>
             <Blob
@@ -82,6 +82,6 @@ const AboutMe = () => {
       </div>
     </div>
   );
-};
+});
 
 export default AboutMe;

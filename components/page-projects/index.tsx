@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef } from "react";
+import React, { forwardRef, useEffect, useMemo, useRef } from "react";
 import styles from "./projects.module.scss";
 import Title from "../title";
 import Hexagon from "../shapes/hexagon";
@@ -136,7 +136,7 @@ const list = [
     },
   ],
 ];
-const Projects = () => {
+const Projects = forwardRef((props,ref:any) => {
   const dispatch = useDispatch();
   const onHexagonClick = (project:any) => {
     dispatch(setIsProjectSelected(true))
@@ -180,7 +180,7 @@ const Projects = () => {
   };
 
   return (
-    <div className={styles["project-section"]}>
+    <div className={styles["project-section"]} ref={ref}>
       <div className={styles.section}>
         <Title title="MY PROJECTS" shadowTitle="MY PROJECTS" />
         <div className={styles["project-list-container"]}>
@@ -191,6 +191,6 @@ const Projects = () => {
       </div>
     </div>
   );
-};
+});
 
 export default Projects;

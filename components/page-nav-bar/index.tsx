@@ -80,9 +80,9 @@ const NavBar = () => {
     Lottie.setSpeed(2);
 
     if (direction == 1) {
-      anim.goToAndPlay(0, true, "avatarAnim");
-      anim.addEventListener("loopComplete", () => {
-        anim.stop();
+      anim?.goToAndPlay(0, true, "avatarAnim");
+      anim?.addEventListener("loopComplete", () => {
+        anim?.stop();
       });
       // gsap.to(`.${styles['salutation-area']}`,{
       //     scale:1,

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, forwardRef } from "react";
 import styles from "./footer.module.scss";
 import {
   selectPropertiesBorderColor,
@@ -11,7 +11,7 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import DrawSVGPlugin from "gsap-trial/dist/DrawSVGPlugin";
 gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin);
 
-const Footer = () => {
+const Footer = forwardRef((props,ref:any) => {
   const facebook = useRef(null) as any;
   const insta = useRef(null) as any;
   const linkedIn = useRef(null) as any;
@@ -60,6 +60,7 @@ const Footer = () => {
         backgroundColor: propertiesBorderColor,
         color: propertyTextStroke,
       }}
+      ref={ref}
     >
       <div className={styles.links}>
         <Link href={"#"} className={styles.link}>
@@ -164,6 +165,6 @@ const Footer = () => {
       </div>
     </div>
   );
-};
+});
 
 export default Footer;

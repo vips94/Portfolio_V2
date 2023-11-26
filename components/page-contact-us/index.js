@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, forwardRef } from "react";
 import styles from "./contactUs.module.scss";
 import Title from "../title";
 import emailjs from "@emailjs/browser";
@@ -14,7 +14,7 @@ import CustomButton from "../button";
 import {motion} from 'framer-motion';
 import Divider from "../divider";
 
-const ContactUs = () => {
+const ContactUs = forwardRef((props,ref) => {
   const svgBg = useRef(null);
   const isInView = useInView(svgBg)
   const [status, setStatus] = useState("");
@@ -94,7 +94,7 @@ const ContactUs = () => {
       });
   };
   return (
-    <div className={styles["contact-container"]}>
+    <div className={styles["contact-container"]} ref={ref}>
       <div className={styles.section}>
         <Title title="GET IN TOUCH" shadowTitle="CONTACT" />
         <div className={styles["form-container"]}>
@@ -158,6 +158,6 @@ const ContactUs = () => {
       </div>
     </div>
   );
-};
+});
 
 export default ContactUs;

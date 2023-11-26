@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useRef } from "react";
 import styles from "./popup.module.scss";
 import { selectCurrentProjectData } from "@/store/project";
 import { useSelector, useDispatch } from "react-redux";
@@ -7,21 +7,41 @@ import {
     selectPropertiesBorderColor,
     selectPropertyTextStroke,
   } from "@/store/skills";
+import { motion, useInView, animate } from "framer-motion";
 
 const Popup = () => {
+  const popupRef = useRef(null) as any;
+  const backdropRef = useRef(null) as any;
+  const bodyRef = useRef(null) as any;
+  const isInView = useInView(popupRef)
   const dispatch = useDispatch();
   const projectData = useSelector(selectCurrentProjectData);
   const propertiesBorderColor = useSelector(selectPropertiesBorderColor);
   const propertyTextStroke = useSelector(selectPropertyTextStroke);
 
   const closePopup = () => {
-    dispatch(setIsProjectSelected(false));
+    animate([
+      [bodyRef.current, {x: '-300%'},{ duration: 1}],
+      [backdropRef.current, {x: '-100%'},{delay:0.1, duration: 1, at:"<"}],
+    ])
+    setTimeout(() => {
+      dispatch(setIsProjectSelected(false));
+    },1300)
   };
 
+  useEffect(()=>{
+    if(isInView){
+      animate([
+        [backdropRef.current, {x: '0%'},{ duration: 1}],
+        [bodyRef.current, {x: '0%'},{delay:0.1, duration: 1, at: '<'}]
+      ])
+    }
+  },[isInView])
+
   return (
-    <div className={styles["popup-container"]} style={{color: propertyTextStroke}}>
-      <div className={styles.backdrop} />
-      <div className={styles.body}>
+    <div className={styles["popup-container"]} ref={popupRef} style={{color: propertyTextStroke}}>
+      <motion.div className={styles.backdrop} ref={backdropRef} initial={{x: '100%'}}/>
+      <motion.div className={styles.body} ref={bodyRef} initial={{x: '300%'}}>
         <svg
           width="608"
           height="698"
@@ -60,7 +80,7 @@ const Popup = () => {
             </span>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

@@ -9,32 +9,6 @@ $animationTime: 0.7s;
   background-color: $primaryColor;
   overflow: hidden;
   background-color: white;
-  // background: radial-gradient(closest-side, #3f87a6, #ebf8e1, #f69d3c);
-
-  // 1
-  // background: #FF5F6D;  /* fallback for old browsers */
-  // background: -webkit-linear-gradient(to right, #FFC371, #FF5F6D);  /* Chrome 10-25, Safari 5.1-6 */
-  // background: linear-gradient(to right, #FFC371, #FF5F6D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-  //2
-  // background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
-
-  //color of the sky
-  // background: #e0eafc; /* fallback for old browsers */
-  // background: -webkit-linear-gradient(
-  //   to right,
-  //   #cfdef3,
-  //   #e0eafc
-  // ); /* Chrome 10-25, Safari 5.1-6 */
-  // background: linear-gradient(
-  //   to right,
-  //   #cfdef3,
-  //   #e0eafc
-  // ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
-  // 
-  // background: linear-gradient(90deg, #ffffff 0%, #fbff8a 100%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -101,11 +75,11 @@ $animationTime: 0.7s;
       .title{
         text-align: center;
         font-size: 100px;
-        color: #575757;
+        color: #444;
         font-family: $fontFamilySecondry;
         text-transform: capitalize;
 
-        span{
+        .name{
           text-shadow: 
           1px 0px 1px #ccc, 0px 1px 1px #eee, 
           2px 1px 1px #ccc, 1px 2px 1px #eee,
@@ -128,7 +102,7 @@ $animationTime: 0.7s;
       left: 50%;
       z-index: 0;
       transform: translate(-50%, 0);
-      animation: textRotate 10s linear infinite;
+      animation: textRotate 20s linear infinite;
 
       svg{
         text{
@@ -196,10 +170,76 @@ $animationTime: 0.7s;
       }
     }
   }
+
+  .scrollButton{
+    position: absolute;
+    bottom: 5vh;
+    right: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #444;
+    span{
+      width: 30px;
+      height: 50px;
+      border: 2px solid #444;
+      border-radius: 50px;
+  
+      &::before {
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        content: '';
+        width: 6px;
+        height: 6px;
+        margin-left: -3px;
+        background-color: #444;
+        border-radius: 100%;
+        -webkit-animation: sdb10 2s infinite;
+        animation: sdb10 2s infinite;
+        box-sizing: border-box;
+      }
+    }
+    
+  }
 }
 
 @keyframes textRotate {
   to{
     transform:  translate(-50%, 0) rotate(-360deg);
+  }
+}
+
+@-webkit-keyframes sdb10 {
+  0% {
+    -webkit-transform: translate(0, 0);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    -webkit-transform: translate(0, 20px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes sdb10 {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    transform: translate(0, 20px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
   }
 }
