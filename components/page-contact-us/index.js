@@ -94,7 +94,7 @@ const ContactUs = forwardRef((props,ref) => {
       });
   };
   return (
-    <div className={styles["contact-container"]} ref={ref}>
+    <section className={styles["contact-container"]} ref={ref} id="contact">
       <div className={styles.section}>
         <Title title="GET IN TOUCH" shadowTitle="CONTACT" />
         <div className={styles["form-container"]}>
@@ -156,7 +156,7 @@ const ContactUs = forwardRef((props,ref) => {
         </div>
         <Divider style={{top: "calc(80vh - 200px + 45px)"}}/>
       </div>
-    </div>
+    </section>
   );
 });
 

@@ -217,7 +217,7 @@ const Skills = forwardRef((props,ref:any) => {
   };
 
   return (
-    <div className={styles["skill-section"]} ref={ref}>
+    <section className={styles["skill-section"]} ref={ref} id="skills">
       <div className={styles.section}>
         <Title title="MY SKILLS" shadowTitle="MY SKILLS" />
         {/* <div className={styles.background}>
@@ -553,7 +553,7 @@ const Skills = forwardRef((props,ref:any) => {
           </motion.div>
         </div>
       </div>
-    </div>
+    </section>
   );
 });
 

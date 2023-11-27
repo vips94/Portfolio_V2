@@ -19,7 +19,7 @@ const initialState: SkillState = {
     propetiedTextColor: '#f55c1b',
     propertyTextStroke: 'white',
     propertiesMaskOpacity: 0.95,
-    currenPropertiesIndex: 0
+    currenPropertiesIndex: 0,
 };
 
 // Actual Slice

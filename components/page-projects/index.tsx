@@ -180,7 +180,7 @@ const Projects = forwardRef((props,ref:any) => {
   };
 
   return (
-    <div className={styles["project-section"]} ref={ref}>
+    <section className={styles["project-section"]} ref={ref} id="projects">
       <div className={styles.section}>
         <Title title="MY PROJECTS" shadowTitle="MY PROJECTS" />
         <div className={styles["project-list-container"]}>
@@ -189,7 +189,7 @@ const Projects = forwardRef((props,ref:any) => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 });
 

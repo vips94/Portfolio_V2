@@ -3,10 +3,9 @@ import Head from "next/head";
 import styles from "@/styles/Home.module.scss";
 import NavBar from "@/components/page-nav-bar";
 import HomePage from "@/components/page-homeV2";
-import React, { useEffect, useLayoutEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import Blob from "@/components/blob";
 import Skills from "@/components/page-skillsV2";
-// import Divider from "@/components/divider";
 import Thread from "@/components/thread";
 import Projects from "@/components/page-projects";
 import Popup from "@/components/popup";
@@ -25,7 +24,6 @@ import {
 import Experience from "@/components/page-experience";
 import AboutMe from "@/components/page-about-me";
 import Lenis from "@studio-freight/lenis";
-import { AnimatePresence } from "framer-motion";
 
 export default function Home() {
   const pageRefs = useRef([]) as any;
@@ -44,6 +42,9 @@ export default function Home() {
       selector?.classList.add(styles[`frame_${currentProertiesIndex}`]);
     }
   }, [propertiesBorderColor]);
+
+
+  //page scroll themes 
 
   // useEffect(() => {
   //   gsap.registerPlugin(ScrollTrigger)
@@ -65,34 +66,29 @@ export default function Home() {
   //   return () => ctx.revert();
   // }, []);
 
-  useEffect(() => {
-    const lenis = new Lenis({
-      content: mainRef.current,
-    });
-
-    function raf(time: any) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-  }, []);
-
-  // useLayoutEffect(() => {
-  //   (async () => {
-  //     //to smooth the scrolling
-  //     const LocomotiveScroll = (await import("locomotive-scroll")).default;
-  //     const locomotiveScroll = new LocomotiveScroll({
-  //       el: document.querySelector('#main') as any,
-  //       smooth: true
+  // useEffect(() => {
+  //   const lenis = new Lenis({
+  //     content: mainRef.current,
+  //     eventsTarget: mainRef.current,
+  //     smoothWheel: true,
+  //     smoothTouch: true,
+  //     syncTouch: true,
   //   });
-  //   })();
+
+    
+  //   function raf(time: any) {
+  //     lenis.raf(time);
+  //     requestAnimationFrame(raf);
+  //   }
+
+  //   requestAnimationFrame(raf);
   // }, []);
 
   const mouseMoveHandle = (event: any) => {
+    const  rect = mainRef.current.getBoundingClientRect()
     gsap.to(mouseRef.current, {
-      x: event.clientX - mouseRef.current.offsetWidth / 2,
-      y: event.clientY - mouseRef.current.offsetHeight / 2,
+      x: event.pageX - mouseRef.current.offsetWidth / 2 - rect.left ,
+      y: event.pageY - mouseRef.current.offsetHeight / 2 - rect.top +  mainRef.current.scrollTop,
       duration: 0.1,
       ease: "none",
     });

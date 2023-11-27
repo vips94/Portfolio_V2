@@ -14,7 +14,7 @@ const AboutMe = forwardRef((props,ref:any) => {
   const propertyTextStroke = useSelector(selectPropertyTextStroke);
 
   return (
-    <div className={styles["aboutMe-section"]} ref={ref}>
+    <section className={styles["aboutMe-section"]} ref={ref} id="aboutMe">
       <div className={styles.section}>
         <Title title="WHO AM I?" shadowTitle="BIOGRAPHY" style={{top: '20%'}}/>
         <div className={styles.container}>
@@ -80,7 +80,7 @@ const AboutMe = forwardRef((props,ref:any) => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 });
 

@@ -1,145 +1,187 @@
-@import '@/sass/variables.scss';
+@import "@/sass/variables.scss";
 
-.nav-loader{
-    position: fixed;
-    top: 1rem;
-    left: 50%;
-    // margin: auto;
-    max-width: $max-width;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 1px 3px 2px 2px rgba(0, 0, 0, 0.203);
-    width: fit-content;
-    height: 60px;
-    border-radius: 0 0 2rem 2rem;
+.nav-loader {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  // margin: auto;
+  max-width: $max-width;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 1px 3px 2px 2px rgba(0, 0, 0, 0.203);
+  width: fit-content;
+  height: 60px;
+  border-radius: 0 0 2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  // overflow: hidden;
+  z-index: 9998;
+  transform: translate(-50%, 0);
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: -15px;
+    top: 0;
+    background-color: rgb(120, 120, 120);
+    z-index: -1;
+    width: 15px;
+    height: 10px;
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 0;
+    z-index: -2;
+    background-color: white;
+    width: 10px;
+    height: 10px;
+  }
+}
+
+.nav-section {
+  width: calc(100% - 6px);
+  height: calc(100% - 6px);
+  background-color: rgb(255, 255, 255);
+  border-radius: 0 0 2rem 2rem;
+  color: $textColor;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  margin: 2px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    right: -15px;
+    top: 0;
+    background-color: rgb(120, 120, 120);
+    z-index: -1;
+    width: 15px;
+    height: 10px;
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: -10px;
+    top: 0;
+    z-index: -2;
+    background-color: white;
+    width: 10px;
+    height: 10px;
+  }
+  // background-color: $secondryColor;
+
+  div {
     display: flex;
-    justify-content: space-between;
-    // overflow: hidden;
-    z-index: 9998;
-    transform: translate(-50%,0);
+    justify-content: center;
+    align-items: center;
+  }
 
-    &::before{
-        content: '';
+  .right {
+    display: inherit;
+    gap: 3rem;
+
+    .link {
+      font-size: 1.4rem;
+      white-space: nowrap;
+      text-transform: uppercase;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    //   transition: all 0.5s ease-in-out;
+    //   text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.4),
+    //     1px -1px 0 rgba(255, 255, 255, 1);
+    }
+
+    .active_0 {
+      color: $color0;
+    //   text-shadow: -1px 1px 1px rgba($color1, 0.4),
+    //     1px -1px 0 rgba(255, 255, 255, 1);
+    }
+    .active_1 {
+      color: $color1;
+    //   text-shadow: -1px 1px 1px rgba($color2, 0.4),
+    //     1px -1px 0 rgba(255, 255, 255, 1);
+    }
+    .active_2 {
+      color: $color2;
+    //   text-shadow: -1px 1px 1px rgba($color0, 0.4),
+    //     1px -1px 0 rgba(255, 255, 255, 1);
+    }
+    .active_3 {
+      color: $color3;
+    //   text-shadow: -1px 1px 1px rgba($color3, 0.4),
+    //     1px -1px 0 rgba(255, 255, 255, 1);
+    }
+    .active_4 {
+      color: $color4;
+    //   text-shadow: -1px 1px 1px rgba($color4, 0.4),
+    //     1px -1px 0 rgba(255, 255, 255, 1);
+    }
+    .active_5 {
+      color: $color5;
+    //   text-shadow: -1px 1px 1px rgba($color5, 0.4),
+    //     1px -1px 0 rgba(255, 255, 255, 1);
+    }
+    .active_6 {
+      color: $color6;
+      text-shadow: -1px 1px 1px rgba($color6, 0.4),
+        2px 2px 0 rgb(0, 0, 0);
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.485);
+    }
+    .active_7 {
+      color: $color7;
+    //   text-shadow: -1px 1px 1px rgba($color7, 0.4),
+    //     1px -1px 0 rgba(255, 255, 255, 1);
+    }
+  }
+
+  .left {
+    display: inherit;
+    position: relative;
+    .avatar {
+      margin-right: 3rem;
+      width: 50px;
+      height: 100%;
+      cursor: pointer;
+    }
+
+    .salutation-area {
+      transform: scale(0);
+      position: relative;
+      display: inherit;
+      width: 80px;
+      height: 60%;
+      background-color: $thirdColor;
+      color: black;
+      padding: 0 0.5rem 0 1rem;
+      gap: 0.3rem;
+      border-radius: 2rem;
+
+      &::before {
+        content: "";
         position: absolute;
         left: -15px;
-        top: 0;
-        background-color: rgb(120, 120, 120);
-        z-index: -1;
-        width: 15px;
-        height: 10px;
-        border-top-right-radius: 12px;
-        border-top-left-radius: 12px;
-    }
+        top: 50%;
+        transform: translate(0, -50%);
+        width: 20px;
+        height: 18px;
+        background-color: $thirdColor;
+        clip-path: polygon(0 50%, 100% 100%, 100% 0);
+      }
 
-    &::after{
-        content: '';
-        position: absolute;
-        left: -10px;
-        top: 0;
-        z-index: -2;
-        background-color: white;
-        width: 10px;
-        height: 10px;
+      div {
+        width: 50px;
+        height: 99%;
+      }
     }
+  }
 }
-
-.nav-section{
-    width: calc(100% - 6px);
-    height: calc(100% - 6px);
-    background-color: rgb(255, 255, 255);
-    border-radius: 0 0 2rem 2rem;
-    color: $textColor;
-    padding: 0 2rem;
-    display: flex;
-    justify-content: space-between;
-    margin: 2px;
-
-    &::before{
-        content: '';
-        position: absolute;
-        right: -15px;
-        top: 0;
-        background-color: rgb(120, 120, 120);
-        z-index: -1;
-        width: 15px;
-        height: 10px;
-        border-top-right-radius: 12px;
-        border-top-left-radius: 12px;
-    }
-
-    &::after{
-        content: '';
-        position: absolute;
-        right: -10px;
-        top: 0;
-        z-index: -2;
-        background-color: white;
-        width: 10px;
-        height: 10px;
-    }
-    // background-color: $secondryColor;
-
-    div{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .right{
-        display: inherit;
-        gap: 3rem;
-
-        .link{
-            white-space: nowrap;
-            text-transform: uppercase;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-shadow: -1px 1px 1px 
-                rgba(0, 0, 0, .4), 1px -1px
-                  0 rgba(255, 255, 255, 1);
-        }
-    }
-
-    .left{
-        display: inherit;
-        position: relative;
-        .avatar{
-            margin-right: 3rem;
-            width: 50px;
-            height: 100%;
-            cursor: pointer;
-        }
-    
-        .salutation-area{
-            transform: scale(0);
-            position: relative;
-            display: inherit;
-            width: 80px;
-            height: 60%;
-            background-color: $thirdColor;
-            color: black;
-            padding: 0 0.5rem 0 1rem;
-            gap: 0.3rem;
-            border-radius: 2rem;
-
-            &::before{
-                content: '';
-                position: absolute;
-                left: -15px;
-                top: 50%;
-                transform: translate(0,-50%);
-                width: 20px;
-                height: 18px;
-                background-color:  $thirdColor;
-                clip-path: polygon(0 50%, 100% 100%, 100% 0);
-            }
-        
-            div{
-                width: 50px;
-                height: 99%;
-            }
-        }
-    }
-}
-

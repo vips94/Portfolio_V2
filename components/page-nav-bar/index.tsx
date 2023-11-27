@@ -10,8 +10,10 @@ import {
   selectPropertiesBorderColor,
   selectPropertiesBtnMaskColor,
   selectPropertyTextStroke,
+  selectCurrentPropertiesIndex
 } from "@/store/skills";
 
+let currentActiveSection = 0;
 const NavBar = () => {
   const container = useRef(null) as any;
   const hand = useRef(null) as any;
@@ -19,6 +21,7 @@ const NavBar = () => {
   const propertiesBorderColor = useSelector(selectPropertiesBorderColor);
   const propertiesBtnMaskColor = useSelector(selectPropertiesBtnMaskColor);
   const propertyTextStroke = useSelector(selectPropertyTextStroke);
+  const currentProertiesIndex = useSelector(selectCurrentPropertiesIndex);
 
   let anim = null as any;
   useEffect(() => {
@@ -75,6 +78,47 @@ const NavBar = () => {
     };
   }, []);
 
+  useEffect(()=>{
+    const sections = document.querySelectorAll('section')
+    const navLinks = document.querySelectorAll(`.${styles.link}`)
+    const frame = document.getElementById('main');
+
+    let currentSection = 'home';
+    if(!frame) return;
+    sections.forEach((section,i)=>{
+      if(frame.scrollTop >= section.offsetTop){
+        currentSection = section.id;
+      }
+    })
+    navLinks.forEach((link,i)=>{
+      if(link.getAttribute('href')?.includes(currentSection)){
+        const oldClassName = link?.classList.item(1);
+        if (oldClassName) link?.classList.remove(oldClassName);
+        link.classList.add(`${styles[`active_${currentProertiesIndex}`]}`);
+      }
+    })
+    
+    frame?.addEventListener('scroll',()=>{
+      sections.forEach((section,i)=>{
+        if(frame.scrollTop >= section.offsetTop){
+          currentSection = section.id;
+          currentActiveSection = i;
+        }
+      })
+
+      navLinks.forEach((link,i)=>{
+        if(link.getAttribute('href')?.includes(currentSection)){
+          const oldClassName = link?.classList.item(1);
+          if (oldClassName) link?.classList.remove(oldClassName);
+          link.classList.add(`${styles[`active_${currentProertiesIndex}`]}`);
+        }
+        else{
+          link.classList.remove(`${styles[`active_${currentProertiesIndex}`]}`);
+        }
+      })
+    })
+  },[currentProertiesIndex])
+
   const avaterAnimatonUpdate = (direction: any = 1) => {
     Lottie.setDirection(direction);
     Lottie.setSpeed(2);
@@ -98,6 +142,17 @@ const NavBar = () => {
       // })
     }
   };
+
+  const scrollToPage = (e:any) => {
+    e.preventDefault();
+    
+    const href = e.currentTarget.href;
+    const targetId = href.replace(/.*\#/, "");
+    const elem = document.getElementById(targetId);
+    elem?.scrollIntoView({
+      behavior: 'smooth'
+    })
+  }
 
   return (
     <div
@@ -123,25 +178,24 @@ const NavBar = () => {
         </div>
 
         <div className={styles.right} style={{ color: '#444' }}>
-          <Link href={"#"} className={styles.link}>
+          <Link href={"#home"} className={styles.link} onClick={scrollToPage}>
             Home
           </Link>
-          <Link href={"#"} className={styles.link}>
+          <Link href={"#aboutMe"} className={styles.link} onClick={scrollToPage}>
             About Me
           </Link>
-          <Link href={"#"} className={styles.link}>
+          <Link href={"#experience"} className={styles.link} onClick={scrollToPage}>
             Experience
           </Link>
-          <Link href={"#"} className={styles.link}>
+          <Link href={"#skills"} className={styles.link} onClick={scrollToPage}>
             Skills
           </Link>
-          <Link href={"#"} className={styles.link}>
+          <Link href={"#projects"} className={styles.link} onClick={scrollToPage}>
             Projects
           </Link>
-          <Link href={"#"} className={styles.link}>
+          <Link href={"#contact"} className={styles.link} onClick={scrollToPage}>
             Contact Me
           </Link>
-          
         </div>
       </nav>
     </div>

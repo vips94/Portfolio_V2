@@ -115,6 +115,15 @@ $midCicle: 25px;
       }
     }
   }
+
+  .downloadSection{
+    position: absolute;
+    bottom: 4vh;
+    left: 10vh;
+    color: #444;
+    z-index: 6;    
+
+  }
 }
 
 @keyframes anim {

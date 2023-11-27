@@ -12,6 +12,7 @@ import {
   setCurrenPropertiesIndex,
 } from "@/store/skills";
 import { getMidPoint } from "@/utility";
+import DownloadButton from "../download-button";
 
 const MOVE_Y = 75;
 const MOVE_X = 94;
@@ -224,6 +225,9 @@ const ThemeOverlay = () => {
             </div>
           );
         })}
+      </div>
+      <div className={styles.downloadSection}>
+        <DownloadButton/>
       </div>
     </div>
   );

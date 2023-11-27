@@ -9,49 +9,65 @@ import Link from "next/link";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import DrawSVGPlugin from "gsap-trial/dist/DrawSVGPlugin";
+import { useRouter } from "next/router";
 gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin);
 
+let ctx = null as any;
 const Footer = forwardRef((props,ref:any) => {
   const facebook = useRef(null) as any;
   const insta = useRef(null) as any;
   const linkedIn = useRef(null) as any;
   const gitHub = useRef(null) as any;
+  const router = useRouter();
   const propertiesBorderColor = useSelector(selectPropertiesBorderColor);
   const propertyTextStroke = useSelector(selectPropertyTextStroke);
 
   const animateIcon = (ref: any, id:string) => {
-    const timeline = gsap.timeline();
-    timeline
-      .to(ref.current, {
-        fill: "none",
-      })
-      .from(
-        `#${id}`,
-        {
-          stroke: propertyTextStroke
-        },
-        "<"
-      )
-      .from(
-        `#${id}`,
-        {
+    ctx = gsap.context(()=>{
+      const timeline = gsap.timeline();
+      timeline
+        .to(ref.current, {
+          fill: "none",
+        })
+        .from(
+          `#${id}`,
+          {
+            stroke: propertyTextStroke
+          },
+          "<"
+        )
+        .from(
+          `#${id}`,
+          {
             stroke: propertyTextStroke,
-          drawSVG: 0,
-          duration: 1,
-        },
-        "<"
-      )
-      .to(
-        `#${id}`,
-        {
-          stroke: propertiesBorderColor
-        },
-      )
-      .to(ref.current, {
-        fill: propertyTextStroke,
-        duration: 0.1,
-      },'<');
+            drawSVG: 0,
+            duration: 1,
+          },
+          "<"
+        )
+        .to(
+          `#${id}`,
+          {
+            stroke: propertiesBorderColor
+          },
+        )
+        .to(ref.current, {
+          fill: propertyTextStroke,
+          duration: 0.1,
+        },'<');
+    })
+    
   };
+
+  const scrollToPage = (e:any) => {
+    e.preventDefault();
+    const href = e.currentTarget.href;
+    const targetId = href.replace(/.*\#/, "");
+    const elem = document.getElementById(targetId);
+    elem?.scrollIntoView({
+      behavior: 'smooth'
+    })
+  }
 
   return (
     <div
@@ -63,33 +79,32 @@ const Footer = forwardRef((props,ref:any) => {
       ref={ref}
     >
       <div className={styles.links}>
-        <Link href={"#"} className={styles.link}>
+        <Link href={"#home"} className={styles.link} onClick={scrollToPage}>
           Home
         </Link>
-        <Link href={"#"} className={styles.link}>
+        <Link href={"#aboutMe"} className={styles.link} onClick={scrollToPage}>
           About Me
         </Link>
-        <Link href={"#"} className={styles.link}>
+        <Link href={"#experience"} className={styles.link} onClick={scrollToPage}>
           Experience
         </Link>
-        <Link href={"#"} className={styles.link}>
+        <Link href={"#skills"} className={styles.link} onClick={scrollToPage}>
           Skills
         </Link>
-        <Link href={"#"} className={styles.link}>
+        <Link href={"#projects"} className={styles.link} onClick={scrollToPage}>
           Projects
         </Link>
-        <Link href={"#"} className={styles.link}>
+        <Link href={"#contact"} className={styles.link} onClick={scrollToPage}>
           Contact Me
-        </Link>
-        <Link href={"#"} className={styles.link}>
-          Home
         </Link>
       </div>
       <div className={styles.socials}>
         <a
-          href={"#"}
+          href={"https://www.facebook.com/profile.php?id=100005212578916"}
+          target="_blank"
           className={styles.socialLink}
           onMouseEnter={() => animateIcon(facebook, 'facebook')}
+          onMouseLeave={() => ctx.revert()}
         >
           <svg
             ref={facebook}
@@ -105,9 +120,11 @@ const Footer = forwardRef((props,ref:any) => {
           </svg>
         </a>
         <a
-          href={"#"}
+          href={"https://www.instagram.com/_vipin_kumar/"}
+          target="_blank"
           className={styles.socialLink}
           onMouseEnter={() => animateIcon(insta, 'insta')}
+          onMouseLeave={() => ctx.revert()}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -123,9 +140,11 @@ const Footer = forwardRef((props,ref:any) => {
           </svg>
         </a>
         <a
-          href={"#"}
+          href={"https://www.linkedin.com/in/vipin-kumar-878971158/"}
+          target="_blank"
           className={styles.socialLink}
           onMouseEnter={() => animateIcon(linkedIn,'linkedIn')}
+          onMouseLeave={() => ctx.revert()}
         >
           <svg
             viewBox="0 0 24 24"
@@ -141,9 +160,11 @@ const Footer = forwardRef((props,ref:any) => {
           </svg>
         </a>
         <a
-          href={"#"}
+          href={"https://github.com/vips94"}
+          target="_blank"
           className={styles.socialLink}
           onMouseEnter={() => animateIcon(gitHub, 'github')}
+          onMouseLeave={() => ctx.revert()}
         >
           <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
             <g

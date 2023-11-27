@@ -46,6 +46,7 @@
       display: flex;
       align-items: center;
       padding: 2rem;
+      pointer-events: none;
     }
 
     .left {
@@ -92,6 +93,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      pointer-events: none;
     }
   }
 }

@@ -36,7 +36,7 @@ const HomePage = forwardRef((props, ref: any) => {
   }, []);
 
   return (
-    <div className={styles["home-section"]} ref={ref}>
+    <section className={styles["home-section"]} ref={ref} id="home">
       <div
         className={styles.background}
         style={{
@@ -86,11 +86,11 @@ const HomePage = forwardRef((props, ref: any) => {
           </svg>
         </div>
       </div>
-      <section id={styles["section10"]} className={styles["scrollButton"]}>
+      <div id={styles["section10"]} className={styles["scrollButton"]}>
         <span></span>
         <h1>Scroll</h1>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 });
 

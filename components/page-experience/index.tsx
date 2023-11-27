@@ -5,7 +5,7 @@ import Timeline from "./timeline";
 
 const Experience = forwardRef((props,ref:any) => {
   return (
-    <div className={styles["experience-section"]} ref={ref}>
+    <section className={styles["experience-section"]} ref={ref} id="experience">
       <div className={styles.section}>
         <Title title="EXPERIENCE" shadowTitle="EXPERIENCE" />
         <div className={styles.container}>
@@ -23,7 +23,7 @@ const Experience = forwardRef((props,ref:any) => {
           </Timeline>
         </div>
       </div>
-    </div>
+    </section>
   );
 });
 
