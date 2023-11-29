@@ -3,7 +3,7 @@ import styles from "./downloadButton.module.scss";
 
 const DownloadButton = () => {
   return (
-    <a className={styles["cta"]} href="#">
+    <a className={styles["cta"]} href="/documents/resume.pdf" download>
         <span>DOWNLOAD CV</span>
         <span>
           <svg

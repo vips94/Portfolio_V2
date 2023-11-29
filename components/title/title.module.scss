@@ -6,6 +6,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    top: 10%;
 
     .shadowText{
         font-size: 9em;
@@ -26,5 +27,34 @@
         word-spacing: 0.5em;
         padding-left: 20px;
         text-transform: uppercase;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .titleSection{
+        top: 5% !important;
+        height: 6em;
+    
+        .shadowText{
+            font-size: 5.4em;
+        }
+    
+        .text{
+            font-size: 4em;
+        }
+    }
+}
+
+@media screen and (max-width: 546px) {
+    .titleSection{
+        height: 4em;
+    
+        .shadowText{
+            font-size: 3.4em;
+        }
+    
+        .text{
+            font-size: 2.4em;
+        }
     }
 }

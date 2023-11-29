@@ -2,8 +2,8 @@
 
 .project-section {
   position: relative;
-  width: 100vw;
-  min-height: $height;
+  width: $width;
+  height: $height;
   background-color: white;
   overflow: hidden;
 
@@ -29,6 +29,57 @@
           align-items: center;
           justify-content: center;
           gap: 1rem;
+
+          &:not(:first-child) {
+            margin-top: -63px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .project-section {
+    width: $tabWidth;
+    height: $tabHeight;
+    .section {
+      .project-list-container {
+        margin-top: 10vh;
+        .project-list {
+          .row {
+            width: 80%;
+
+            &:not(:first-child) {
+              margin-top: -34px;
+            }
+
+            &:nth-child(2){
+              width: 60%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 546px) {
+  .project-section {
+    width: $mobileWidth;
+    height: $mobileHeight;
+  
+    .section {
+      .project-list-container {
+        .project-list {
+          .row {
+            gap: 1rem;
+            width: 80%;
+
+            &:not(:first-child) {
+              margin-top: -34px;
+            }
+          }
         }
       }
     }

@@ -6,7 +6,6 @@ import { motion  } from "framer-motion";
 import { useDispatch } from "react-redux";
 import {setProjectData,setIsProjectSelected} from '@/store/project';
 
-const MARGIN_TOP = -63;
 const list = [
   [
     {
@@ -159,7 +158,6 @@ const Projects = forwardRef((props,ref:any) => {
               viewport={{ once: true }}
               className={styles.row}
               key={index}
-              style={{ marginTop: `${MARGIN_TOP}px` }}
             >
               {row_list.map((item, index: number) => {
                 return (

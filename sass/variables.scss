@@ -1,6 +1,13 @@
 $max-width: 1200px;
 $frameMargin: 2vh;
 $height: calc(100vh - 2 * $frameMargin);
+$width: calc(100vw - 2 * $frameMargin);
+$tabFrameMargin: 10px;
+$tabHeight: calc(100vh - 2 * $tabFrameMargin);
+$tabWidth: calc(100vw - 2 * $tabFrameMargin);
+$mobileFrameMargin: 5px;
+$mobileHeight: calc(100vh - 2 * $mobileFrameMargin);
+$mobileWidth: calc(100vw - 2 * $mobileFrameMargin);
 $navBorderRadius: 40px;
 
 $scrollBar: #f55c1b;

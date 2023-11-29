@@ -117,8 +117,9 @@ const ThemeOverlay = () => {
     timeline
       .to(backdrop.current, {
         duration: 0.5,
-        height: "35vh",
-        x: "-50%",
+        height: "30vh",
+        width: "19vh",
+        x: "6%",
       })
       .to(
         arrow.current,
@@ -161,9 +162,11 @@ const ThemeOverlay = () => {
         backdrop.current,
         {
           duration: 0.5,
-          x: "-100%",
+          height: "10vh",
+          width: "10vh",
+          x: "11",
         },
-        "0.3"
+        "0.4"
       );
   };
 
@@ -180,12 +183,24 @@ const ThemeOverlay = () => {
 
   return (
     <div className={styles["overlay-section"]}>
-      <div className={styles.backdrop} ref={backdrop} style={{border: `3px solid ${skillsList[activeIndex].maskColor}`, filter: `drop-shadow(1px 1px 10px ${skillsList[activeIndex].color})`}}/>
+      <div
+        className={styles.backdrop}
+        ref={backdrop}
+        style={{
+          // border: `3px solid ${skillsList[activeIndex].maskColor}`,
+          // filter: `drop-shadow(1px 1px 10px ${skillsList[activeIndex].color})`,
+        }}
+      >
+        <span/>
+      </div>
       <div className={styles.circle} onClick={toggleThemeMenu}>
         <span
           className={styles.activeCircle}
-          style={{animationName: showThemeMenu? styles.reverseAnimate : styles.animate}}
-          
+          style={{
+            animationName: showThemeMenu
+              ? styles.reverseAnimate
+              : styles.animate,
+          }}
         >
           <svg
             viewBox="0 0 251 319"
@@ -213,7 +228,7 @@ const ThemeOverlay = () => {
             <div
               className={styles.themeHolder}
               key={i}
-              style={{ transform: `rotate(${angle}deg)` }}
+              style={{ transform: `rotate(${angle}deg)`, width: "170px" }}
               onClick={() => changeTheme(i)}
             >
               <div
@@ -228,7 +243,7 @@ const ThemeOverlay = () => {
         })}
       </div>
       <div className={styles.downloadSection}>
-        <DownloadButton/>
+        <DownloadButton />
       </div>
     </div>
   );

@@ -14,10 +14,12 @@ $animationTime: 0.7s;
   align-items: center;
 
   .background {
+    width: 500px;
+    height: 500px;
     position: absolute;
     right: 5%;
     bottom: 5%;
-    transform: scaleX(-1);
+    transform: scaleX(1);
   }
 
   .home-footer {
@@ -117,60 +119,6 @@ $animationTime: 0.7s;
     }
   }
 
-  .body-container {
-    display: inherit;
-    justify-content: flex-start;
-    flex-direction: column;
-    position: relative;
-    z-index: 4;
-    margin-left: 2rem;
-
-    h1,
-    .subtitle {
-      color: $radioButtonColor;
-      font-size: $titleFontSize;
-      font-family: $fontFamily;
-      letter-spacing: 0.1em;
-      line-height: 1;
-      font-weight: bold;
-    }
-
-    h1 {
-      margin-bottom: 1rem;
-    }
-
-    .subtitle {
-      display: flex;
-      align-items: center;
-      margin-bottom: 1rem;
-      white-space: nowrap;
-      letter-spacing: 2px;
-
-      .textholder {
-        width: 100%;
-        height: 50px;
-        overflow: hidden;
-        flex-direction: column;
-        display: flex;
-        align-items: flex-start;
-      }
-
-      h2 {
-        width: 100%;
-        letter-spacing: 2px;
-        margin-left: 10px;
-        color: transparent;
-        font-size: $subTitleFontSize;
-        font-family: $fontFamily;
-        line-height: 1;
-        background-clip: text;
-        transition: all $animationTime ease-in-out;
-        background-size: cover;
-        background-position: top left;
-      }
-    }
-  }
-
   .scrollButton{
     position: absolute;
     bottom: 5vh;
@@ -200,6 +148,80 @@ $animationTime: 0.7s;
         animation: sdb10 2s infinite;
         box-sizing: border-box;
       }
+    }
+
+    h1{
+      font-family: $fontFamilySecondry;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .home-section {
+    .background {
+      width: 30vh;
+      height: 30vh;
+    }
+    .textSection{ 
+      .row{
+        top: 40%;
+        .title{
+          font-size: 6vmax;
+        }
+      }
+      .circularText{
+        width: 80vh;
+        height: 100vh;
+        left: 49%;
+        svg{
+          text{
+            font-size:6px;
+          }
+        }
+      }
+    }
+
+    .scrollButton{
+      display: none;
+    }
+
+    .home-footer {
+      height: 2vh;
+    }
+  
+    .home-header{
+      height: 30px;
+    }
+  }
+  
+}
+
+@media screen and (max-width: 546px) {
+  .home-section {
+    .background {
+      width: 20vh;
+      height: 20vh;
+    }
+    .textSection{ 
+      .row{
+        .title{
+          font-size: 5vmax;
+        }
+      }
+      .circularText{
+        width: 60vh;
+        height: 100vh;
+        left: 49%;
+        svg{
+          text{
+            font-size:8px;
+          }
+        }
+      }
+    }
+
+    .home-header{
+      height: 24px;
     }
   }
 }

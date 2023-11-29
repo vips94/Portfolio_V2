@@ -4,35 +4,89 @@ $circleWidth : 50px;
 $midCicle: 25px;
 
 .overlay-section {
-  width: $width;
+  width: 100vw;
   height: $height;
   position: fixed;
   top: 0;
-  left: 2vh;
+  left: 0;
   z-index: 9999;
   pointer-events: none;
   overflow: hidden;
 
   .backdrop {
-    pointer-events: none;
-    width: 40vh;
-    height: 15vh;
-    border-radius: 50%;
+    transform-origin: left;
+    width: 10vh;
+    height: 10vh;
+    // border-radius: 50%;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    background: white;
     position: absolute;
     top: 50%;
     z-index: -2;
-    transform: translate(-100%,-50%);
-    transform-origin: center;
-    opacity: 0.9;
+    transform: translate(11%,-50%);
     backdrop-filter: blur(2px);
-    filter: drop-shadow(1px 1px 10px red);
+    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.203);
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: 0;
+      background-color: rgb(120, 120, 120);
+      z-index: -1;
+      width: 10px;
+      height: 10px;
+      border-top-left-radius: 12px;
+      border-bottom-left-radius: 12px;
+    }
+  
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: -8px;
+      z-index: -2;
+      background-color: white;
+      width: 10px;
+      height: 10px;
+    }
+
+    span{
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        background-color: rgb(120, 120, 120);
+        z-index: -1;
+        width: 10px;
+        height: 10px;
+        border-top-left-radius: 12px;
+        border-bottom-left-radius: 12px;
+      }
+    
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        z-index: -2;
+        background-color: white;
+        width: 10px;
+        height: 10px;
+      }
+    }
   }
 
 
   .circle {
     position: absolute;
     top: 50%;
-    left: 15px;
+    left: 3vh;
     transform: translate(0, -50%);
     display: flex;
     justify-content: center;
@@ -55,7 +109,7 @@ $midCicle: 25px;
       // border-radius: 50%;
       position: absolute;
       left: 50%;
-      top: 50%;
+      top: 40%;
       transform: translate(-50%, -50%);
       z-index: 2;
       background-color: transparent;
@@ -65,7 +119,6 @@ $midCicle: 25px;
     }
 
     .themeHolder {
-      width: 170px;
       transform-origin: left center;
       height: 2px;
       position: absolute;
@@ -74,8 +127,8 @@ $midCicle: 25px;
       justify-content: flex-end;
       align-items: center;
       opacity: 1;
-      pointer-events: none;
-     
+      z-index: 1;
+      pointer-events: all;
 
       .themeBtn {
         position: absolute;
@@ -92,7 +145,6 @@ $midCicle: 25px;
         transition: all 0.2s ease-in-out;
         transform: translateX(-145px);
         opacity: 0;
-        pointer-events: all;
 
         &:hover {
           transform: scale(1.2);
@@ -129,50 +181,6 @@ $midCicle: 25px;
   }
 }
 
-@media screen and (max-width: 768px) {
-  .overlay-section { 
-    width: $tabWidth;
-  height: $tabHeight; 
-    .circle {
-      left: 15px;
-      width: 30px;
-      height: 30px;
-      .activeCircle {
-        width: 50%;
-        height: 50%;
-      }
-  
-      .themeHolder {
-        width: 110px;
-       
-        .themeBtn {
-          width: 30px;
-          height: 30px;
-          transform: translateX(-145px);
-  
-          span {
-            width: 80%;
-            height: 80%;
-          }
-        }
-      }
-    }
-  
-    .downloadSection{
-      display: none;
-    }
-  }
-}
-
-@media screen and (max-width: 546px) {
-  .overlay-section {
-    width: $mobileWidth;
-  height: $mobileHeight;  
-    .circle {
-      left: 15px;
-    }
-  }
-}
 
 @keyframes anim {
     0%{

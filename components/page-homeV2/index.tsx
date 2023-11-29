@@ -40,8 +40,6 @@ const HomePage = forwardRef((props, ref: any) => {
       <div
         className={styles.background}
         style={{
-          width: "500px",
-          height: "500px",
           left: "50%",
           bottom: "-3.5%",
           transform: "translate(-50%,0)",

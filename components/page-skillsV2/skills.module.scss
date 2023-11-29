@@ -2,7 +2,7 @@
 
 .skill-section{
     position: relative;
-    width: 100vw;
+    width: $width;
     height: $height;
     background-color: white;
     overflow: hidden;
@@ -114,4 +114,54 @@
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+    .skill-section{
+        width: $tabWidth;
+        height: $tabHeight;
+        .section{
+            .textHolder{
+                .item{
+                    width: 45%;
+                }
+            }
+    
+            .card{
+                p{
+                    font-size: 4rem;
+                    line-height: 4rem;
+                }
+            }
+    
+            .skillLabel{
+                font-size: 1.8rem;
+            }
+        }
+    }
+  }
+  
+  @media screen and (max-width: 546px) {
+    .skill-section{
+        width: $mobileWidth;
+        height: $mobileHeight;
+        .section{
+            .textHolder{
+                .item{
+                    width: 20%;
+                }
+            }
+    
+            .card{
+                p{
+                    font-size: 2rem;
+                    line-height: 2rem;
+                }
+            }
+    
+            .skillLabel{
+                font-size: 1.3rem;
+            }
+        }
+    }
+  }
 

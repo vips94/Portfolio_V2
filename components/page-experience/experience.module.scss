@@ -1,34 +1,72 @@
-@import '@/sass/variables.scss';
-.experience-section{
-    position: relative;
-    width: 100vw;
-    height: $height;
-    background-color: white;
-    overflow: hidden;
+@import "@/sass/variables.scss";
+.experience-section {
+  position: relative;
+  width: $width;
+  height: $height;
+  background-color: white;
+  overflow: hidden;
 
-    .section{
-        width: 100%;
-        height: 100%;
+  .section {
+    width: 100%;
+    height: 100%;
 
-        .container{
-            margin-top: 2.5vh;
-            margin-bottom: 2.5vh;
-            width: 100%;
-            height: calc(100vh - 20vh);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+    .container {
+      margin-top: 2.5vh;
+      margin-bottom: 2.5vh;
+      width: 100%;
+      height: calc(100vh - 20vh);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
 
-            .title{
-                font-size: 3rem;
-                font-family: $fontFamilyTime;
-            }
+      .title {
+        font-size: 3rem;
+        font-family: $fontFamilyTime;
+        text-align: center;
+      }
 
-            .subtitle{
-                font-size: 1.5rem;
-                font-family: $fontFamilyTime;
-            }
-        }
+      .subtitle {
+        font-size: 1.5rem;
+        font-family: $fontFamilyTime;
+        text-align: center;
+      }
     }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .experience-section {
+    width: $tabWidth;
+    height: $tabHeight;
+    .section {
+      .container {
+        .title {
+          font-size: 1.5rem;
+        }
+
+        .subtitle {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 546px) {
+  .experience-section {
+    width: $mobileWidth;
+    height: $mobileHeight;
+    .section {
+      .container {
+        .title {
+          font-size: 1.2rem;
+        }
+
+        .subtitle {
+          font-size: 0.7rem;
+        }
+      }
+    }
+  }
 }

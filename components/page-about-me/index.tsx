@@ -16,16 +16,11 @@ const AboutMe = forwardRef((props,ref:any) => {
   return (
     <section className={styles["aboutMe-section"]} ref={ref} id="aboutMe">
       <div className={styles.section}>
-        <Title title="WHO AM I?" shadowTitle="BIOGRAPHY" style={{top: '20%'}}/>
+        <Title title="WHO AM I?" shadowTitle="BIOGRAPHY" className={styles.aboutMeTitle}/>
         <div className={styles.container}>
           <div className={styles.profileContainer}>
             <Blob
-              style={{
-                zIndex: "5",
-                left: "-5%",
-                width: "500px",
-                height: "500px",
-              }}
+              className={styles.aboutMeBlob}
               image="/images/profile1.jpg"
               imagePreserveAspectRatio="xMidYMid slice"
               imageX = '100'

@@ -7,7 +7,7 @@ const Experience = forwardRef((props,ref:any) => {
   return (
     <section className={styles["experience-section"]} ref={ref} id="experience">
       <div className={styles.section}>
-        <Title title="EXPERIENCE" shadowTitle="EXPERIENCE" />
+        <Title title="EXPERIENCE" shadowTitle="EXPERIENCE"/>
         <div className={styles.container}>
           <Timeline yearStart="2018" yearEnd="2019">
             <p className={styles.title}>ATECHNOS DIGITAL</p>

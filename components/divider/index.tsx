@@ -11,18 +11,19 @@ type DivideProps = {
   style: any,
   color?: string;
   waveImage?: string;
+  className?: string;
 };
 
 const Divider: FC<DivideProps> = (props) => {
-  const { color='', style, } = props;
+  const { color='', style, className=''} = props;
   const propertiesBorderColor = useSelector(selectPropertiesBorderColor);
 
   // svg component
   function Wave() {
     return (
       <svg
-        width="1440"
-        height="162"
+        width="100%"
+        height="100%"
         viewBox="0 0 1440 162"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +42,7 @@ const Divider: FC<DivideProps> = (props) => {
   );
 
   return (
-    <div className={styles.divider} style={style}>
+    <div className={`${styles.divider} ${className}`} style={style}>
       <div
         className={`${styles.wave} ${styles.wave1}`}
         //send parsed svg as an background image

@@ -2,7 +2,8 @@ import React, { FC } from "react";
 import styles from "./blob.module.scss";
 
 type BlobProps = {
-  style: any;
+  className?: string;
+  style?: any;
   image: string;
   imagePreserveAspectRatio?:string;
   imageX?: string;
@@ -14,10 +15,10 @@ type BlobProps = {
 
 const Blob: FC<BlobProps> = (props) => {
 
-  const { style,backgroundColor="white" ,image, imagePreserveAspectRatio="xMinYMin slice", imageX="0", imageY="0", imageHeight='100%', imageWidth='100%' } = props;
+  const {className='', style={},backgroundColor="white" ,image, imagePreserveAspectRatio="xMinYMin slice", imageX="0", imageY="0", imageHeight='100%', imageWidth='100%' } = props;
 
   return (
-    <div className={styles["blob-container"]} style={style}>
+    <div className={`${styles["blob-container"]} ${className}`} style={style}>
       <div className={styles.blob}>
         <svg
           viewBox="0 0 500 500"

@@ -67,3 +67,24 @@ $waveHeight : 200px;
     }
     
 }
+
+@media screen and (max-width: 768px) {
+    .divider{
+        height: 100px;
+        .wave {
+            background-size: 850px 100px;
+        }
+        
+    }
+    
+  }
+  
+  @media screen and (max-width: 546px) {
+    .divider{
+        height: 50px;
+        .wave {
+            background-size: 400px 50px;
+        }
+        
+    }
+  }

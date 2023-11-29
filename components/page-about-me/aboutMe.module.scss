@@ -1,79 +1,169 @@
-@import '@/sass/variables.scss';
-.aboutMe-section{
-    position: relative;
-    width: 100vw;
-    height: $height;
-    background: white;
-    overflow: hidden;
+@import "@/sass/variables.scss";
+.aboutMe-section {
+  position: relative;
+  width: $width;
+  height: $height;
+  background: white;
+  overflow: hidden;
 
-    .section{
-        width: 100%;
+  .section {
+    width: 100%;
+    height: 100%;
+
+    .container {
+      margin-top: 10vh;
+      margin-bottom: 2.5vh;
+      width: 100%;
+      height: calc(100vh - 20vh);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .profileContainer {
+        position: relative;
+        width: 60%;
         height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-        .container{
-            margin-top: 10vh;
-            margin-bottom: 2.5vh;
-            width: 100%;
-            height: calc(100vh - 20vh);
+        .aboutMeBlob{
+          z-index: 5;
+          left: -5%;
+          width: 500px;
+          height: 500px;
+        }
+
+        .textHolder {
+          width: 80%;
+          background: white;
+          position: absolute;
+          z-index: 4;
+          border-radius: 2rem;
+          box-shadow: inset -5px -5px 9px rgba(183, 183, 183, 0.277),
+            inset 5px 5px 9px rgba(94, 104, 121, 0.3);
+          color: black;
+          padding: 2rem;
+          display: flex;
+          justify-content: flex-end;
+          overflow: hidden;
+
+          div {
+            width: 70%;
+            text-align: end;
             display: flex;
             justify-content: center;
-            align-items: center;
-            
+            flex-direction: column;
 
-            .profileContainer{
-                position: relative;
-                width: 60%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-                .textHolder{
-                    width: 80%;
-                    background: white;
-                    position: absolute;
-                    z-index: 4;
-                    border-radius: 2rem;
-                    box-shadow: inset -5px -5px 9px rgba(183, 183, 183, 0.277), inset 5px 5px 9px rgba(94,104,121,0.3);
-                    color: black;
-                    padding: 2rem;
-                    display: flex;
-                    justify-content: flex-end;
-                    overflow: hidden;
-
-                    div{
-                        width: 70%;
-                        text-align: end;
-                        display: flex;
-                        justify-content: center;
-                        flex-direction: column;
-
-                        h2{
-                            font-size: 2rem;
-                            font-weight: 900;
-                            font-family: 'Anton';
-                            color: $radioButtonColor;
-                        }
-
-                        p{
-                            font-size: 1.5rem;
-                            font-family: $fontFamilyTime;
-                            font-weight: 600;
-                            color: rgba(0, 0, 0, 0.525);
-                            line-height: 2rem;
-                        }
-                    }
-                }
+            h2 {
+              font-size: 2rem;
+              font-weight: 900;
+              font-family: "Anton";
+              color: $radioButtonColor;
             }
 
-            // .title{
-            //     font-size: 3rem;
-            //     font-family: $fontFamilyTime;
-            // }
-
-            // .subtitle{
-            //     font-size: 1.5rem;
-            //     font-family: $fontFamilyTime;
-            // }
+            p {
+              font-size: 1.5rem;
+              font-family: $fontFamilyTime;
+              font-weight: 600;
+              color: rgba(0, 0, 0, 0.525);
+              line-height: 2rem;
+            }
+          }
         }
+      }
     }
+
+    .aboutMeTitle{
+      top: 20%;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .aboutMe-section {
+    width: $tabWidth;
+    height: $tabHeight;
+    .section {
+      .aboutMeTitle{
+        top: 10% !important;
+      }
+      .container {
+        margin-top: 0;
+        margin-bottom: 0;
+  
+        .profileContainer {
+          width: 95%;
+          flex-direction: column;
+
+          .aboutMeBlob{
+            left: -5%;
+            width: 40vw;
+            height: 40vw;
+          }
+  
+          .textHolder {
+            width: 90%;
+            padding: 1rem;
+  
+            div {
+              width: 70%;
+              text-align: end;
+              display: flex;
+              justify-content: center;
+              flex-direction: column;
+  
+              h2 {
+                font-size: 1.5rem;
+                font-weight: 900;
+              }
+  
+              p {
+                font-size: 1rem;
+                line-height: 1.2rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 546px) {
+  .aboutMe-section {
+    width: $mobileWidth;
+    height: $mobileHeight;
+    .section {
+      .container {
+        .profileContainer {
+          .aboutMeBlob{
+            left: auto;
+            top: auto;
+            bottom: -4vh;
+            width: 60vw;
+            height: 60vw;
+          }
+          .textHolder {
+            height: 70%;
+            div {
+              width: 100%;
+              height: 90%;
+              justify-content: flex-start;
+              text-align: center;
+  
+              h2 {
+                font-size: 1.3rem;
+              }
+  
+              p {
+                font-size: 0.8rem;
+                line-height: 1rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

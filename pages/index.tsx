@@ -14,6 +14,7 @@ import { selectIsProjectSelected } from "@/store/project";
 import ContactUs from "@/components/page-contact-us/index";
 import Footer from "@/components/footer";
 import ThemeOverlay from "@/components/page-overlay";
+// import ThemeOverlay from "@/components/page-overlayV2";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import {
@@ -120,22 +121,22 @@ export default function Home() {
               height: "10px",
             }}
           />
-          <Thread
+          {/* <Thread
             style={{ zIndex: 110, right: "2%" }}
             color="#e8ccc7"
             threadWidth={1}
-          />
-          <Blob
+          /> */}
+          {/* <Blob
             style={{
-              transform: "translate(-35%,300%)",
+              transform: "translate(-35%,750px)",
               top: "0",
               left: "0",
-              zIndex: "5",
+              zIndex: "1",
             }}
             image="/images/home/home-fg4.jpg"
-          />
+          /> */}
           <ThemeOverlay />
-          <NavBar />
+          {/* <NavBar /> */}
           <HomePage ref={(el) => (pageRefs.current[0] = el)} />
           <AboutMe ref={(el) => (pageRefs.current[1] = el)} />
           <Experience ref={(el) => (pageRefs.current[2] = el)} />

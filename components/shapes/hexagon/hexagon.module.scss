@@ -16,6 +16,7 @@ $hexagonBorder: 10px;
 .hexagon-1 {
   width: 260px;
   height: 298px;
+  display: flex;
 
   &:hover {
     filter: drop-shadow(5px 5px 4px rgb(202, 202, 202));
@@ -137,5 +138,30 @@ $hexagonBorder: 10px;
   to {
     -webkit-mask-position: 0 0;
     mask-position: 0 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hexagon-1 {
+    // aspect-ratio: 1/2;
+    width: auto;
+    height: 100%;
+  
+    &:hover {
+      filter: drop-shadow(5px 5px 4px rgb(202, 202, 202));
+      transform: translate(-10px, -10px);
+    }
+  }
+}
+
+@media screen and (max-width: 546px) {
+  .hexagon-1 {
+    width: auto;
+    height: 100%;
+  
+    &:hover {
+      filter: drop-shadow(5px 5px 4px rgb(202, 202, 202));
+      transform: translate(-10px, -10px);
+    }
   }
 }

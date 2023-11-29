@@ -109,7 +109,7 @@ const ContactUs = forwardRef((props,ref) => {
               id="userName"
               placeholder="Name *"
               style={customStyle}
-              initial={{y:300, opacity:0}}
+              initial={{y:200, opacity:0}}
               whileInView={{y:0, opacity:1}}
               transition={{duration:0.2}}
               viewport={{once:true}}
@@ -123,7 +123,7 @@ const ContactUs = forwardRef((props,ref) => {
               id="email"
               placeholder="Email *"
               style={customStyle}
-              initial={{y:300, opacity:0}}
+              initial={{y:200, opacity:0}}
               whileInView={{y:0, opacity:1}}
               transition={{duration:0.2}}
               viewport={{once:true}}
@@ -136,7 +136,7 @@ const ContactUs = forwardRef((props,ref) => {
               id="message"
               placeholder="Message *"
               style={customStyle}
-              initial={{y:300, opacity:0}}
+              initial={{y:200, opacity:0}}
               whileInView={{y:0, opacity: 1}}
               transition={{duration:0.2}}
               viewport={{once:true}}
@@ -154,7 +154,7 @@ const ContactUs = forwardRef((props,ref) => {
         <div className={styles.background} ref={svgBg}>
           {showIllustration && <EmailIllustration/>}
         </div>
-        <Divider style={{top: "calc(80vh - 200px + 45px)"}}/>
+        <Divider className={styles.contactWave}/>
       </div>
     </section>
   );

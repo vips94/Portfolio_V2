@@ -97,3 +97,46 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .itemContainer {
+    height: 150px;
+    .base {
+      .left,
+      .right {
+        font-size: 3.5rem;
+
+        span {
+          width: 25px;
+          height: 8px;
+        }
+      }
+     }
+  
+      .content {
+        width: 95%;
+      }
+    }
+}
+
+@media screen and (max-width: 546px) {
+  .itemContainer {
+    height: 100px;
+    .base {
+      .left,
+      .right {
+        font-size: 2rem;
+
+        span {
+          width: 20px;
+          height: 5px;
+        }
+      }
+     }
+  
+      .content {
+        width: 95%;
+        padding: 0 10px;
+      }
+    }
+}
