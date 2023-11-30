@@ -8,14 +8,14 @@ import { useSelector } from "react-redux";
 import * as ReactDOMServer from "react-dom/server";
 
 type DivideProps = {
-  style: any,
+  style?: any,
   color?: string;
   waveImage?: string;
   className?: string;
 };
 
 const Divider: FC<DivideProps> = (props) => {
-  const { color='', style, className=''} = props;
+  const { color='', style={}, className=''} = props;
   const propertiesBorderColor = useSelector(selectPropertiesBorderColor);
 
   // svg component

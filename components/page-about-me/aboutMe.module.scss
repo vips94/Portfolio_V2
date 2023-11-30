@@ -80,7 +80,30 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 1024px) {
+  .aboutMe-section {
+    .section {
+      .container {
+        .profileContainer {
+          width: 100%;
+          max-width: 1500px;
+          max-height: 1500px;
+          flex-direction: column;
+
+          .aboutMeBlob{
+            left: -5%;
+            width: 40vw;
+            height: 40vw;
+            max-width: 500px;
+            max-height: 500px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
   .aboutMe-section {
     width: $tabWidth;
     height: $tabHeight;

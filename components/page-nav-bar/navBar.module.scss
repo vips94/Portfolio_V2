@@ -1,8 +1,50 @@
 @import "@/sass/variables.scss";
 
+.headerSection{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: $width;
+  margin-top: $frameMargin;
+  margin-left: $frameMargin;
+  .background{
+    display: flex;
+    .home-header{
+      position: relative;
+      width: 100%;
+      height: 3vh;
+      border-top-right-radius: 12px;
+      border-top-left-radius: 12px;
+      pointer-events: none;
+    }
+    .wave{
+      position: absolute;
+      bottom: -155px;
+      top: auto;
+      transform: scaleY(-1);
+      width: 100%;
+    }
+  }
+
+  .breadcrumb{
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    top: 2.2rem;
+    right: 2.2rem;
+    z-index: 9999;
+    cursor: pointer;
+
+    path{
+      stroke: white;
+    }
+  }
+}
+
 .nav-loader {
   position: fixed;
-  top: 14px;
+  top: 15px;
   left: 50%;
   // margin: auto;
   max-width: $max-width;
@@ -42,7 +84,7 @@
   }
 }
 
-.nav-section {
+.nav-section{
   width: calc(100% - 6px);
   height: calc(100% - 6px);
   background-color: rgb(255, 255, 255);
@@ -86,7 +128,7 @@
 
   .right {
     display: inherit;
-    gap: 3rem;
+    gap: 2rem;
 
     .link {
       font-size: 1.4rem;
@@ -183,5 +225,105 @@
         height: 99%;
       }
     }
+  }
+}
+
+.mobile-nav-loader {
+  // transform: translateY(-100%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  width: $tabWidth;
+  margin-top: $tabFrameMargin;
+  height: 50%;
+  z-index: 9998;
+  pointer-events: none;
+}
+
+.mobile-nav-section {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  color: $textColor;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  pointer-events: none;
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+  }
+
+  .right {
+    display: inherit;
+    flex-direction: column;
+    gap: 2rem;
+    pointer-events: none;
+
+    .Mlink {
+      position: relative;
+      font-size: 1.4rem;
+      white-space: nowrap;
+      text-transform: uppercase;
+      height: 100%;
+      pointer-events: all;
+    }
+
+    .active_0 {
+      color: $color0;
+    }
+    .active_1 {
+    
+    }
+    .active_2 {
+      color: $color2;
+    }
+    .active_3 {
+      color: $color3;
+    }
+    .active_4 {
+      color: $color4;
+    }
+    .active_5 {
+      color: $color5;
+    }
+    .active_6 {
+      color: $color6;
+      text-shadow: -1px 1px 1px rgba($color6, 0.4),
+        2px 2px 0 rgb(0, 0, 0);
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.485);
+    }
+    .active_7 {
+      color: $color7;
+    }
+  }
+}
+
+
+
+@media screen and (max-width: 1024px) {
+  .headerSection{
+    width: $tabWidth;
+    margin-top: $tabFrameMargin;
+    margin-left: $tabFrameMargin;
+  }
+  .nav-loader{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 546px) {
+  .headerSection{
+    width: $mobileWidth;
+    margin-top: $mobileFrameMargin;
+    margin-left: $mobileFrameMargin;
+  }
+  .mobile-nav-loader {
+    width: $mobileWidth;
+    margin-top: $mobileFrameMargin;
   }
 }

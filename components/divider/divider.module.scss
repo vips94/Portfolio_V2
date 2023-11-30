@@ -8,6 +8,7 @@ $waveHeight : 200px;
     transform-origin: center;
     z-index: 66;
     overflow: hidden;
+    pointer-events: none;
 
     .wave {
         width: 100%;
@@ -68,23 +69,23 @@ $waveHeight : 200px;
     
 }
 
-@media screen and (max-width: 768px) {
-    .divider{
-        height: 100px;
-        .wave {
-            background-size: 850px 100px;
-        }
+// @media screen and (max-width: 1024px) {
+//     .divider{
+//         height: 100px;
+//         .wave {
+//             background-size: 850px 100px;
+//         }
         
-    }
+//     }
     
-  }
+//   }
   
-  @media screen and (max-width: 546px) {
-    .divider{
-        height: 50px;
-        .wave {
-            background-size: 400px 50px;
-        }
+//   @media screen and (max-width: 546px) {
+//     .divider{
+//         height: 50px;
+//         .wave {
+//             background-size: 400px 50px;
+//         }
         
-    }
-  }
+//     }
+//   }

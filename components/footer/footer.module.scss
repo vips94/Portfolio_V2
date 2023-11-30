@@ -63,15 +63,19 @@ $socialIconsSize : 3vh;
 }
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
     .footerSection{
-        display: none;
+        .links{
+            display: none;
+        }
+
+        // display: none;
     }
 }
 
 
 @media screen and (max-width: 546px) {
     .footerSection{
-        display: none;
+        // display: none;
     }
 }

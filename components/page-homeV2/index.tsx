@@ -48,12 +48,12 @@ const HomePage = forwardRef((props, ref: any) => {
       >
         {<TreeIllustration />}
       </div>
-      <Divider style={{ top: "20px", transform: "scaleY(-1)" }} />
+      {/* <Divider className={styles.homeDivider}/> */}
       <div className={styles["home-footer"]} />
-      <div
+      {/* <div
         className={styles["home-header"]}
         style={{ backgroundColor: propertiesBorderColor }}
-      />
+      /> */}
       <div className={styles.textSection}>
         <div className={styles.row}>
           <p className={styles.title}>Hello !</p>

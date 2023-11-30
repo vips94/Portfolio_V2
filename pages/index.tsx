@@ -44,29 +44,6 @@ export default function Home() {
     }
   }, [propertiesBorderColor]);
 
-
-  //page scroll themes 
-
-  // useEffect(() => {
-  //   gsap.registerPlugin(ScrollTrigger)
-  //   const _ref = pageRefs.current;
-  //   let ctx = gsap.context(() => {
-  //     console.log(_ref)
-  //     _ref.forEach((panel:any) => {
-  //       ScrollTrigger.create({
-  //         scroller: "#main",
-  //         trigger: panel,
-  //         start: "top top",
-  //         pin: true,
-  //         // markers:true,
-  //         pinSpacing: false,
-  //         scrub: 1,
-  //       });
-  //     });
-  //   })
-  //   return () => ctx.revert();
-  // }, []);
-
   // useEffect(() => {
   //   const lenis = new Lenis({
   //     content: mainRef.current,
@@ -136,7 +113,7 @@ export default function Home() {
             image="/images/home/home-fg4.jpg"
           /> */}
           <ThemeOverlay />
-          {/* <NavBar /> */}
+          <NavBar />
           <HomePage ref={(el) => (pageRefs.current[0] = el)} />
           <AboutMe ref={(el) => (pageRefs.current[1] = el)} />
           <Experience ref={(el) => (pageRefs.current[2] = el)} />

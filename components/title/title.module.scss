@@ -6,7 +6,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 10%;
+    top: 20%;
+    pointer-events: none;
 
     .shadowText{
         font-size: 9em;
@@ -16,6 +17,7 @@
         letter-spacing: 0.067em;
         word-spacing: 0.2em;
         text-transform: uppercase;
+        pointer-events: none;
     }
 
     .text{
@@ -27,12 +29,12 @@
         word-spacing: 0.5em;
         padding-left: 20px;
         text-transform: uppercase;
+        pointer-events: none;
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
     .titleSection{
-        top: 5% !important;
         height: 6em;
     
         .shadowText{
