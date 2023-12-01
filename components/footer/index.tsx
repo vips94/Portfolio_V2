@@ -79,22 +79,22 @@ const Footer = forwardRef((props,ref:any) => {
       ref={ref}
     >
       <div className={styles.links}>
-        <Link href={"#home"} className={styles.link} onClick={scrollToPage}>
+        <Link href={"#home"} className={styles.link} onClick={scrollToPage} id="mouseHover">
           Home
         </Link>
-        <Link href={"#aboutMe"} className={styles.link} onClick={scrollToPage}>
+        <Link href={"#aboutMe"} className={styles.link} onClick={scrollToPage} id="mouseHover">
           About Me
         </Link>
-        <Link href={"#experience"} className={styles.link} onClick={scrollToPage}>
+        <Link href={"#experience"} className={styles.link} onClick={scrollToPage} id="mouseHover">
           Experience
         </Link>
-        <Link href={"#skills"} className={styles.link} onClick={scrollToPage}>
+        <Link href={"#skills"} className={styles.link} onClick={scrollToPage} id="mouseHover">
           Skills
         </Link>
-        <Link href={"#projects"} className={styles.link} onClick={scrollToPage}>
+        <Link href={"#projects"} className={styles.link} onClick={scrollToPage} id="mouseHover">
           Projects
         </Link>
-        <Link href={"#contact"} className={styles.link} onClick={scrollToPage}>
+        <Link href={"#contact"} className={styles.link} onClick={scrollToPage} id="mouseHover">
           Contact Me
         </Link>
       </div>
@@ -105,6 +105,7 @@ const Footer = forwardRef((props,ref:any) => {
           className={styles.socialLink}
           onMouseEnter={() => animateIcon(facebook, 'facebook')}
           onMouseLeave={() => ctx.revert()}
+          id="mouseHover"
         >
           <svg
             ref={facebook}
@@ -125,6 +126,7 @@ const Footer = forwardRef((props,ref:any) => {
           className={styles.socialLink}
           onMouseEnter={() => animateIcon(insta, 'insta')}
           onMouseLeave={() => ctx.revert()}
+          id="mouseHover"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -145,6 +147,7 @@ const Footer = forwardRef((props,ref:any) => {
           className={styles.socialLink}
           onMouseEnter={() => animateIcon(linkedIn,'linkedIn')}
           onMouseLeave={() => ctx.revert()}
+          id="mouseHover"
         >
           <svg
             viewBox="0 0 24 24"
@@ -165,6 +168,7 @@ const Footer = forwardRef((props,ref:any) => {
           className={styles.socialLink}
           onMouseEnter={() => animateIcon(gitHub, 'github')}
           onMouseLeave={() => ctx.revert()}
+          id="mouseHover"
         >
           <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
             <g

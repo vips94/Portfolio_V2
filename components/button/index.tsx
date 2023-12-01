@@ -36,6 +36,7 @@ const CustomButton: FC<CustomButtonProps> = (props) => {
         {btnName}
       </span>
       <button
+        id='mouseHover'
         className={`${styles.btn} ${styles[extraClassName]}`}
         type="button"
         name="Hover"

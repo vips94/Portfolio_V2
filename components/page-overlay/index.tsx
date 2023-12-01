@@ -181,7 +181,7 @@ const ThemeOverlay = () => {
   return (
     <div className={styles["overlay-section"]}>
       <div className={styles.backdrop} ref={backdrop} style={{border: `3px solid ${skillsList[activeIndex].maskColor}`, filter: `drop-shadow(1px 1px 10px ${skillsList[activeIndex].color})`}}/>
-      <div className={styles.circle} onClick={toggleThemeMenu}>
+      <div className={styles.circle} onClick={toggleThemeMenu} id="mouseHover">
         <span
           className={styles.activeCircle}
           style={{animationName: showThemeMenu? styles.reverseAnimate : styles.animate}}

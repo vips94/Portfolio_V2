@@ -59,7 +59,7 @@ const HomePage = forwardRef((props, ref: any) => {
           <p className={styles.title}>Hello !</p>
           <p className={styles.title}>
             I'm{" "}
-            <span className={styles.name} style={{ color: propertiesBorderColor }}>Vipin Kumar</span>
+            <span className={styles.name} style={{ color: propertiesBorderColor }} id="mouseHover">Vipin Kumar</span>
           </p>
         </div>
         <div className={styles.circularText}>

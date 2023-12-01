@@ -3,6 +3,7 @@
 .itemContainer {
   width: 50%;
   height: 200px;
+  pointer-events: all;
 
   &:nth-child(2) {
     .base {

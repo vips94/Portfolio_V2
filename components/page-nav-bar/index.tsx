@@ -176,13 +176,14 @@ const NavBar = () => {
       <div className={styles["nav-loader"]}>
         <nav className={styles["nav-section"]}>
           <div className={styles.right} style={{ color: "#444" }}>
-            <Link href={"#home"} className={styles.link} onClick={scrollToPage}>
+            <Link href={"#home"} className={styles.link} onClick={scrollToPage} id="mouseHover">
               Home
             </Link>
             <Link
               href={"#aboutMe"}
               className={styles.link}
               onClick={scrollToPage}
+              id="mouseHover"
             >
               About Me
             </Link>
@@ -190,6 +191,7 @@ const NavBar = () => {
               href={"#experience"}
               className={styles.link}
               onClick={scrollToPage}
+              id="mouseHover"
             >
               Experience
             </Link>
@@ -197,6 +199,7 @@ const NavBar = () => {
               href={"#skills"}
               className={styles.link}
               onClick={scrollToPage}
+              id="mouseHover"
             >
               Skills
             </Link>
@@ -204,6 +207,7 @@ const NavBar = () => {
               href={"#projects"}
               className={styles.link}
               onClick={scrollToPage}
+              id="mouseHover"
             >
               Projects
             </Link>
@@ -211,6 +215,7 @@ const NavBar = () => {
               href={"#contact"}
               className={styles.link}
               onClick={scrollToPage}
+              id="mouseHover"
             >
               Contact Me
             </Link>

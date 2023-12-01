@@ -49,6 +49,7 @@ $col) {
     overflow: hidden;
 
     .btn {
+        pointer-events: all;
 //          @include button(#000,
 //   "https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/nature-sprite.png",
 //   2300%,

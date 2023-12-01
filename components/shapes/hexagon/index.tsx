@@ -49,6 +49,7 @@ const Hexagon: FC<HexagonProps> = forwardRef((props,ref:any) => {
         style={{ backgroundImage: `url(${image})` }}
       />
       <button
+        id="mouseHover"
         className={`${styles.btn}`}
         style={{
           backgroundColor: propertiesBtnMaskColor,

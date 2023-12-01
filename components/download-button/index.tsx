@@ -20,7 +20,7 @@ const DownloadButton:FC<DownloadButtonProps> = (props) => {
   },[])
 
   return (
-    <a className={`${styles["cta"]} ${className}`} href="/documents/resume.pdf" download>
+    <a className={`${styles["cta"]} ${className}`} href="/documents/resume.pdf" download id="mouseHover">
         <span>DOWNLOAD CV</span>
         <span>
           <svg

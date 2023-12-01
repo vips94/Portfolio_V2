@@ -24,7 +24,6 @@ import {
 } from "@/store/skills";
 import Experience from "@/components/page-experience";
 import AboutMe from "@/components/page-about-me";
-import Lenis from "@studio-freight/lenis";
 
 export default function Home() {
   const pageRefs = useRef([]) as any;
@@ -34,6 +33,24 @@ export default function Home() {
   const propertyTextStroke = useSelector(selectPropertyTextStroke);
   const currentProertiesIndex = useSelector(selectCurrentPropertiesIndex);
   const mouseRef = useRef(null) as any;
+
+  useEffect(()=>{
+    const  selectors = document.querySelectorAll("#mouseHover");
+    selectors?.forEach((select=>{
+      select.addEventListener("mouseenter", ()=>{
+        mouseRef.current.style.height = '40px'
+        mouseRef.current.style.width = '40px'
+        mouseRef.current.style.opacity = '0.5'
+
+      })
+      select.addEventListener("mouseleave", ()=>{
+        mouseRef.current.style.height = '10px'
+        mouseRef.current.style.width = '10px'
+        mouseRef.current.style.opacity = '1'
+        mouseRef.current.style.mixBlendMode = 'normal'
+      })
+    }))
+  })
 
   useEffect(() => {
     if (propertiesBorderColor) {
@@ -72,6 +89,8 @@ export default function Home() {
     });
   };
 
+
+
   return (
     <>
       <Head>
@@ -81,6 +100,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${styles.main}`}>
+        <Blob
+            style={{
+              transform: "translate(-35%,74vh)",
+              top: "0",
+              left: "0",
+              zIndex: "0",
+            }}
+            image="/images/home/home-fg4.jpg"
+          />
         <div
           className={styles.frame}
           id="main"
@@ -103,15 +131,7 @@ export default function Home() {
             color="#e8ccc7"
             threadWidth={1}
           /> */}
-          {/* <Blob
-            style={{
-              transform: "translate(-35%,750px)",
-              top: "0",
-              left: "0",
-              zIndex: "1",
-            }}
-            image="/images/home/home-fg4.jpg"
-          /> */}
+          
           <ThemeOverlay />
           <NavBar />
           <HomePage ref={(el) => (pageRefs.current[0] = el)} />

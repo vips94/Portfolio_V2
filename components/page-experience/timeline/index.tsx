@@ -77,7 +77,7 @@ const Timeline:FC<TimeLineProps> = (props) => {
     }
 
     return (
-        <div className={styles.itemContainer} onMouseEnter={playAnimation} onMouseLeave={returnAnimation}>
+        <div className={styles.itemContainer} onMouseEnter={playAnimation} onMouseLeave={returnAnimation} id="mouseHover">
             <motion.div className={styles.base} ref={timelineRef}>
                 <motion.div initial={{x:'-80%'}} className={styles.left} ref={left} style={{color: propertiesBorderColor, borderImage: `linear-gradient(to right, rgb(255, 255, 255), ${propertiesBtnMaskColor}) 1`}}>{yearStart}<span style={{backgroundColor: propertiesBorderColor}}/></motion.div>
                 <div className={styles.content} style={{backgroundColor: propertiesBorderColor, color: propertyTextStroke}}>
