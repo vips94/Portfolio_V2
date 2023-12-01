@@ -1,9 +1,26 @@
-import React from "react";
+import React, { FC, useEffect } from "react";
 import styles from "./downloadButton.module.scss";
+import gsap from "gsap";
 
-const DownloadButton = () => {
+type DownloadButtonProps = {
+  className?: string;
+}
+
+const DownloadButton:FC<DownloadButtonProps> = (props) => {
+  const {className=""} = props
+
+  useEffect(() => {
+    gsap.to(`.${styles["cta"]}`,{
+      opacity: 1,
+      duration: 0.5,
+      delay: 0.5,
+      y: -10,
+      ease: 'power1.out'
+    })
+  },[])
+
   return (
-    <a className={styles["cta"]} href="/documents/resume.pdf" download>
+    <a className={`${styles["cta"]} ${className}`} href="/documents/resume.pdf" download>
         <span>DOWNLOAD CV</span>
         <span>
           <svg

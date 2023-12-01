@@ -1,5 +1,6 @@
 #freepik_stories-emails:not(.animated) .animable {
   opacity: 0;
+  pointer-events: none;
 }   
 
 #freepik_stories-emails.animated #freepik--Floor--inject-8 {

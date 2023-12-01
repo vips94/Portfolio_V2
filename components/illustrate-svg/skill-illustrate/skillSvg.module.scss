@@ -1,5 +1,6 @@
 #freepik_stories-innovation:not(.animated) .animable {
   opacity: 0;
+  pointer-events: none;
 }
 
 #freepik_stories-innovation.animated #freepik--Background--inject-182 {

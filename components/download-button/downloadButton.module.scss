@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:900i");
 
 .cta {
+  position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,6 +16,7 @@
     box-shadow: 6px 6px 0 black;
     transform: skewX(-15deg);
     pointer-events: all;
+    opacity: 0;
 
     &:focus{
         outline: none;

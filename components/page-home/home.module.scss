@@ -11,7 +11,7 @@ $animationTime: 0.7s;
     // display: flex;
     // justify-content: flex-start;
     // align-items: center;
-
+    pointer-events: none;
     .bg-container{
         position: absolute;
         left: 0;

@@ -58,7 +58,7 @@ $hexagonBorder: 10px;
     font-size: 4rem;
     font-family: $fontFamilyProject;
     clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
-
+    pointer-events: all;
     // @include button( $hexagonColor,
     //   "https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/nature-sprite.png",
     //   2300%,

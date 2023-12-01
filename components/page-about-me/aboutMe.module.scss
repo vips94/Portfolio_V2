@@ -5,6 +5,7 @@
   height: $height;
   background: white;
   overflow: hidden;
+  pointer-events: none;
 
   .section {
     width: 100%;

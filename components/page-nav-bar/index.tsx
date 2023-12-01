@@ -2,63 +2,49 @@ import React, { useEffect, useRef, useState } from "react";
 import styles from "./navBar.module.scss";
 import Link from "next/link";
 import gsap from "gsap";
-import Lottie from "lottie-web";
-import avatarAnimation2 from "@/public/lottieFiles/wired-lineal-268-avatar-man.json";
 import menuAnimation from "@/public/lottieFiles/menu.json";
 import { useSelector } from "react-redux";
 import {
   selectPropertiesBorderColor,
-  selectPropertiesBtnMaskColor,
-  selectPropertyTextStroke,
   selectCurrentPropertiesIndex,
 } from "@/store/skills";
 import Divider from "../divider";
+import Lottie from "lottie-react";
+import DownloadButton from "../download-button";
 
 let currentActiveSection = 0;
 let mobile = null as any;
 const NavBar = () => {
-  const container = useRef(null) as any;
-  const hand = useRef(null) as any;
+  const hamburgerRef = useRef(null) as any;
   const waveref = useRef(null) as any;
   const menuRef = useRef(null) as any;
   const [showMenu, setShowMenu] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
   const propertiesBorderColor = useSelector(selectPropertiesBorderColor);
-  const propertiesBtnMaskColor = useSelector(selectPropertiesBtnMaskColor);
-  const propertyTextStroke = useSelector(selectPropertyTextStroke);
   const currentProertiesIndex = useSelector(selectCurrentPropertiesIndex);
 
-  let anim = null as any;
-  let menuAni = null as any;
   useEffect(() => {
     const ctx = gsap.context(() => {
       const timeline = gsap.timeline();
-      timeline.from(`.${styles["nav-loader"]}`, {
-        y: "-200%",
-        duration: 1,
-        ease: "bounce.out",
-        // delay:0.7
-      });
-      timeline.from(
-        container.current,
-        {
-          y: "-110%",
+      if (timeline) {
+        timeline.from(`.${styles["nav-loader"]}`, {
+          y: "-200%",
           duration: 1,
           ease: "bounce.out",
-        },
-        "<=0.5"
-      );
-      timeline.from(
-        `.${styles.link}`,
-        {
-          stagger: 0.1,
-          duration: 1,
-          y: "-100%",
-          ease: "bounce.out",
-        },
-        "<"
-      );
+          // delay:0.7
+        });
+        timeline.from(
+          `.${styles.link}`,
+          {
+            stagger: 0.1,
+            duration: 1,
+            y: "-100%",
+            ease: "bounce.out",
+          },
+          "<"
+        );
+      }
     });
 
     mobile = window?.matchMedia("(max-width: 1024px)");
@@ -73,83 +59,47 @@ const NavBar = () => {
   }, []);
 
   useEffect(() => {
-    anim = Lottie.loadAnimation({
-      name: "avatarAnim",
-      container: container.current,
-      renderer: "svg",
-      autoplay: false,
-      loop: false,
-      animationData: avatarAnimation2,
-    });
-
-    menuAni = Lottie.loadAnimation({
-      name: "menuAnim",
-      container: hand.current,
-      renderer: "svg",
-      autoplay: false,
-      loop: false,
-      animationData: menuAnimation,
-    });
-
-    return() => {
-      Lottie.destroy();
-    }
-  }, [isMobile]);
-
-  const resizeProjectList = (e: any) => {
-    if (mobile.matches) {
-      setIsMobile(true);
-    } else {
-      setIsMobile(false);
-    }
-  };
-
-  useEffect(() => {
     const timeline = gsap.timeline();
-    if (showMenu) {
-      timeline
-        .to(waveref.current, {
-          height: "50vh",
-          duration: 1,
-          ease: "power1.out",
-        })
-        .to(
-          menuRef.current,
-          {
-            y: "0%",
-            duration: 0.8,
+    if (timeline) {
+      if (showMenu) {
+        timeline
+          .to(waveref.current, {
+            height: "50vh",
+            duration: 1,
             ease: "power1.out",
-          },
-          "<"
-        )
-        .from(
-          `.${styles.Mlink}`,
-          {
-            opacity: 0,
-            stagger: 0.1,
-            duration: 0.3,
-            y: "-200px",
-            ease: "power1.out",
-          },
-          "<"
-        );
-    } else {
-      timeline
-        .to(`.${styles.Mlink}`, {
-          opacity: 0,
-          duration: 0.2,
-          y: "-200px",
-          ease: "power1.out",
-        })
-        .to(
-          waveref.current,
-          {
-            height: "3vh",
-            duration: 0.5,
-            ease: "power1.out",
-          },
-          "<"
-        );
+          })
+          .to(
+            menuRef.current,
+            {
+              y: "0%",
+              duration: 0.8,
+              ease: "power1.out",
+            },
+            "<"
+          )
+          .from(
+            `.${styles.Mlink}`,
+            {
+              opacity: 0,
+              stagger: 0.1,
+              duration: 0.3,
+              y: "-200px",
+              ease: "power1.out",
+            },
+            "<"
+          );
+      } else {
+        timeline
+          .to(
+            waveref.current,
+            {
+              height: "3vh",
+              duration: 0.3,
+              ease: "power1.out",
+            },
+            "<"
+          );
+      }
     }
   }, [showMenu, isMobile]);
 
@@ -193,25 +143,20 @@ const NavBar = () => {
     });
   }, [currentProertiesIndex]);
 
-  const avaterAnimatonUpdate = (direction: any = 1) => {
-    Lottie.setDirection(direction);
-    Lottie.setSpeed(2);
-
-    if (direction == 1) {
-      anim?.goToAndPlay(0, true, "avatarAnim");
-      anim?.addEventListener("loopComplete", () => {
-        anim?.stop();
-      });
+  const resizeProjectList = (e: any) => {
+    if (mobile.matches) {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
     }
   };
 
   const toggleMenu = (isTrue: boolean) => {
     setShowMenu(isTrue);
-    console.log(menuAni)
     if (isTrue) {
-      menuAni?.playSegments([0, 15], true);
+      hamburgerRef.current.playSegments([0, 15], true, "menuAnim");
     } else {
-      menuAni?.playSegments([16, 30], true);
+      hamburgerRef.current.playSegments([16, 0], true, "menuAnim");
     }
   };
 
@@ -228,28 +173,8 @@ const NavBar = () => {
 
   const DesktopNavBar = () => {
     return (
-      <div
-        className={styles["nav-loader"]}
-        // style={{ backgroundColor: propertiesBorderColor }}
-      >
-        <nav
-          className={styles["nav-section"]}
-          // style={{ backgroundColor: 'white' }}
-        >
-          <div className={styles.left}>
-            <div className={styles.avatar}>
-              <div
-                ref={container}
-                onMouseEnter={() => avaterAnimatonUpdate()}
-                onMouseLeave={() => avaterAnimatonUpdate(-1)}
-              />
-            </div>
-            {/* <div className={styles['salutation-area']}>
-                        Hi
-                        <div ref={hand}/>
-                    </div> */}
-          </div>
-
+      <div className={styles["nav-loader"]}>
+        <nav className={styles["nav-section"]}>
           <div className={styles.right} style={{ color: "#444" }}>
             <Link href={"#home"} className={styles.link} onClick={scrollToPage}>
               Home
@@ -343,6 +268,7 @@ const NavBar = () => {
               Contact Me
             </Link>
           </div>
+          {showMenu && <DownloadButton className={styles.download}/>}
         </nav>
       </div>
     );
@@ -360,13 +286,16 @@ const NavBar = () => {
         </div>
       </div>
       {isMobile && (
-        <div
+        <Lottie
+          lottieRef={hamburgerRef}
+          animationData={menuAnimation}
           className={styles.breadcrumb}
-          ref={hand}
+          loop={false}
+          autoplay={false}
           onClick={() => toggleMenu(!showMenu)}
         />
       )}
-      {isMobile && <MobileNavBar />}
+      {isMobile && showMenu && <MobileNavBar />}
       {!isMobile && <DesktopNavBar />}
     </div>
   );

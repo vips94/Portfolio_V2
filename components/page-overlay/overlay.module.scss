@@ -6,12 +6,14 @@ $midCicle: 25px;
 .overlay-section {
   width: $width;
   height: $height;
+  margin: $frameMargin;
   position: fixed;
   top: 0;
   left: 2vh;
   z-index: 9999;
   pointer-events: none;
   overflow: hidden;
+  pointer-events: none;
 
   .backdrop {
     pointer-events: none;
@@ -132,22 +134,23 @@ $midCicle: 25px;
 @media screen and (max-width: 1024px) {
   .overlay-section { 
     width: $tabWidth;
-  height: $tabHeight; 
+    height: $tabHeight; 
+    margin: $tabFrameMargin;
     .circle {
       left: 15px;
-      width: 30px;
-      height: 30px;
+      width: 50px;
+      height: 50px;
       .activeCircle {
         width: 50%;
         height: 50%;
       }
   
       .themeHolder {
-        width: 110px;
+        width: 180px;
        
         .themeBtn {
-          width: 30px;
-          height: 30px;
+          width: 50px;
+          height: 50px;
           transform: translateX(-145px);
   
           span {
@@ -167,9 +170,31 @@ $midCicle: 25px;
 @media screen and (max-width: 546px) {
   .overlay-section {
     width: $mobileWidth;
-  height: $mobileHeight;  
+    height: $mobileHeight;  
+    margin: $mobileFrameMargin;
     .circle {
       left: 15px;
+      width: 5vh;
+      height: 5vh;
+      .activeCircle {
+        width: 50%;
+        height: 50%;
+      }
+  
+      .themeHolder {
+        width: 15vh;
+       
+        .themeBtn {
+          width: 4vh;
+          height: 4vh;
+          transform: translateX(-145px);
+  
+          span {
+            width: 80%;
+            height: 80%;
+          }
+        }
+      }
     }
   }
 }

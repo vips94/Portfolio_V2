@@ -119,6 +119,7 @@ const ThemeOverlay = () => {
         duration: 0.5,
         height: "35vh",
         x: "-50%",
+        y: "-50%",
       })
       .to(
         arrow.current,

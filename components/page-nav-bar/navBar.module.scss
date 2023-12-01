@@ -251,6 +251,15 @@
   justify-content: center;
   pointer-events: none;
 
+  .download{
+    position: absolute;
+    bottom: -2rem;
+    left: 50%;
+    transform: translate(-50%,0);
+    width: 30vw;
+    height: 40px;
+  }
+
   div {
     display: flex;
     justify-content: center;
@@ -314,6 +323,16 @@
   .nav-loader{
     display: none;
   }
+  .mobile-nav-section{
+    .download{
+      min-width: 300px;
+      span{
+        svg{
+          margin-top: -10px;
+        }
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 546px) {
@@ -321,6 +340,23 @@
     width: $mobileWidth;
     margin-top: $mobileFrameMargin;
     margin-left: $mobileFrameMargin;
+  }
+  .mobile-nav-section{
+    .download{
+      font-size: 1rem;
+      min-width: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      span{
+        height: 20px;
+        margin-top: 0;
+
+        svg{
+          margin-top: -10px;
+        }
+      }
+    }
   }
   .mobile-nav-loader {
     width: $mobileWidth;

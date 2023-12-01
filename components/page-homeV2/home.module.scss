@@ -4,7 +4,8 @@ $animationTime: 0.7s;
 
 .home-section {
   position: relative;
-  width: 100vw;
+  width: $width;
+  //    margin: $frameMargin;
   height: $height;
   background-color: $primaryColor;
   overflow: hidden;
@@ -182,6 +183,9 @@ $animationTime: 0.7s;
 
 @media screen and (max-width: 1024px) {
   .home-section {
+    // margin: $tabFrameMargin;
+    width: $tabWidth;
+    height: $tabHeight;
     .background {
       width: 30vh;
       height: 30vh;
@@ -222,6 +226,9 @@ $animationTime: 0.7s;
 
 @media screen and (max-width: 546px) {
   .home-section {
+    // margin: $mobileFrameMargin;
+    width: $mobileWidth;
+    height: $mobileHeight;
     .background {
       width: 20vh;
       height: 20vh;

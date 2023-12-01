@@ -463,7 +463,7 @@ const Projects = forwardRef((props,ref:any) => {
         {lists.map((row_list:any, index:number) => {
           return (
             <motion.div
-              initial={{ y: 200, opacity: 0 }}
+              initial={{ y: 100, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{
                 duration: 1,
