@@ -162,13 +162,22 @@ const NavBar = () => {
 
   const scrollToPage = (e: any) => {
     e.preventDefault();
-
+    e.stopPropagation();
     const href = e.currentTarget.href;
     const targetId = href.replace(/.*\#/, "");
     const elem = document.getElementById(targetId);
+    
+    const cor = elem?.getBoundingClientRect() as any;
+    if(elem?.id !== 'contact')
     elem?.scrollIntoView({
-      behavior: "smooth",
+      block: "center",
+      behavior: 'smooth',
     });
+    else{
+      elem?.scrollIntoView({
+        behavior: 'smooth',
+      });
+    }
   };
 
   const DesktopNavBar = () => {
