@@ -23,7 +23,13 @@ $socialIconsSize : 3vh;
         a{
             font-size: 1.5rem;
             text-decoration: none;
-            transition: 0.7s ease all;
+            // transition: 0.7s ease all;
+
+            transition: all 0.3s ease-in-out;
+
+            &:hover{
+                transform: scale(1.2);
+            }
         }
     }
 
@@ -38,6 +44,11 @@ $socialIconsSize : 3vh;
         .socialLink{
             width: $socialIconsSize;
             height: $socialIconsSize;
+            transition: all 0.3s ease-in-out;
+
+            &:hover{
+                transform: scale(1.3);
+            }
 
             svg{
                 width: 100%;

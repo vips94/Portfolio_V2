@@ -2,7 +2,7 @@ import React,{useEffect,useRef, FC} from 'react';
 import styles from './thread.module.scss';
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import DrawSVGPlugin from "gsap-trial/dist/DrawSVGPlugin";
+// import DrawSVGPlugin from "gsap-trial/dist/DrawSVGPlugin";
 import { useSelector } from 'react-redux';
 import { selectPropertiesBorderColor } from '@/store/skills';
 
@@ -18,7 +18,7 @@ const Thread: FC<ThreadProps> = (props) => {
     const thread = useRef(null) as any;
 
     useEffect(() => {
-        gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin);
+        gsap.registerPlugin(ScrollTrigger);
         gsap.defaults({ ease: "none" });
         const ctx = gsap.context(() => {
           const timeline = gsap.timeline(
@@ -32,7 +32,7 @@ const Thread: FC<ThreadProps> = (props) => {
               }
             }
           ).from(thread.current, {
-            drawSVG: 0,
+            // drawSVG: 0,
             duration: 2,
           });
         });

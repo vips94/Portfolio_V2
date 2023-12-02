@@ -8,9 +8,9 @@ import { useSelector } from "react-redux";
 import Link from "next/link";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import DrawSVGPlugin from "gsap-trial/dist/DrawSVGPlugin";
+// import DrawSVGPlugin from "gsap-trial/dist/DrawSVGPlugin";
 import { useRouter } from "next/router";
-gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin);
+gsap.registerPlugin(ScrollTrigger);
 
 let ctx = null as any;
 const Footer = forwardRef((props,ref:any) => {
@@ -22,42 +22,42 @@ const router = useRouter();
   const propertiesBorderColor = useSelector(selectPropertiesBorderColor);
   const propertyTextStroke = useSelector(selectPropertyTextStroke);
 
-  const animateIcon = (ref: any, id:string) => {
-    ctx = gsap.context(()=>{
-      const timeline = gsap.timeline();
-      timeline
-        .to(ref.current, {
-          fill: "none",
-        })
-        .from(
-          `#${id}`,
-          {
-            stroke: propertyTextStroke
-          },
-          "<"
-        )
-        .from(
-          `#${id}`,
-          {
-            stroke: propertyTextStroke,
-            drawSVG: 0,
-            duration: 1,
-          },
-          "<"
-        )
-        .to(
-          `#${id}`,
-          {
-            stroke: propertiesBorderColor
-          },
-        )
-        .to(ref.current, {
-          fill: propertyTextStroke,
-          duration: 0.1,
-        },'<');
-    })
+  // const animateIcon = (ref: any, id:string) => {
+  //   ctx = gsap.context(()=>{
+  //     const timeline = gsap.timeline();
+  //     timeline
+  //       .to(ref.current, {
+  //         fill: "none",
+  //       })
+  //       .from(
+  //         `#${id}`,
+  //         {
+  //           stroke: propertyTextStroke
+  //         },
+  //         "<"
+  //       )
+  //       .from(
+  //         `#${id}`,
+  //         {
+  //           stroke: propertyTextStroke,
+  //           scale: 1.1,
+  //           duration: 1,
+  //         },
+  //         "<"
+  //       )
+  //       .to(
+  //         `#${id}`,
+  //         {
+  //           stroke: propertiesBorderColor
+  //         },
+  //       )
+  //       .to(ref.current, {
+  //         fill: propertyTextStroke,
+  //         duration: 0.1,
+  //       },'<');
+  //   })
     
-  };
+  // };
 
   const scrollToPage = (e:any) => {
     e.preventDefault();
@@ -103,8 +103,8 @@ const router = useRouter();
           href={"https://www.facebook.com/profile.php?id=100005212578916"}
           target="_blank"
           className={styles.socialLink}
-          onMouseEnter={() => animateIcon(facebook, 'facebook')}
-          onMouseLeave={() => ctx.revert()}
+          // onMouseEnter={() => animateIcon(facebook, 'facebook')}
+          // onMouseLeave={() => ctx.revert()}
           id="mouseHover"
         >
           <svg
@@ -124,8 +124,8 @@ const router = useRouter();
           href={"https://www.instagram.com/_vipin_kumar/"}
           target="_blank"
           className={styles.socialLink}
-          onMouseEnter={() => animateIcon(insta, 'insta')}
-          onMouseLeave={() => ctx.revert()}
+          // onMouseEnter={() => animateIcon(insta, 'insta')}
+          // onMouseLeave={() => ctx.revert()}
           id="mouseHover"
         >
           <svg
@@ -145,8 +145,8 @@ const router = useRouter();
           href={"https://www.linkedin.com/in/vipin-kumar-878971158/"}
           target="_blank"
           className={styles.socialLink}
-          onMouseEnter={() => animateIcon(linkedIn,'linkedIn')}
-          onMouseLeave={() => ctx.revert()}
+          // onMouseEnter={() => animateIcon(linkedIn,'linkedIn')}
+          // onMouseLeave={() => ctx.revert()}
           id="mouseHover"
         >
           <svg
@@ -166,8 +166,8 @@ const router = useRouter();
           href={"https://github.com/vips94"}
           target="_blank"
           className={styles.socialLink}
-          onMouseEnter={() => animateIcon(gitHub, 'github')}
-          onMouseLeave={() => ctx.revert()}
+          // onMouseEnter={() => animateIcon(gitHub, 'github')}
+          // onMouseLeave={() => ctx.revert()}
           id="mouseHover"
         >
           <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
