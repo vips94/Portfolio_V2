@@ -9,31 +9,23 @@ import {
   selectPropertiesBorderColor,
   selectPropertiesBtnMaskColor,
 } from "@/store/skills";
-
-const imageList = ["home-fg1", "home-fg2", "home-fg3", "home-fg4"];
+import { selectIsAssetLoaded } from "@/store/website";
 
 const HomePage = forwardRef((props, ref: any) => {
-
   const propertiesBorderColor = useSelector(selectPropertiesBorderColor);
   const propertiesBtnMaskColor = useSelector(selectPropertiesBtnMaskColor);
+  const isAssetLoaded = useSelector(selectIsAssetLoaded)
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const textTimeLine = gsap.timeline();
-      // repeated text animation
-      textTimeLine
-        .from(`.${styles.title}`, {
-          y: "100%",
-          opacity : 0,
-          duration: 0.5,
-          stagger: 0.5
-        })
-    });
-
-    return () => {
-      ctx.revert();
-    };
-  }, []);
+  useEffect(()=>{
+    if(isAssetLoaded){
+      gsap.from(`.${styles.title}`, {
+        y: "100%",
+        opacity : 0,
+        duration: 0.5,
+        stagger: 0.5
+      })
+    }
+  },[isAssetLoaded])
 
   return (
     <section className={styles["home-section"]} ref={ref} id="home">
@@ -46,14 +38,9 @@ const HomePage = forwardRef((props, ref: any) => {
           zIndex: 5,
         }}
       >
-        {<TreeIllustration />}
+        {isAssetLoaded && <TreeIllustration />}
       </div>
-      {/* <Divider className={styles.homeDivider}/> */}
       <div className={styles["home-footer"]} />
-      {/* <div
-        className={styles["home-header"]}
-        style={{ backgroundColor: propertiesBorderColor }}
-      /> */}
       <div className={styles.textSection}>
         <div className={styles.row}>
           <p className={styles.title}>Hello !</p>

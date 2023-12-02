@@ -11,6 +11,7 @@ import {
 import Divider from "../divider";
 import Lottie from "lottie-react";
 import DownloadButton from "../download-button";
+import { selectIsAssetLoaded } from "@/store/website";
 
 let currentActiveSection = 0;
 let mobile = null as any;
@@ -23,6 +24,7 @@ const NavBar = () => {
 
   const propertiesBorderColor = useSelector(selectPropertiesBorderColor);
   const currentProertiesIndex = useSelector(selectCurrentPropertiesIndex);
+  const isAssetLoaded = useSelector(selectIsAssetLoaded)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -142,6 +144,16 @@ const NavBar = () => {
       });
     });
   }, [currentProertiesIndex]);
+
+  useEffect(() => {
+    if(isAssetLoaded){
+      gsap.fromTo(`.${styles.background}`,{
+        y: "-100px",
+        duration: 0.5,
+      },{y: "0px",
+      duration: 0.5,})
+    }
+  },[isAssetLoaded])
 
   const resizeProjectList = (e: any) => {
     if (mobile.matches) {

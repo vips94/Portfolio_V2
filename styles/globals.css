@@ -6,11 +6,13 @@
 
 html,
 body {
+  position: relative;
   width: 100vw;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   background-color: white;
   height:100vh;
   overflow: hidden;
+  z-index: -2;
   /* cursor: none; */
 }
 

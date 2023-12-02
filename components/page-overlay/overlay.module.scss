@@ -6,7 +6,7 @@ $midCicle: 25px;
 .overlay-section {
   width: $width;
   height: $height;
-  margin: $frameMargin;
+  // margin: $frameMargin;
   position: fixed;
   top: 0;
   left: 2vh;
@@ -135,7 +135,8 @@ $midCicle: 25px;
   .overlay-section { 
     width: $tabWidth;
     height: $tabHeight; 
-    margin: $tabFrameMargin;
+    left: $tabFrameMargin;
+    // margin: $tabFrameMargin;
     .circle {
       left: 15px;
       width: 50px;
@@ -171,7 +172,8 @@ $midCicle: 25px;
   .overlay-section {
     width: $mobileWidth;
     height: $mobileHeight;  
-    margin: $mobileFrameMargin;
+    left: $mobileFrameMargin;
+    // margin: $mobileFrameMargin;
     .circle {
       left: 15px;
       width: 5vh;

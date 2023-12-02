@@ -22,8 +22,10 @@ import {
   selectPropertyTextStroke,
   selectCurrentPropertiesIndex,
 } from "@/store/skills";
+import { selectIsAssetLoaded } from "@/store/website";
 import Experience from "@/components/page-experience";
 import AboutMe from "@/components/page-about-me";
+import LoaderPage from "@/components/loader";
 
 export default function Home() {
   const pageRefs = useRef([]) as any;
@@ -32,25 +34,25 @@ export default function Home() {
   const propertiesBorderColor = useSelector(selectPropertiesBorderColor);
   const propertyTextStroke = useSelector(selectPropertyTextStroke);
   const currentProertiesIndex = useSelector(selectCurrentPropertiesIndex);
+  const isAssetLoaded = useSelector(selectIsAssetLoaded);
   const mouseRef = useRef(null) as any;
 
-  useEffect(()=>{
-    const  selectors = document.querySelectorAll("#mouseHover");
-    selectors?.forEach((select=>{
-      select.addEventListener("mouseenter", ()=>{
-        mouseRef.current.style.height = '40px'
-        mouseRef.current.style.width = '40px'
-        mouseRef.current.style.opacity = '0.5'
-
-      })
-      select.addEventListener("mouseleave", ()=>{
-        mouseRef.current.style.height = '10px'
-        mouseRef.current.style.width = '10px'
-        mouseRef.current.style.opacity = '1'
-        mouseRef.current.style.mixBlendMode = 'normal'
-      })
-    }))
-  })
+  useEffect(() => {
+    const selectors = document.querySelectorAll("#mouseHover");
+    selectors?.forEach((select) => {
+      select.addEventListener("mouseenter", () => {
+        mouseRef.current.style.height = "40px";
+        mouseRef.current.style.width = "40px";
+        mouseRef.current.style.opacity = "0.5";
+      });
+      select.addEventListener("mouseleave", () => {
+        mouseRef.current.style.height = "10px";
+        mouseRef.current.style.width = "10px";
+        mouseRef.current.style.opacity = "1";
+        mouseRef.current.style.mixBlendMode = "normal";
+      });
+    });
+  });
 
   useEffect(() => {
     if (propertiesBorderColor) {
@@ -70,7 +72,6 @@ export default function Home() {
   //     syncTouch: true,
   //   });
 
-    
   //   function raf(time: any) {
   //     lenis.raf(time);
   //     requestAnimationFrame(raf);
@@ -80,16 +81,18 @@ export default function Home() {
   // }, []);
 
   const mouseMoveHandle = (event: any) => {
-    const  rect = mainRef.current.getBoundingClientRect()
+    const rect = mainRef.current.getBoundingClientRect();
     gsap.to(mouseRef.current, {
-      x: event.pageX - mouseRef.current.offsetWidth / 2 - rect.left ,
-      y: event.pageY - mouseRef.current.offsetHeight / 2 - rect.top +  mainRef.current.scrollTop,
+      x: event.pageX - mouseRef.current.offsetWidth / 2 - rect.left,
+      y:
+        event.pageY -
+        mouseRef.current.offsetHeight / 2 -
+        rect.top +
+        mainRef.current.scrollTop,
       duration: 0.1,
       ease: "none",
     });
   };
-
-
 
   return (
     <>
@@ -101,14 +104,15 @@ export default function Home() {
       </Head>
       <main className={`${styles.main}`}>
         <Blob
-            style={{
-              transform: "translate(-35%,74vh)",
-              top: "0",
-              left: "0",
-              zIndex: "0",
-            }}
-            image="/images/home/home-fg4.jpg"
-          />
+          style={{
+            transform: "translate(-35%,74vh)",
+            top: "0",
+            left: "0",
+            zIndex: "-1",
+            position: "fixed",
+          }}
+          image="/images/home/home-fg4.jpg"
+        />
         <div
           className={styles.frame}
           id="main"
@@ -124,6 +128,7 @@ export default function Home() {
               filter: `drop-shadow(0px 0px 5px ${propertiesBorderColor})`,
               width: "10px",
               height: "10px",
+              zIndex: 999999
             }}
           />
           {/* <Thread
@@ -131,16 +136,18 @@ export default function Home() {
             color="#e8ccc7"
             threadWidth={1}
           /> */}
-          
-          <ThemeOverlay />
-          <NavBar />
-          <HomePage ref={(el) => (pageRefs.current[0] = el)} />
-          <AboutMe ref={(el) => (pageRefs.current[1] = el)} />
-          <Experience ref={(el) => (pageRefs.current[2] = el)} />
-          <Skills ref={(el) => (pageRefs.current[3] = el)} />
-          <Projects ref={(el) => (pageRefs.current[4] = el)} />
-          <ContactUs ref={(el) => (pageRefs.current[5] = el)} />
-          <Footer ref={(el) => (pageRefs.current[6] = el)} />
+          {!isAssetLoaded && <LoaderPage />}
+          <>
+            {isAssetLoaded && <ThemeOverlay />}
+            {isAssetLoaded && <NavBar />}
+            <HomePage ref={(el) => (pageRefs.current[0] = el)} />
+            <AboutMe ref={(el) => (pageRefs.current[1] = el)} />
+            <Experience ref={(el) => (pageRefs.current[2] = el)} />
+            <Skills ref={(el) => (pageRefs.current[3] = el)} />
+            <Projects ref={(el) => (pageRefs.current[4] = el)} />
+            <ContactUs ref={(el) => (pageRefs.current[5] = el)} />
+            <Footer ref={(el) => (pageRefs.current[6] = el)} />
+          </>
           {isProjectSelected && <Popup />}
         </div>
       </main>

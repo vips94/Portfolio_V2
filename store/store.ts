@@ -1,6 +1,7 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import { skillsSlice } from "./skills";
 import { projectSlice } from "./project";
+import { websiteSlice } from "./website";
 import { createWrapper } from "next-redux-wrapper";
 
 const makeStore = () =>
@@ -8,6 +9,7 @@ const makeStore = () =>
     reducer: {
       [skillsSlice.name]: skillsSlice.reducer,
       [projectSlice.name]: projectSlice.reducer,
+      [websiteSlice.name]: websiteSlice.reducer,
     },
     devTools: true,
   });

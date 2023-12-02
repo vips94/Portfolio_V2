@@ -4,7 +4,7 @@ $circleWidth : 50px;
 $midCicle: 25px;
 
 .overlay-section {
-  width: 100vw;
+  width: $width;
   height: $height;
   position: fixed;
   top: 0;
