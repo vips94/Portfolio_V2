@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, forwardRef } from "react";
+import React, { useRef, forwardRef } from "react";
 import styles from "./footer.module.scss";
 import {
   selectPropertiesBorderColor,
@@ -18,7 +18,7 @@ const Footer = forwardRef((props,ref:any) => {
   const insta = useRef(null) as any;
   const linkedIn = useRef(null) as any;
   const gitHub = useRef(null) as any;
-  const router = useRouter();
+const router = useRouter();
   const propertiesBorderColor = useSelector(selectPropertiesBorderColor);
   const propertyTextStroke = useSelector(selectPropertyTextStroke);
 
