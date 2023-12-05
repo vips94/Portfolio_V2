@@ -16,8 +16,8 @@ $animationTime: 0.7s;
   pointer-events: none;
 
   .background {
-    width: 500px;
-    height: 500px;
+    width: 46vh;
+    height: 46vh;
     position: absolute;
     right: 5%;
     bottom: 5%;
@@ -35,29 +35,6 @@ $animationTime: 0.7s;
     background: linear-gradient(180deg, #ffffff00 0%, #ffffff 100%);
     pointer-events: none;
   }
-
-  // .home-header{
-  //   position: fixed;
-  //   top: 0;
-  //   left: 0;
-  //   z-index: 999;
-  //   width: 100%;
-  //   height: 2vh;
-  //   width: $width;
-  //   margin-top: $frameMargin;
-  //   margin-left: $frameMargin;
-  //   border-top-right-radius: 12px;
-  //   border-top-left-radius: 12px;
-  // }
-
-  // .homeDivider {
-  //   top: -25px;
-  //   position:fixed;
-  //   transform: scaleY(-1);
-  //   width: $width;
-  //   margin-top: $frameMargin;
-  //   margin-left: $frameMargin;
-  // }
 
   img {
     position: absolute;
@@ -97,7 +74,7 @@ $animationTime: 0.7s;
 
       .title{
         text-align: center;
-        font-size: 100px;
+        font-size: 8vmin;
         color: #444;
         font-family: $fontFamilySecondry;
         text-transform: capitalize;
@@ -147,7 +124,7 @@ $animationTime: 0.7s;
   .scrollButton{
     position: absolute;
     bottom: 5vh;
-    right: 10vh;
+    right: 3%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -195,7 +172,7 @@ $animationTime: 0.7s;
       .row{
         top: 40%;
         .title{
-          font-size: 6vmax;
+          font-size: 6vmin;
         }
       }
       .circularText{

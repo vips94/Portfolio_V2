@@ -30,7 +30,6 @@ $midCicle: 25px;
     filter: drop-shadow(1px 1px 10px red);
   }
 
-
   .circle {
     position: absolute;
     top: 50%;
@@ -41,19 +40,16 @@ $midCicle: 25px;
     gap: 1rem;
     justify-content: flex-start;
     align-items: center;
-    width: $circleWidth;
-    height: $circleWidth;
-    // border: 1px solid $radioButtonColor;
-    // border-radius: 50%;
-    // background-color: white;
+    width: 5vh;
+    height: 5vh;
     cursor: pointer;
     transition: all 0.7s ease-in-out;
     z-index: 2;
     pointer-events: all;
 
     .activeCircle {
-      width: 80%;
-      height: 80%;
+      width: 50%;
+      height: 50%;
       // border-radius: 50%;
       position: absolute;
       left: 50%;
@@ -67,7 +63,7 @@ $midCicle: 25px;
     }
 
     .themeHolder {
-      width: 170px;
+      width: 15vh;
       transform-origin: left center;
       height: 2px;
       position: absolute;
@@ -85,14 +81,14 @@ $midCicle: 25px;
         gap: 1rem;
         justify-content: center;
         align-items: center;
-        width: $circleWidth;
-        height: $circleWidth;
+        width: 4vh;
+        height: 4vh;
+        transform: translateX(-145px);
         border: 2px solid rgba(110, 99, 99, 0.336);
         border-radius: 50%;
         background-color: white;
         cursor: pointer;
         transition: all 0.2s ease-in-out;
-        transform: translateX(-145px);
         opacity: 0;
         pointer-events: all;
 
@@ -124,10 +120,9 @@ $midCicle: 25px;
   .downloadSection{
     position: absolute;
     bottom: 4vh;
-    left: 10vh;
+    left: 3%;
     color: #444;
     z-index: 6;    
-
   }
 }
 
@@ -139,19 +134,19 @@ $midCicle: 25px;
     // margin: $tabFrameMargin;
     .circle {
       left: 15px;
-      width: 50px;
-      height: 50px;
+      width: 5vh;
+      height: 5vh;
       .activeCircle {
         width: 50%;
         height: 50%;
       }
   
       .themeHolder {
-        width: 180px;
+        width: 15vh;
        
         .themeBtn {
-          width: 50px;
-          height: 50px;
+          width: 4vh;
+          height: 4vh;
           transform: translateX(-145px);
   
           span {

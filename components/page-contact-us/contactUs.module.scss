@@ -3,7 +3,7 @@
 .contact-container {
   position: relative;
   width: $width;
-  height: calc(80vh - $frameMargin + 1vh);
+  height: 80%;
   background-color: white;
   overflow: hidden;
   z-index: 2;
@@ -14,7 +14,7 @@
     height: 100%;
     .form-container {
       position: relative;
-      margin-top: 15vh;
+      margin-top: 10vh;
       width: 100%;
       height: 100%;
       display: flex;
@@ -39,14 +39,14 @@
         }
 
         .name,.message,.email {
-          width: 100%;
-          height: 4rem;
+          width: 80%;
+          height: 5vh;
+          font-size: 2.5vh;
           padding-left: 1rem;
-          border: 3px solid;
+          border: 2px solid;
           box-shadow: $boxShadow;
           border-radius: $contactBorderRadius;
           transition: 0.7s ease all;
-          font-size: 2rem;
           pointer-events: all;
 
           &:hover {
@@ -55,14 +55,14 @@
         }
 
         .message {
-          height: 6rem;
+          height: 8vh;
         }
       }
     }
 
     .background{
-      width: 25vw;
-      height: 25vw;
+      width: 20%;
+      height: 200px;
       position: absolute;
       right: 5%;
       top: 5%;
