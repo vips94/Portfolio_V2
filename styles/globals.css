@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Gruppo&family=Kenia&family=Monoton&family=Rubik+Marker+Hatch&family=Rubik+Vinyl&display=swap');
-@import url("https://fonts.googleapis.com/css?family=Poppins:900i");
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Gruppo&family=Kenia&family=Poppins&family=Monoton&family=Rubik+Marker+Hatch&family=Rubik+Vinyl&display=swap');
 
 * {
   box-sizing: border-box;
@@ -11,7 +10,7 @@ html,
 body {
   position: relative;
   width: 100vw;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, 'Poppins';
   background-color: white;
   height:100vh;
   overflow: hidden;
